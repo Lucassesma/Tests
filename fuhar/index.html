@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "¿Cuál es el modelo en el que se basan la gran mayoría de los ordenadores actuales?",
+    "opciones": [
+      "Arquitectura Harvard",
+      "Arquitectura Von Neumann",
+      "Arquitectura RISC pura",
+      "Arquitectura de flujo de datos"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "La mayoría de ordenadores se basan en Von Neumann[cite: 6, 150]."
+  },
+  {
+    "enunciado": "¿Qué diferencia fundamental tiene la arquitectura Harvard respecto a la Von Neumann?",
+    "opciones": [
+      "Usa una sola memoria para datos e instrucciones",
+      "Tiene memoria y buses separados para datos e instrucciones",
+      "Es más sencilla y económica de implementar",
+      "No permite el acceso simultáneo a datos e instrucciones"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Harvard separa físicamente buses y memoria para datos e instrucciones."
+  },
+  {
+    "enunciado": "¿Cuál es una limitación de la arquitectura Von Neumann comparada con la Harvard?",
+    "opciones": [
+      "Es demasiado compleja para microcontroladores",
+      "La CPU no puede acceder a datos e instrucciones al mismo tiempo",
+      "Requiere el doble de memoria física",
+      "No utiliza buses de direcciones"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Al compartir bus, la CPU debe alternar entre leer datos o instrucciones."
+  },
+  {
+    "enunciado": "¿Cuáles son los tres tipos de buses del sistema y su función?",
+    "opciones": [
+      "Entrada, Salida y Almacenamiento",
+      "Datos, Direcciones y Control",
+      "USB, PCIe y SATA",
+      "Instrucciones, Registros y Reloj"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Los tres buses interconectan los componentes del sistema[cite: 41, 42, 43, 163, 164, 165]."
+  },
+  {
+    "enunciado": "¿Qué bus indica la posición exacta de memoria a la que se quiere acceder?",
+    "opciones": [
+      "Bus de datos",
+      "Bus de control",
+      "Bus de direcciones",
+      "Bus de sistema"
+    ],
+    "correcta": 2,
+    "prioritario": true,
+    "nota": "El bus de direcciones gestiona la ubicación de los datos[cite: 42, 88]."
+  },
+  {
+    "enunciado": "¿En qué tres partes principales se divide la CPU?",
+    "opciones": [
+      "RAM, Disco Duro y Placa Base",
+      "Registros, ALU y Unidad de Control (con reloj)",
+      "Chipset, BIOS y Zócalo",
+      "Fuente, Buses y Ventiladores"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Son los pilares de la unidad de procesamiento[cite: 29, 30, 151, 152, 153]."
+  },
+  {
+    "enunciado": "¿Cuál es la función de la Unidad Aritmético-Lógica (ALU)?",
+    "opciones": [
+      "Coordinar todas las operaciones del sistema",
+      "Realizar operaciones matemáticas y lógicas",
+      "Almacenar datos de forma temporal",
+      "Controlar la velocidad del bus"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Es la calculadora responsable de las operaciones matemáticas[cite: 31, 153]."
+  },
+  {
+    "enunciado": "Ordena de MAYOR velocidad (más rápido) a MENOR velocidad la jerarquía de memoria:",
+    "opciones": [
+      "RAM > Caché > Registros > SSD",
+      "Registros > Caché > RAM > Almacenamiento (SSD/HDD)",
+      "Almacenamiento > RAM > Caché > Registros",
+      "Caché > Registros > RAM > Disco Duro"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Los registros integrados son los más rápidos[cite: 51, 75, 578]."
+  },
+  {
+    "enunciado": "¿Qué nivel de memoria es el más lento pero ofrece mayor capacidad y menor coste?",
+    "opciones": [
+      "Memoria RAM",
+      "Memoria Caché",
+      "Memoria Masiva (Discos duros/SSD)",
+      "Registros de la CPU"
+    ],
+    "correcta": 2,
+    "prioritario": true,
+    "nota": "El almacenamiento secundario prioriza capacidad y bajo coste[cite: 54, 78, 597]."
+  },
+  {
+    "enunciado": "¿Cuál es el valor decimal del número binario '1010' de 4 bits?",
+    "opciones": [
+      "8",
+      "10",
+      "12",
+      "15"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Equivale a 8 + 2 = 10."
+  },
+  {
+    "enunciado": "¿Cómo se representa el número decimal 15 en binario de 4 bits?",
+    "opciones": [
+      "1000",
+      "1110",
+      "1111",
+      "1011"
+    ],
+    "correcta": 2,
+    "prioritario": true,
+    "nota": "El valor máximo de 4 bits (1+2+4+8) es 15."
+  },
+  {
+    "enunciado": "¿Qué binario corresponde al decimal 5?",
+    "opciones": [
+      "0101",
+      "0011",
+      "1100",
+      "0111"
+    ],
+    "correcta": 0,
+    "prioritario": true,
+    "nota": "Equivale a 4 + 1 = 5."
+  },
+  {
+    "enunciado": "¿Qué binario corresponde al decimal 12?",
+    "opciones": [
+      "1010",
+      "1100",
+      "0110",
+      "1001"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Equivale a 8 + 4 = 12."
+  },
+  {
+    "enunciado": "¿Qué software gestiona el hardware, el sistema de archivos y los periféricos?",
+    "opciones": [
+      "La BIOS/UEFI",
+      "El Sistema Operativo (SO)",
+      "Los Controladores (Drivers) exclusivamente",
+      "El Software de Aplicación"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "El SO es el intermediario que administra todos los recursos[cite: 4, 391]."
+  },
+  {
+    "enunciado": "¿Cuáles son los tres pasos del ciclo de instrucción?",
+    "opciones": [
+      "Leer, Escribir, Borrar",
+      "Fetch (recoger), Decode (decodificar), Execute (ejecutar)",
+      "Input, Process, Output",
+      "Cargar, Procesar, Guardar"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Es el ciclo básico de procesamiento de datos de la CPU[cite: 530]."
+  },
+  {
+    "enunciado": "¿Cómo se llama el proceso de fabricación para imprimir circuitos en las obleas de silicio?",
+    "opciones": [
+      "Serigrafía molecular",
+      "Litografía (medida en nanómetros)",
+      "Sinterizado láser",
+      "Nanofabricación de buses"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "La litografía en nm determina la densidad de transistores[cite: 532, 539]."
+  },
+  {
+    "enunciado": "¿Qué ventaja tiene una litografía más pequeña (ej. de 10nm a 7nm)?",
+    "opciones": [
+      "El procesador es físicamente más grande",
+      "Caben más transistores y el chip es más eficiente",
+      "Requiere mayor voltaje de funcionamiento",
+      "Solo sirve para abaratar costes"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Permite CPUs más potentes y eficientes energéticamente[cite: 533, 540]."
+  },
+  {
+    "enunciado": "¿Qué elemento de la placa base determina la marca de procesador compatible?",
+    "opciones": [
+      "Las ranuras DIMM",
+      "El Zócalo (CPU Socket)",
+      "El conector ATX",
+      "El bus PCIe"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "El socket no es universal y es específico por marca[cite: 420]."
+  },
+  {
+    "enunciado": "¿Cuál es la función del Chipset en la placa base?",
+    "opciones": [
+      "Suministrar energía a la CPU",
+      "Gestionar el tráfico de datos entre componentes",
+      "Realizar el chequeo POST",
+      "Almacenar el Sistema Operativo"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Actúa como centro de control de tráfico de la placa[cite: 426, 437]."
+  },
+  {
+    "enunciado": "¿Para qué sirve el conector ATX de 24 pines?",
+    "opciones": [
+      "Alimentar exclusivamente a la CPU",
+      "Alimentar la tarjeta gráfica de alta gama",
+      "Suministrar energía general a la placa base",
+      "Conectar el panel frontal de la caja"
+    ],
+    "correcta": 2,
+    "prioritario": true,
+    "nota": "Es el conector principal de alimentación de la placa[cite: 646]."
+  },
+  {
+    "enunciado": "¿Qué conector suministra energía específica al procesador?",
+    "opciones": [
+      "ATX de 24 pines",
+      "EPS/ATX de 4 u 8 pines",
+      "PCIe de 6+2 pines",
+      "Conector SATA"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Se sitúa cerca del zócalo para alimentar la CPU[cite: 646]."
+  },
+  {
+    "enunciado": "¿Para qué se usa el conector PCIe de 6 u 8 pines?",
+    "opciones": [
+      "Para la alimentación de la placa base",
+      "Para tarjetas gráficas que requieren energía extra",
+      "Para los ventiladores de la caja",
+      "Para los discos duros SSD"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Las GPUs potentes necesitan alimentación dedicada[cite: 646]."
+  },
+  {
+    "enunciado": "¿Qué es el proceso POST realizado por el firmware?",
+    "opciones": [
+      "Un método de overclocking automático",
+      "Chequeo inicial de hardware crítico al arrancar",
+      "Actualización de los drivers del sistema",
+      "Formateo del disco principal"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Verifica que el hardware esencial esté presente y funcione[cite: 458, 480]."
+  },
+  {
+    "enunciado": "¿Qué ventaja ofrece UEFI sobre la BIOS tradicional?",
+    "opciones": [
+      "No necesita pila para guardar la configuración",
+      "Interfaz gráfica con ratón, arranque más rápido y Secure Boot",
+      "Solo funciona con sistemas operativos de código abierto",
+      "Permite usar discos duros sin cables"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Es la evolución moderna del firmware de arranque[cite: 462, 463, 495]."
+  },
+  {
+    "enunciado": "¿Qué función de seguridad impide el arranque de malware durante el inicio?",
+    "opciones": [
+      "Overclocking seguro",
+      "Secure Boot (Arranque Seguro)",
+      "Contraseña de Windows",
+      "Paso POST avanzado"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Verifica que el gestor de arranque y controladores estén autorizados[cite: 468, 496]."
+  },
+  {
+    "enunciado": "Si el POST falla al encender el PC, ¿cómo suele avisar el sistema?",
+    "opciones": [
+      "Enviando una notificación al móvil",
+      "Emitiendo pitidos de error y deteniendo el arranque",
+      "Abriendo la bandeja del lector de discos",
+      "Cambiando el color de los ventiladores a rojo"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Los pitidos indican el tipo de error de hardware detectado[cite: 482]."
+  },
+  {
+    "enunciado": "¿Qué postula la Ley de Moore?",
+    "opciones": [
+      "Que el software será gratis en el futuro",
+      "Que los transistores en un chip se duplican cada 2 años",
+      "Que los discos duros desaparecerán",
+      "Que la RAM debe ser siempre del mismo tamaño"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Ha impulsado la evolución constante de la CPU[cite: 531, 538]."
+  },
+  {
+    "enunciado": "¿Qué arquitectura utiliza instrucciones complejas (x86 de Intel/AMD)?",
+    "opciones": [
+      "RISC",
+      "CISC",
+      "Harvard",
+      "Nativa"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "CISC permite realizar tareas complejas con una sola instrucción[cite: 564, 579]."
+  },
+  {
+    "enunciado": "¿Qué arquitectura usa instrucciones simples y optimizadas (ARM/Móviles)?",
+    "opciones": [
+      "CISC",
+      "RISC",
+      "Von Neumann",
+      "Caché L1"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "RISC favorece la eficiencia energética en dispositivos portátiles[cite: 570, 580]."
+  },
+  {
+    "enunciado": "¿Cuál es la característica principal de la memoria RAM?",
+    "opciones": [
+      "Es persistente y no se borra",
+      "Es volátil (se borra al apagar el equipo)",
+      "Es el nivel más lento de memoria",
+      "Solo sirve para almacenar archivos de video"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Almacena datos temporalmente mientras el PC está encendido[cite: 33, 155]."
+  },
+  {
+    "enunciado": "¿A qué voltaje opera normalmente la memoria DDR4?",
+    "opciones": [
+      "1.5V",
+      "1.2V",
+      "1.1V",
+      "5V"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "DDR4 es más eficiente que la generación DDR3[cite: 593]."
+  },
+  {
+    "enunciado": "¿Qué técnica permite maximizar el rendimiento de la RAM usando dos módulos?",
+    "opciones": [
+      "Single Channel",
+      "Dual Channel",
+      "Hyper-threading",
+      "Turbo Boost"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Duplica el ancho de banda teórico al acceder a dos módulos a la vez[cite: 285, 605]."
+  },
+  {
+    "enunciado": "¿Cuál es la principal amenaza física al montar un PC?",
+    "opciones": [
+      "El calor ambiental",
+      "La electricidad estática (ESD)",
+      "El ruido excesivo",
+      "El polvo de la habitación"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Puede dañar componentes sensibles con solo tocarlos[cite: 626, 628]."
+  },
+  {
+    "enunciado": "¿Cuál es el orden lógico recomendado para el montaje?",
+    "opciones": [
+      "Caja -> Fuente -> Placa -> RAM",
+      "CPU -> RAM -> Disipador -> Instalación en caja",
+      "Gráfica -> Disco -> CPU -> RAM",
+      "Placa -> Fuente -> CPU -> RAM"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Es mejor montar los componentes críticos fuera de la caja primero[cite: 630, 641]."
+  },
+  {
+    "enunciado": "¿Cómo se debe aplicar la pasta térmica en la CPU?",
+    "opciones": [
+      "Cubriendo toda la superficie con un pincel",
+      "Una pequeña gota en el centro (tamaño guisante)",
+      "Debajo de la CPU, en los pines",
+      "Alrededor del zócalo de la placa"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Una pequeña cantidad es suficiente para cubrir las imperfecciones[cite: 644]."
+  },
+  {
+    "enunciado": "¿Cómo se deben apretar los tornillos del disipador de la CPU?",
+    "opciones": [
+      "De arriba hacia abajo en línea",
+      "En un patrón de cruz para distribuir la presión",
+      "Al máximo posible hasta que no giren más",
+      "Solo dos tornillos son necesarios"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Asegura un contacto uniforme entre CPU y disipador[cite: 645]."
+  },
+  {
+    "enunciado": "¿Qué componente está diseñado para el procesado masivo de gráficos en paralelo?",
+    "opciones": [
+      "CPU",
+      "GPU",
+      "RAM",
+      "SSD"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Especializada en imágenes, vídeo y gráficos 3D[cite: 653, 667]."
+  },
+  {
+    "enunciado": "¿Cuál es el estándar de bus actual para tarjetas de expansión?",
+    "opciones": [
+      "PCI",
+      "AGP",
+      "PCI Express (PCIe)",
+      "USB 2.0"
+    ],
+    "correcta": 2,
+    "prioritario": true,
+    "nota": "Ha sustituido a todos los buses antiguos de expansión interna[cite: 656, 662]."
+  },
+  {
+    "enunciado": "¿Qué dispositivo permite añadir capacidades extras (red, sonido) a la placa base?",
+    "opciones": [
+      "Módulo DIMM",
+      "Tarjeta de expansión",
+      "Unidad de Control",
+      "Periférico de entrada"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Se conecta a las ranuras PCIe para mejorar el equipo[cite: 651, 652]."
+  },
+  {
+    "enunciado": "¿Qué periférico se considera de entrada/salida a la vez?",
+    "opciones": [
+      "Teclado",
+      "Impresora multifunción",
+      "Monitor estándar",
+      "Ratón"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Permite tanto introducir datos (escáner) como recibirlos (impresión)[cite: 676]."
+  },
+  {
+    "enunciado": "¿Qué protocolo busca unificar datos, vídeo y energía por un puerto USB-C?",
+    "opciones": [
+      "Ethernet",
+      "HDMI",
+      "Thunderbolt",
+      "NVMe"
+    ],
+    "correcta": 2,
+    "prioritario": false,
+    "nota": "Es el estándar más ambicioso para unificación de cables[cite: 685]."
+  },
+  {
+    "enunciado": "¿Cuál es la diferencia física principal entre un HDD y un SSD?",
+    "opciones": [
+      "El HDD es electrónico y el SSD mecánico",
+      "El HDD tiene platos giratorios y el SSD memoria flash",
+      "El SSD solo funciona en portátiles",
+      "El HDD es más rápido en tiempos de acceso"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Los SSD no tienen partes móviles, lo que los hace más resistentes y rápidos[cite: 692, 694]."
+  },
+  {
+    "enunciado": "¿Qué interfaz permite a los SSD alcanzar velocidades de miles de MB/s?",
+    "opciones": [
+      "SATA III",
+      "PATA",
+      "NVMe (sobre bus PCIe)",
+      "USB 3.0"
+    ],
+    "correcta": 2,
+    "prioritario": false,
+    "nota": "Elimina las limitaciones heredadas de la interfaz SATA[cite: 698, 729]."
+  },
+  {
+    "enunciado": "¿Qué nivel de RAID ofrece redundancia completa (Mirroring)?",
+    "opciones": [
+      "RAID 0",
+      "RAID 1",
+      "RAID 5",
+      "RAID 10"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Duplica los datos en dos discos para evitar pérdidas por fallo[cite: 741, 742]."
+  },
+  {
+    "enunciado": "¿Qué es un NAS (Network Attached Storage)?",
+    "opciones": [
+      "Un tipo de cable de red",
+      "Un servidor de archivos conectado a la red local",
+      "Una tarjeta gráfica para servidores",
+      "Un software para editar fotos en la nube"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Permite acceso centralizado y copias de seguridad desde varios dispositivos[cite: 748, 749]."
+  },
+  {
+    "enunciado": "¿Qué característica define a un servidor departamental?",
+    "opciones": [
+      "Uso individual por cortos periodos",
+      "Diseñado para estar encendido 24/7/365",
+      "No necesita refrigeración activa",
+      "Es más barato que un PC doméstico"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Prioriza la disponibilidad y fiabilidad constante[cite: 762]."
+  },
+  {
+    "enunciado": "¿Qué componente de servidor corrige errores de memoria en tiempo real?",
+    "opciones": [
+      "Memoria RAM estándar",
+      "Memoria ECC",
+      "Caché L3",
+      "SSD NVMe"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Garantiza la estabilidad en procesos críticos[cite: 764]."
+  },
+  {
+    "enunciado": "¿Qué máquina procesa millones de transacciones críticas a gran escala?",
+    "opciones": [
+      "PC Gaming",
+      "Servidor NAS",
+      "Mainframe",
+      "Workstation"
+    ],
+    "correcta": 2,
+    "prioritario": false,
+    "nota": "Resuelve tareas críticas con fiabilidad absoluta[cite: 770, 774]."
+  },
+  {
+    "enunciado": "¿Qué equipo proporciona energía inmediata ante un corte eléctrico?",
+    "opciones": [
+      "Transformador",
+      "SAI / UPS",
+      "Generador diésel",
+      "Regleta protegida"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Entra en acción al milisegundo mediante baterías[cite: 792]."
+  },
+  {
+    "enunciado": "¿Qué es un bare-metal restore?",
+    "opciones": [
+      "Limpiar la placa base con un metal especial",
+      "Reconstruir un sistema desde cero en un disco vacío usando una imagen",
+      "Cambiar la caja de plástico por una metálica",
+      "Borrar todos los datos de forma segura"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Permite restaurar un equipo exactamente como estaba[cite: 805, 806]."
+  },
+  {
+    "enunciado": "¿Qué proceso convierte un equipo físico en una máquina virtual?",
+    "opciones": [
+      "P2V (Physical-to-Virtual)",
+      "V2P (Virtual-to-Physical)",
+      "Bare-metal restore",
+      "Backup incremental"
+    ],
+    "correcta": 0,
+    "prioritario": false,
+    "nota": "Encapsula un sistema real en un entorno virtual flexible[cite: 808, 809]."
+  },
+  {
+    "enunciado": "¿Qué mantenimiento realiza tareas de limpieza y revisiones para evitar fallos?",
+    "opciones": [
+      "Mantenimiento Correctivo",
+      "Mantenimiento Preventivo",
+      "Mantenimiento Predictivo",
+      "Bare-metal backup"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Actualiza BIOS, limpia polvo y reemplaza pasta para reducir desgaste[cite: 829, 830]."
+  },
+  {
+    "enunciado": "¿Qué modelo de nube ofrece máquinas virtuales y almacenamiento básico?",
+    "opciones": [
+      "SaaS",
+      "PaaS",
+      "IaaS (Infrastructure as a Service)",
+      "On-premise"
+    ],
+    "correcta": 2,
+    "prioritario": false,
+    "nota": "Alquila los bloques de construcción de infraestructura[cite: 841, 842]."
+  },
+  {
+    "enunciado": "¿Cuál es un ejemplo de SaaS (Software as a Service)?",
+    "opciones": [
+      "Amazon EC2",
+      "Microsoft Azure VM",
+      "Gmail / Microsoft 365",
+      "Google App Engine"
+    ],
+    "correcta": 2,
+    "prioritario": false,
+    "nota": "Son aplicaciones listas para usar a través de internet[cite: 851, 855]."
+  },
+  {
+    "enunciado": "¿Qué significa el modelo de responsabilidad compartida en la nube?",
+    "opciones": [
+      "El proveedor es responsable de todo",
+      "El cliente es responsable de todo",
+      "El proveedor asegura la nube y el cliente asegura su contenido en ella",
+      "Los virus se comparten entre los usuarios de la nube"
+    ],
+    "correcta": 2,
+    "prioritario": false,
+    "nota": "El usuario gestiona la configuración y sus datos[cite: 863, 864]."
+  },
+  {
+    "enunciado": "¿Qué tecnología acerca el procesamiento al usuario para reducir latencia?",
+    "opciones": [
+      "Cloud Computing",
+      "Edge Computing",
+      "Serverless",
+      "IaaS"
+    ],
+    "correcta": 1,
+    "prioritario": false,
+    "nota": "Procesa datos en nodos distribuidos geográficamente[cite: 869, 872]."
+  },
+  {
+    "enunciado": "¿Cuál es la jerarquía de memoria de MÁS rápida a MÁS lenta?",
+    "opciones": [
+      "Registros > Caché L1 > Caché L2 > Caché L3 > RAM > Almacenamiento",
+      "SSD > RAM > Caché > Registros",
+      "RAM > Registros > Caché > HDD",
+      "Registros > RAM > Caché > SSD"
+    ],
+    "correcta": 0,
+    "prioritario": true,
+    "nota": "Sigue el orden de cercanía física al procesador[cite: 578]."
+  },
+  {
+    "enunciado": "¿Qué componente de la CPU marca el ritmo de ejecución de las instrucciones?",
+    "opciones": [
+      "Unidad de Control",
+      "Unidad Aritmético-Lógica",
+      "Reloj del sistema",
+      "Bus de datos"
+    ],
+    "correcta": 2,
+    "prioritario": true,
+    "nota": "Determina la velocidad de procesamiento junto con la UC[cite: 17, 152]."
+  },
+  {
+    "enunciado": "¿Qué es lo que determina el rendimiento de una CPU además de los GHz?",
+    "opciones": [
+      "El color de la caja",
+      "Arquitectura, núcleos e instrucciones por ciclo (IPC)",
+      "El tamaño del monitor",
+      "La velocidad del ratón"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "No solo importa la frecuencia, sino la eficiencia interna[cite: 542]."
+  },
+  {
+    "enunciado": "¿Para qué sirve establecer una contraseña en la BIOS/UEFI?",
+    "opciones": [
+      "Para que el WiFi vaya más rápido",
+      "Para restringir el acceso a la configuración del hardware",
+      "Para proteger los archivos de Word",
+      "No sirve para nada en seguridad"
+    ],
+    "correcta": 1,
+    "prioritario": true,
+    "nota": "Es una medida de seguridad física del equipo[cite: 472, 519]."
+  }
+];
+
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir ❤️🩷🧡💛💚💙🩵💜🤍
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín - Lenguajes de Marcas 🎨</p>
+
+</footer>
+</body>
+</html>
