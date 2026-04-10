@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "¿Qué es el núcleo (kernel) de un sistema operativo?",
+    "opciones": [
+      "Un programa de ofimática",
+      "El componente que gestiona hardware, procesos y recursos",
+      "Un antivirus integrado"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando permite ver la versión del núcleo en Linux?",
+    "opciones": [
+      "ping",
+      "uname -r",
+      "sysinfo"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué utilidad muestra mensajes del arranque relacionados con el kernel?",
+    "opciones": [
+      "dmesg",
+      "sudo start-kernel",
+      "bootmsg"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué es un hipervisor?",
+    "opciones": [
+      "Un servidor DNS",
+      "Un software que permite ejecutar máquinas virtuales",
+      "Una herramienta para editar particiones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué programa se usa para virtualización en tu práctica?",
+    "opciones": [
+      "Photoshop",
+      "VirtualBox",
+      "Premiere"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué debes instalar para tener un servidor Linux funcional?",
+    "opciones": [
+      "Ubuntu Server",
+      "Windows XP",
+      "Android OS"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "UEFI es…",
+    "opciones": [
+      "La versión moderna del BIOS",
+      "Un sistema de archivos de Linux",
+      "Un servicio de impresión"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "MBR y GPT se usan para…",
+    "opciones": [
+      "Crear usuarios",
+      "Organizar particiones en un disco",
+      "Configurar redes inalámbricas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué gestor de arranque es común en Linux moderno?",
+    "opciones": [
+      "GRUB",
+      "SYSBOOT",
+      "UBOOT"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En modo Bridge, la máquina virtual…",
+    "opciones": [
+      "No tiene IP",
+      "Se conecta a la red como un dispositivo más con su propia IP",
+      "Solo se comunica consigo misma"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Ping sirve para…",
+    "opciones": [
+      "Instalar actualizaciones",
+      "Probar conectividad entre dos dispositivos",
+      "Crear cuentas de usuario"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué herramienta crea un USB de instalación de Windows 10?",
+    "opciones": [
+      "Media Creation Tool",
+      "winusb.exe",
+      "usbmaker"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Para qué sirve mbr2gpt /validate durante una instalación?",
+    "opciones": [
+      "Para crear un usuario nuevo",
+      "Para comprobar si un disco MBR puede convertirse a GPT",
+      "Para borrar el disco duro"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué es WSL en Windows?",
+    "opciones": [
+      "Un servidor web",
+      "Un subsistema que permite ejecutar Linux dentro de Windows",
+      "Un gestor de particiones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Si creas un usuario local en Windows y lo añades al grupo “Usuarios de Escritorio remoto”, podrás…",
+    "opciones": [
+      "Instalar actualizaciones",
+      "Conectarte por RDP con ese usuario",
+      "Usarlo solo en modo seguro"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué se instala en Windows Server para gestionar dominios?",
+    "opciones": [
+      "DHCP",
+      "Active Directory Domain Services",
+      "Hyper-V"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En un entorno con Active Directory, una carpeta “Perfiles” suele usarse para…",
+    "opciones": [
+      "Guardar fondos de pantalla",
+      "Almacenar perfiles móviles o directorios personales de usuarios del dominio",
+      "Compartir vídeos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué muestra el comando ls -l /?",
+    "opciones": [
+      "El contenido de la carpeta personal del usuario",
+      "Los directorios principales del sistema Linux",
+      "Los procesos en ejecución"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué directorio suele almacenar archivos de configuración del sistema?",
+    "opciones": [
+      "/etc",
+      "/home",
+      "/tmp"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué comando te permite consultar la jerarquía estándar del sistema de archivos (FHS)?",
+    "opciones": [
+      "man list",
+      "man hier",
+      "man root"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para crear particiones en un disco?",
+    "opciones": [
+      "fdisk o gparted",
+      "ssh",
+      "mkhome"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué hace el comando pvcreate?",
+    "opciones": [
+      "Crea un archivo de texto vacío",
+      "Convierte una partición en un volumen físico para LVM",
+      "Crea un RAID 5 automáticamente"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Para qué sirve vgcreate?",
+    "opciones": [
+      "Crear un nuevo usuario",
+      "Crear un grupo de volúmenes a partir de varios PV",
+      "Crear un directorio compartido"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué permite lvcreate?",
+    "opciones": [
+      "Crear un volumen lógico dentro del grupo de volúmenes",
+      "Instalar paquetes",
+      "Cambiar permisos de usuario"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué debes hacer antes de montar un LV o RAID en un directorio?",
+    "opciones": [
+      "Cambiar el hostname",
+      "Formatearlo con un sistema de archivos (por ejemplo, mkfs.ext4)",
+      "Reiniciar el ordenador"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Si añades tres discos de 1GB a una VM Linux y quieres RAID 5, usas el comando:",
+    "opciones": [
+      "mdadm --create /dev/md0 --level=5 --raid-devices=3",
+      "raid --new",
+      "create-raid5 /dev/md0"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué característica tiene RAID 5?",
+    "opciones": [
+      "Copias idénticas (mirroring) de todos los discos",
+      "Divide datos + paridad distribuida, permitiendo que falle 1 disco",
+      "No ofrece tolerancia a fallos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando formatea un RAID recién creado para poder usarlo?",
+    "opciones": [
+      "mkraid.ext4",
+      "mkfs.ext4 /dev/md0",
+      "format-raid /dev/md0"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué debes hacer para usar el RAID 5 tras formatearlo?",
+    "opciones": [
+      "Compilar el kernel",
+      "Montarlo en un directorio (por ejemplo, /mnt/raid5)",
+      "Desinstalar mdadm"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Dónde se encuentran los directorios personales de los usuarios?",
+    "opciones": [
+      "/home",
+      "/root",
+      "/user"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Para qué se utiliza el paquete mdadm en Linux?",
+    "opciones": [
+      "Para gestionar impresoras de red",
+      "Para administrar RAID por software",
+      "Para configurar cortafuegos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando instala mdadm en una distro basada en Debian/Ubuntu?",
+    "opciones": [
+      "sudo apt-get update && sudo apt-get install -y mdadm",
+      "sudo yum install mdadm",
+      "sudo install mdadm"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Si quieres crear un RAID 5 en /dev/md0 con los discos /dev/sdb /dev/sdc /dev/sdd, ¿qué comando es correcto?",
+    "opciones": [
+      "mdadm --create /dev/md0 --level=1 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd",
+      "mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd",
+      "mdadm --new-raid5 /dev/md0 /dev/sdb /dev/sdc /dev/sdd"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Después de crear un RAID en /dev/md0, ¿qué debes hacer para poder almacenar datos en él?",
+    "opciones": [
+      "Ejecutar mkfs.ext4 /dev/md0 para formatearlo",
+      "Ejecutar fsaeraid /dev/md0",
+      "Reiniciar el sistema para que se formatee solo"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué comando te muestra información detallada de un array RAID concreto, como nivel, discos y estado?",
+    "opciones": [
+      "mdadm --detail /dev/md0",
+      "raidstatus /dev/md0",
+      "cat /etc/raid.conf"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En PowerShell, ¿qué hace este comando? Copy-Item -Path \"C:\\Users\\Usuario\\Documentos\" -Destination \"D:\\Backup\\Documentos\" -Recurse -Force",
+    "opciones": [
+      "Copia solo los archivos modificados hoy",
+      "Copia toda la carpeta Documentos, con subcarpetas, sobrescribiendo si es necesario",
+      "Mueve la carpeta Documentos a D:\\Backup"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando en PowerShell crea un archivo ZIP con el contenido de una carpeta?",
+    "opciones": [
+      "New-ZipFile",
+      "Compress-Archive",
+      "Zip-Item"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En el ejemplo, ¿qué hace este comando? Compress-Archive -Path \"C:\\Users\\Usuario\\Documentos\" -DestinationPath \"D:\\Backup\\Backup_Documentos.zip\"",
+    "opciones": [
+      "Crea un ZIP con la carpeta Documentos en la ruta indicada",
+      "Descomprime un ZIP en la carpeta Documentos",
+      "Sincroniza Documentos con D:\\Backup"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En Linux, ¿qué hace el comando siguiente? cp -r /home/usuario/Documentos /media/usuario/backup_docs",
+    "opciones": [
+      "Copia solo los archivos de texto",
+      "Copia recursivamente la carpeta Documentos al destino",
+      "Mueve la carpeta Documentos y borra el original"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En Linux, ¿qué comando permite cambiar los permisos de un archivo usando la notación numérica (por ejemplo, 755)?",
+    "opciones": [
+      "chmod",
+      "chown",
+      "chgrp"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Si ejecutas chmod 750 fichero, ¿qué permisos tiene el grupo sobre ese archivo?",
+    "opciones": [
+      "Solo lectura",
+      "Lectura y ejecución",
+      "Lectura, escritura y ejecución"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En la salida de ls -l, ¿qué indica la primera columna, por ejemplo -rwxr-xr--?",
+    "opciones": [
+      "El tamaño del archivo",
+      "El tipo de archivo y los permisos de propietario, grupo y otros",
+      "El nombre del propietario y del grupo"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes letras representa el permiso de ejecución en Linux?",
+    "opciones": [
+      "r",
+      "w",
+      "x"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué ocurre al ejecutar sudo ufw enable en Ubuntu?",
+    "opciones": [
+      "Activa el firewall y aplica las reglas configuradas",
+      "Elimina todas las reglas",
+      "Reinicia la red",
+      "Permite todo el tráfico"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué efecto tiene sudo ufw allow ssh?",
+    "opciones": [
+      "Bloquea SSH",
+      "Reinicia el servicio SSH",
+      "Permite conexiones entrantes al puerto SSH",
+      "Elimina reglas"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué comando permite ver reglas activas numeradas en UFW?",
+    "opciones": [
+      "ufw show",
+      "ufw list",
+      "ufw status",
+      "ufw status numbered"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué ocurre si ejecutas sudo ufw disable?",
+    "opciones": [
+      "Se desactiva el firewall completamente",
+      "Se eliminan reglas",
+      "Se bloquea todo el tráfico",
+      "Solo desactiva SSH"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "El comando journalctl -u sshd permite:",
+    "opciones": [
+      "Ver CPU",
+      "Ver usuarios",
+      "Ver red",
+      "Ver logs del servicio SSH"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "En Windows, el Visor de Eventos permite:",
+    "opciones": [
+      "Crear usuarios",
+      "Monitorizar CPU",
+      "Ejecutar scripts",
+      "Analizar registros del sistema"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué comando en Linux muestra procesos en tiempo real?",
+    "opciones": [
+      "top",
+      "df",
+      "du",
+      "uptime"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué ventaja tiene htop frente a top?",
+    "opciones": [
+      "Consume más CPU",
+      "Interfaz interactiva y más visual",
+      "No muestra procesos",
+      "No permite ordenar"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando permite ver memoria RAM rápidamente?",
+    "opciones": [
+      "top",
+      "ps",
+      "free",
+      "uptime"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué herramienta es más completa como dashboard de monitorización en Linux?",
+    "opciones": [
+      "top",
+      "free",
+      "glances",
+      "ps"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "El comando ps aux muestra:",
+    "opciones": [
+      "Disco",
+      "Lista completa de procesos",
+      "Red",
+      "Usuarios"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué muestra df -h?",
+    "opciones": [
+      "RAM",
+      "CPU",
+      "Espacio en disco",
+      "Procesos"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué indica uptime?",
+    "opciones": [
+      "Disco",
+      "Tiempo encendido y carga media",
+      "Usuarios",
+      "Red"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando muestra puertos abiertos en Linux?",
+    "opciones": [
+      "dir",
+      "ping",
+      "df",
+      "ss -tulnp"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué hace sar -u 1 5?",
+    "opciones": [
+      "Muestra estadísticas de CPU en intervalos",
+      "Muestra disco",
+      "Muestra usuarios",
+      "Muestra red"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué hace Get-Process en PowerShell?",
+    "opciones": [
+      "Ver red",
+      "Listar procesos activos",
+      "Ver disco",
+      "Ver usuarios"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Sort-Object CPU -Descending sirve para:",
+    "opciones": [
+      "Borrar procesos",
+      "Ordenar procesos por uso de CPU descendente",
+      "Reiniciar procesos",
+      "Filtrar memoria"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué hace Select-Object -First 10?",
+    "opciones": [
+      "Selecciona últimos",
+      "Filtra errores",
+      "Selecciona los primeros elementos",
+      "Ordena"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué muestra Get-Service?",
+    "opciones": [
+      "Estado de servicios del sistema",
+      "Usuarios",
+      "Red",
+      "Disco"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué mide Get-Counter '\\Processor(_Total)% Processor Time'?",
+    "opciones": [
+      "RAM",
+      "Uso de CPU",
+      "Disco",
+      "Red"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué mide Get-Counter '\\Memory\\Available MBytes'?",
+    "opciones": [
+      "CPU",
+      "Disco",
+      "Memoria disponible",
+      "Red"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué hace Test-Connection google.es?",
+    "opciones": [
+      "Ver CPU",
+      "Ver RAM",
+      "Probar conectividad de red",
+      "Ver disco"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué muestra Get-NetTCPConnection?",
+    "opciones": [
+      "Conexiones TCP activas",
+      "Usuarios",
+      "CPU",
+      "RAM"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué muestra Get-NetAdapter?",
+    "opciones": [
+      "CPU",
+      "RAM",
+      "Interfaces de red",
+      "Disco"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué hace Get-WinEvent -LogName System?",
+    "opciones": [
+      "Reinicia sistema",
+      "Ver procesos",
+      "Mostrar eventos del sistema",
+      "Crear logs"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué hace who en Linux?",
+    "opciones": [
+      "CPU",
+      "Usuarios conectados",
+      "Disco",
+      "Red"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué hace df -h / | tail -n 1?",
+    "opciones": [
+      "RAM",
+      "CPU",
+      "Muestra uso de disco de la raíz",
+      "Red"
+    ],
+    "correcta": 2
+  }
+];
+
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir ❤️🩷🧡💛💚💙🩵💜🤍
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín - Lenguajes de Marcas 🎨</p>
+
+</footer>
+</body>
+</html>

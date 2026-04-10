@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "¿Qué protocolo de seguridad Wi-Fi es el recomendado actualmente para redes personales?",
+    "opciones": [
+      "WEP",
+      "WPA",
+      "WPA2-PSK",
+      "WPA3-Personal"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes es una buena práctica al configurar un AP doméstico?",
+    "opciones": [
+      "Usar WEP por compatibilidad",
+      "Ocultar SSID siempre",
+      "Usar WPA3 si es posible",
+      "Canales aleatorios diarios"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué es una VLAN?",
+    "opciones": [
+      "Una red física independiente",
+      "Una red lógica dentro de una LAN física",
+      "Un protocolo de routing",
+      "Un tipo de cableado"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Un puerto configurado como access en un switch:",
+    "opciones": [
+      "Transporta múltiples VLAN con etiquetas",
+      "Pertenece a una sola VLAN y envía tráfico sin etiquetar",
+      "Es únicamente para uplinks",
+      "Solo admite VLAN de voz"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Un enlace trunk 802.1Q:",
+    "opciones": [
+      "Bloquea el tráfico de gestión",
+      "Transporta varias VLAN etiquetadas",
+      "Solo sirve para VLAN nativa",
+      "No se usa entre switches"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La VLAN nativa en 802.1Q se usa para:",
+    "opciones": [
+      "Tráfico etiquetado de control",
+      "Tráfico sin etiquetar en el trunk",
+      "Tráfico de voz únicamente",
+      "Bloquear BPDUs"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué permite comunicar VLANs distintas sin usar un router externo?",
+    "opciones": [
+      "Switch capa 2",
+      "Switch capa 3 con SVI",
+      "Hub",
+      "Bridge"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Router-on-a-stick requiere:",
+    "opciones": [
+      "Subinterfaces y encapsulation dot1Q",
+      "Interfaz física por VLAN",
+      "STP deshabilitado",
+      "NAT en el mismo enlace"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué protocolo evita bucles en redes conmutadas con enlaces redundantes?",
+    "opciones": [
+      "LACP",
+      "VTP",
+      "HSRP",
+      "STP"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "El switch que sirve de referencia en STP se llama:",
+    "opciones": [
+      "Designated Switch",
+      "Backup Bridge",
+      "Root Bridge",
+      "Master Switch"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En STP, ¿qué puerto reenvía tráfico hacia/desde un segmento?",
+    "opciones": [
+      "Root Port",
+      "Designated Port",
+      "Blocked Port",
+      "Alternate Port"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué versión proporciona convergencia más rápida que STP clásico?",
+    "opciones": [
+      "PVST+ (802.1D)",
+      "RSTP (802.1w)",
+      "MSTP (802.1s)",
+      "VTP v3"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Para qué sirve VTP?",
+    "opciones": [
+      "Propagar rutas entre switches",
+      "Centralizar gestión de VLANs entre switches Cisco",
+      "Balancear carga por enlaces",
+      "Evitar bucles de capa 2"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En VTP, ¿qué modo permite crear y borrar VLANs que se propagan?",
+    "opciones": [
+      "Client",
+      "Transparent",
+      "Server",
+      "Off"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué opción de VTP reduce la difusión de broadcast a VLAN presentes en los enlaces?",
+    "opciones": [
+      "VTP hashing",
+      "VTP pruning",
+      "VTP relay",
+      "VTP mirror"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El proceso DHCP se recuerda por “DORA”. ¿Qué significa la “O”?",
+    "opciones": [
+      "Offer",
+      "Open",
+      "Operate",
+      "Override"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "DHCP opera, a nivel de transporte, sobre:",
+    "opciones": [
+      "TCP",
+      "SCTP",
+      "ICMP",
+      "UDP"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "ICMP se utiliza para:",
+    "opciones": [
+      "Transferir archivos",
+      "Diagnóstico y mensajes de error",
+      "Autenticación de usuarios"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El ataque que falsifica respuestas ARP para realizar MITM se denomina:",
+    "opciones": [
+      "ARP Split",
+      "ARP Snooping",
+      "ARP Spoofing/Poisoning",
+      "ARP Tunneling"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál NO es una medida contra ARP Spoofing?",
+    "opciones": [
+      "Dynamic ARP Inspection",
+      "DHCP Snooping",
+      "ARP estático",
+      "Usar Telnet en lugar de SSH"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "NAT/PAT permite:",
+    "opciones": [
+      "Asignar una IP pública única a múltiples hosts internos mediante puertos",
+      "Evitar el uso de ACLs",
+      "Sustituir el routing dinámico",
+      "Cifrado extremo a extremo"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué tipo de NAT cambia la dirección de destino (primer paquete)?",
+    "opciones": [
+      "SNAT",
+      "DNAT",
+      "PAT",
+      "NAT64"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En Cisco IOS, el término overload en NAT se refiere a:",
+    "opciones": [
+      "NAT estático",
+      "NAT dinámico sin puertos",
+      "PAT (traducción por puertos)",
+      "Deshabilitar NAT"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Los puertos bien conocidos (well-known) abarcan el rango:",
+    "opciones": [
+      "0–1023",
+      "1024–49151",
+      "49152–65535",
+      "10000–20000"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "El puerto TCP estándar para HTTPS es:",
+    "opciones": [
+      "80",
+      "21",
+      "22",
+      "443"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué comando en Windows muestra conexiones y puertos abiertos?",
+    "opciones": [
+      "route print",
+      "ipconfig /all",
+      "arp -a",
+      "netstat -na"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué dirección IPv4 identifica ‘broadcast dirigido’ a una subred dada?",
+    "opciones": [
+      "La de todos 1 en la parte host de esa subred",
+      "255.255.255.255",
+      "0.0.0.0",
+      "127.255.255.255"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En IPv6, ¿qué tipo de dirección envía al ‘mejor’ receptor desde el punto de vista topológico?",
+    "opciones": [
+      "Unicast",
+      "Anycast",
+      "Multicast",
+      "Broadcast"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué comando en Cisco verifica el estado de una interfaz trunk específica?",
+    "opciones": [
+      "show interfaces trunk",
+      "show vlan id 10",
+      "show vtp counters",
+      "show ip route connected"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué capa del modelo OSI encapsula y direcciona lógicamente a través de redes?",
+    "opciones": [
+      "Transporte",
+      "Enlace",
+      "Red",
+      "Física"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuántos bits tiene un Byte?",
+    "opciones": [
+      "4",
+      "8",
+      "16",
+      "32"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál es la equivalencia correcta de 1 KB en sistema binario?",
+    "opciones": [
+      "1000 bytes",
+      "8000 bits",
+      "1024 bytes",
+      "8192 bytes"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué sistema de numeración utiliza potencias de 2?",
+    "opciones": [
+      "Decimal",
+      "Hexadecimal",
+      "Octal",
+      "Binario"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "El número binario 10101₂ equivale en decimal a:",
+    "opciones": [
+      "19",
+      "20",
+      "21",
+      "22"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál de los siguientes valores es mayor?",
+    "opciones": [
+      "1 MB decimal",
+      "1 MB binario",
+      "Son iguales",
+      "Depende del sistema operativo"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué base utiliza el sistema hexadecimal?",
+    "opciones": [
+      "2",
+      "8",
+      "10",
+      "16"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cuántas capas tiene el modelo OSI?",
+    "opciones": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué capa del modelo OSI se encarga del direccionamiento lógico?",
+    "opciones": [
+      "Enlace",
+      "Transporte",
+      "Red",
+      "Sesión"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿En qué capa OSI se sitúa Ethernet?",
+    "opciones": [
+      "Física",
+      "Enlace",
+      "Red",
+      "Transporte"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué capa del modelo OSI se encarga del control de errores extremo a extremo?",
+    "opciones": [
+      "Enlace",
+      "Red",
+      "Transporte",
+      "Aplicación"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué modelo es realmente utilizado en Internet?",
+    "opciones": [
+      "OSI",
+      "TCP/IP",
+      "IEEE",
+      "ISO"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuántas capas tiene el modelo TCP/IP?",
+    "opciones": [
+      "3",
+      "4",
+      "5",
+      "7"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué unidad de datos maneja la capa de red?",
+    "opciones": [
+      "Trama",
+      "Segmento",
+      "Paquete",
+      "Bit"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "El protocolo IP es:",
+    "opciones": [
+      "Orientado a conexión",
+      "No orientado a conexión",
+      "Orientado a sesión",
+      "Orientado a flujo"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué característica NO es propia del protocolo IP?",
+    "opciones": [
+      "Usa datagramas",
+      "Garantiza entrega",
+      "No tiene QoS",
+      "No controla errores"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué versión de IP utiliza direcciones de 32 bits?",
+    "opciones": [
+      "IPv3",
+      "IPv4",
+      "IPv5",
+      "IPv6"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué versión de IP utiliza direcciones de 128 bits?",
+    "opciones": [
+      "IPv4",
+      "IPv5",
+      "IPv6",
+      "IPv7"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuántos octetos tiene una dirección IPv4?",
+    "opciones": [
+      "2",
+      "3",
+      "4",
+      "8"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué rango identifica a las direcciones de clase A?",
+    "opciones": [
+      "0–127",
+      "128–191",
+      "192–223",
+      "224–239"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Una dirección que empieza por 10 pertenece a la clase:",
+    "opciones": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué clase IPv4 tiene por defecto la máscara 255.255.255.0?",
+    "opciones": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál es el número máximo de hosts en una red de clase C?",
+    "opciones": [
+      "256",
+      "255",
+      "254",
+      "253"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué clase IPv4 está reservada para multicast?",
+    "opciones": [
+      "C",
+      "D",
+      "E",
+      "A"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál de estas direcciones es privada?",
+    "opciones": [
+      "8.8.4.4",
+      "172.20.10.5",
+      "100.64.0.1",
+      "1.1.1.1"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué dirección representa “este host”?",
+    "opciones": [
+      "127.0.0.1",
+      "255.255.255.255",
+      "0.0.0.0",
+      "192.168.1.1"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué dirección se usa para broadcast limitado?",
+    "opciones": [
+      "127.0.0.1",
+      "0.0.0.0",
+      "192.168.1.255",
+      "255.255.255.255"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Para qué se usa la dirección 127.0.0.1?",
+    "opciones": [
+      "Multicast",
+      "Red privada",
+      "Loopback",
+      "Broadcast"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál es la función principal de la máscara de red?",
+    "opciones": [
+      "Asignar IP",
+      "Separar red y host",
+      "Enrutar paquetes",
+      "Cifrar tráfico"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué operación lógica se usa para obtener la dirección de red?",
+    "opciones": [
+      "OR",
+      "XOR",
+      "NOT",
+      "AND"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cuántos bits tiene la máscara /16?",
+    "opciones": [
+      "8",
+      "16",
+      "24",
+      "32"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuántos hosts útiles tiene una red /24?",
+    "opciones": [
+      "256",
+      "255",
+      "254",
+      "252"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué representa la última dirección de una red?",
+    "opciones": [
+      "Gateway",
+      "Red",
+      "Host válido",
+      "Broadcast"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Subnetear consiste en:",
+    "opciones": [
+      "Unir redes",
+      "Dividir una red en varias",
+      "Cambiar de protocolo",
+      "Convertir IP a binario"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué parte se “toma prestada” al crear subredes?",
+    "opciones": [
+      "Bits de red",
+      "Bits de host",
+      "Octetos completos",
+      "Bits de máscara"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué máscara permite 14 hosts por subred?",
+    "opciones": [
+      "/24",
+      "/26",
+      "/28",
+      "/30"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuántos bits son necesarios para obtener al menos 8 subredes?",
+    "opciones": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué valor se resta normalmente al calcular hosts por subred?",
+    "opciones": [
+      "1",
+      "2",
+      "4",
+      "8"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Por qué se restan direcciones al calcular hosts?",
+    "opciones": [
+      "Por la máscara",
+      "Por eficiencia",
+      "Por red y broadcast",
+      "Por el router"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué problema principal resuelve IPv6?",
+    "opciones": [
+      "Seguridad",
+      "Velocidad",
+      "Falta de direcciones",
+      "Compatibilidad"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cómo se representan las direcciones IPv6?",
+    "opciones": [
+      "Decimal con puntos",
+      "Binario",
+      "Hexadecimal con dos puntos",
+      "Octal"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuántos grupos tiene una IPv6 completa?",
+    "opciones": [
+      "4",
+      "6",
+      "8",
+      "16"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuántas veces puede usarse “::” en una IPv6 abreviada?",
+    "opciones": [
+      "Ninguna",
+      "Una",
+      "Dos",
+      "Ilimitadas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué tipo de dirección IPv6 empieza por FE80::?",
+    "opciones": [
+      "Multicast",
+      "Global",
+      "Local en enlace",
+      "Anycast"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué tipo de dirección IPv6 empieza por FF00::?",
+    "opciones": [
+      "Unicast",
+      "Anycast",
+      "Multicast",
+      "Link-local"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Ethernet es un estándar:",
+    "opciones": [
+      "ISO",
+      "IEEE 802.3",
+      "IEEE 802.11",
+      "TCP/IP"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué tipo de efecto se crea en cables Ethernet enrollados?",
+    "opciones": [
+      "Efecto Joule, que provoca un aumento de temperatura por el paso de corriente",
+      "Efecto bobina (inductivo), que genera interferencias electromagnéticas",
+      "Efecto fotoeléctrico, debido a la exposición a la luz",
+      "Efecto capacitivo, que mejora la transmisión de datos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál es cable Ethernet que soporta mayor cantidad de interferencias?",
+    "opciones": [
+      "UTP (Unshielded Twisted Pair)",
+      "FTP (Foiled Twisted Pair)",
+      "STP (Shielded Twisted Pair)",
+      "SFTP (Shielded Foiled Twisted Pair)"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué tipo de cable se usa para PC → Switch?",
+    "opciones": [
+      "Cruzado",
+      "Directo",
+      "Coaxial",
+      "Fibra"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué categoría de UTP soporta hasta 10 Gbps a 55 m?",
+    "opciones": [
+      "Cat 5",
+      "Cat 5e",
+      "Cat 6",
+      "Cat 7"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué ventaja principal tiene el cable STP frente al UTP?",
+    "opciones": [
+      "Más barato",
+      "Más flexible",
+      "Menos interferencias",
+      "Más velocidad"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué medio utiliza pulsos de luz?",
+    "opciones": [
+      "UTP",
+      "STP",
+      "Coaxial",
+      "Fibra óptica"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué tipo de fibra se usa para largas distancias (km)?",
+    "opciones": [
+      "Multimodo",
+      "Monomodo",
+      "UTP",
+      "STP"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué topología usa un switch central?",
+    "opciones": [
+      "Bus",
+      "Anillo",
+      "Estrella",
+      "Malla"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué topología cae completamente si se rompe el cable principal?",
+    "opciones": [
+      "Estrella",
+      "Bus",
+      "Malla",
+      "Árbol"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué topología ofrece mayor redundancia?",
+    "opciones": [
+      "Bus",
+      "Estrella",
+      "Árbol",
+      "Malla"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué topología es más común en LAN modernas?",
+    "opciones": [
+      "Anillo",
+      "Bus",
+      "Estrella",
+      "Malla"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué dispositivo trabaja principalmente en capa 2?",
+    "opciones": [
+      "Router",
+      "Switch",
+      "Firewall",
+      "Servidor"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué dispositivo separa redes distintas?",
+    "opciones": [
+      "Hub",
+      "Switch",
+      "Router",
+      "Repetidor"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué significa QoS?",
+    "opciones": [
+      "Calidad de Servicio",
+      "Control de Red",
+      "Protocolo de Seguridad",
+      "Tipo de cable"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué tráfico suele priorizar QoS?",
+    "opciones": [
+      "Descargas",
+      "Copias de seguridad",
+      "Videollamadas",
+      "Correos electrónicos"
+    ],
+    "correcta": 2
+  }
+];
+
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir ❤️🩷🧡💛💚💙🩵💜🤍
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín - Lenguajes de Marcas 🎨</p>
+
+</footer>
+</body>
+</html>

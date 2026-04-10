@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "Una base de datos es:",
+    "opciones": [
+      "Un programa",
+      "Un conjunto de tablas sin relación",
+      "Un conjunto organizado de datos relacionados",
+      "Un sistema operativo"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué problema resolvieron los SGBD frente a los ficheros planos?",
+    "opciones": [
+      "El coste",
+      "La duplicidad e inconsistencia de datos",
+      "El uso de SQL",
+      "La velocidad de Internet"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué es un SGBD?",
+    "opciones": [
+      "Un lenguaje",
+      "Un modelo de datos",
+      "Un software para gestionar bases de datos",
+      "Una tabla"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "El modelo relacional fue propuesto por:",
+    "opciones": [
+      "Bill Gates",
+      "Edgar F. Codd",
+      "Tim Berners-Lee",
+      "Oracle"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El modelo relacional organiza la información en:",
+    "opciones": [
+      "Árboles",
+      "Grafos",
+      "Tablas",
+      "Documentos"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "SQL se utiliza principalmente para:",
+    "opciones": [
+      "Diseñar interfaces",
+      "Gestionar y consultar bases de datos",
+      "Crear diagramas",
+      "Programar servidores"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La arquitectura ANSI/SPARC se compone de:",
+    "opciones": [
+      "2 niveles",
+      "3 niveles",
+      "4 niveles",
+      "5 niveles"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El nivel externo de ANSI/SPARC representa:",
+    "opciones": [
+      "El almacenamiento físico",
+      "El modelo lógico global",
+      "Las vistas de usuario",
+      "Los índices"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "El modelo Entidad-Relación se usa para:",
+    "opciones": [
+      "Crear tablas físicas",
+      "Representar conceptualmente la realidad",
+      "Ejecutar consultas",
+      "Optimizar índices"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Una entidad representa:",
+    "opciones": [
+      "Un atributo",
+      "Una relación",
+      "Un objeto del mundo real",
+      "Una clave"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En un diagrama E-R, las entidades se representan con:",
+    "opciones": [
+      "Óvalos",
+      "Rombos",
+      "Rectángulos",
+      "Flechas"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "La clave primaria sirve para:",
+    "opciones": [
+      "Relacionar tablas",
+      "Identificar registros de forma única",
+      "Evitar claves foráneas",
+      "Crear vistas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Una relación 1:N se implementa:",
+    "opciones": [
+      "Con una tabla intermedia",
+      "Con una FK en el lado N",
+      "Con una FK en el lado 1",
+      "Con una PK compuesta"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Una relación N:M se transforma en:",
+    "opciones": [
+      "Una FK",
+      "Una vista",
+      "Una tabla intermedia",
+      "Un índice"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "La tabla intermedia de una N:M contiene:",
+    "opciones": [
+      "Una PK simple",
+      "Solo atributos",
+      "Las PK de ambas entidades como FK",
+      "Datos duplicados"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Un atributo multivaluado:",
+    "opciones": [
+      "Cumple IFN",
+      "Viola IFN",
+      "Viola 2FN",
+      "Viola 3FN"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La integridad referencial garantiza que:",
+    "opciones": [
+      "No haya duplicados",
+      "Las FK apunten a valores existentes",
+      "Los datos estén ordenados",
+      "No existan NULL"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El diseño lógico consiste en:",
+    "opciones": [
+      "Crear el modelo E-R",
+      "Convertir el modelo E-R en tablas",
+      "Insertar datos",
+      "Optimizar consultas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Normalizar una base de datos sirve para:",
+    "opciones": [
+      "Aumentar redundancia",
+      "Evitar anomalías",
+      "Reducir claves",
+      "Eliminar relaciones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La 1ª Forma Normal (1FN) exige:",
+    "opciones": [
+      "Claves compuestas",
+      "Valores atómicos",
+      "No dependencias transitivas",
+      "PK simples"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La 2ª Forma Normal (2FN) elimina:",
+    "opciones": [
+      "Listas",
+      "Dependencias transitivas",
+      "Dependencias parciales",
+      "Claves foráneas"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "La 3ª Forma Normal (3FN) elimina:",
+    "opciones": [
+      "Dependencias parciales",
+      "Dependencias transitivas",
+      "Valores atómicos",
+      "PK compuestas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Una dependencia transitiva ocurre cuando:",
+    "opciones": [
+      "Un atributo depende de la PK",
+      "Un atributo depende de otro no clave",
+      "Hay FK",
+      "Hay una N:M"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Una tabla en 3FN:",
+    "opciones": [
+      "Siempre cumple BCNF",
+      "Nunca cumple BCNF",
+      "Puede no cumplir BCNF",
+      "No tiene dependencias"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "BCNF es:",
+    "opciones": [
+      "Inferior a 3FN",
+      "Igual que 2FN",
+      "Más estricta que 3FN",
+      "Solo teórica"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Una tabla cumple BCNF si:",
+    "opciones": [
+      "No tiene FK",
+      "Cada determinante es clave candidata",
+      "No tiene PK compuesta",
+      "Está normalizada"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Una desnormalización controlada se usa para:",
+    "opciones": [
+      "Romper integridad",
+      "Reducir coherencia",
+      "Mejorar rendimiento",
+      "Eliminar tablas"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Un error común es pensar que:",
+    "opciones": [
+      "Las FK son necesarias",
+      "La normalización es útil",
+      "Excel sustituye a un SGBD",
+      "SQL es estándar"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Una base de datos bien diseñada es:",
+    "opciones": [
+      "Rígida",
+      "Difícil de mantener",
+      "Coherente y escalable",
+      "Dependiente del hardware"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Regla fundamental en bases de datos:",
+    "opciones": [
+      "Programar primero",
+      "Priorizar integridad y coherencia",
+      "Evitar claves",
+      "Minimizar tablas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Por qué los sistemas basados en archivos tradicionales generaban problemas en la gestión de la información?",
+    "opciones": [
+      "Porque eran demasiado rápidos",
+      "Porque impedían el acceso a los datos",
+      "Porque producían redundancia y falta de coherencia entre los datos",
+      "Porque no permitían almacenar información"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál es la principal función de un Sistema Gestor de Bases de Datos (SGBD)?",
+    "opciones": [
+      "Ejecutar programas",
+      "Actuar como intermediario entre usuarios y datos, gestionando su almacenamiento y acceso",
+      "Crear sistemas operativos",
+      "Eliminar información automáticamente"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En el diseño de bases de datos, ¿por qué es importante separar los datos de las aplicaciones que los utilizan?",
+    "opciones": [
+      "Para reducir el tamaño del software",
+      "Para mejorar la independencia y facilitar cambios sin afectar a las aplicaciones",
+      "Para eliminar el uso de SQL",
+      "Para evitar errores de compilación"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En un modelo Entidad-Relación, ¿qué representa una entidad y por qué es fundamental en el diseño?",
+    "opciones": [
+      "Un tipo de dato",
+      "Un objeto del mundo real sobre el que queremos almacenar información",
+      "Una relación entre tablas",
+      "Un atributo"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué diferencia existe entre una entidad y un atributo dentro de un modelo E-R?",
+    "opciones": [
+      "No hay diferencia",
+      "La entidad es un objeto y el atributo es una característica de ese objeto",
+      "El atributo es más importante",
+      "La entidad es una tabla"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En un diagrama E-R, ¿por qué es importante definir correctamente la cardinalidad de las relaciones?",
+    "opciones": [
+      "Para reducir el número de tablas",
+      "Porque determina cómo se relacionan los datos en la base de datos final",
+      "Porque elimina atributos",
+      "Porque evita usar claves"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Por qué la clave primaria es un elemento fundamental en una tabla?",
+    "opciones": [
+      "Para reducir el tamaño",
+      "Porque identifica de forma única cada registro",
+      "Porque elimina errores automáticamente",
+      "Porque mejora el diseño visual"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué papel desempeñan las claves foráneas en una base de datos relacional?",
+    "opciones": [
+      "Crear tablas",
+      "Relacionar tablas entre sí",
+      "Eliminar datos",
+      "Validar código"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cómo se implementa una relación N:M en un modelo relacional?",
+    "opciones": [
+      "Eliminándola",
+      "Creando una tabla intermedia con claves foráneas",
+      "Duplicando tablas",
+      "Ignorándola"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál es el objetivo principal de la normalización en bases de datos?",
+    "opciones": [
+      "Aumentar el número de tablas",
+      "Reducir redundancia y mejorar integridad",
+      "Reducir código",
+      "Eliminar relaciones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué caracteriza a la Primera Forma Normal (1FN)?",
+    "opciones": [
+      "Tablas grandes",
+      "Valores atómicos",
+      "Claves compuestas",
+      "Relaciones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué problema elimina la Segunda Forma Normal (2FN)?",
+    "opciones": [
+      "Redundancia total",
+      "Dependencias parciales",
+      "Relaciones",
+      "Claves"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué son las dependencias transitivas que elimina la 3FN?",
+    "opciones": [
+      "Dependencias directas",
+      "Dependencias indirectas entre atributos no clave",
+      "Claves",
+      "Relaciones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué tipo de lenguaje es SQL y qué implica esto?",
+    "opciones": [
+      "Imperativo",
+      "Declarativo",
+      "Binario",
+      "Compilado"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué diferencia hay entre DDL y DML en SQL?",
+    "opciones": [
+      "Ninguna",
+      "DDL define estructura y DML manipula datos",
+      "DML crea tablas",
+      "DDL elimina datos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Por qué es importante definir correctamente los tipos de datos en SQL?",
+    "opciones": [
+      "Para decorar",
+      "Para evitar errores y optimizar almacenamiento",
+      "Para compilar",
+      "Para ejecutar"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué garantiza la restricción NOT NULL?",
+    "opciones": [
+      "Valores únicos",
+      "Campo obligatorio",
+      "Relación",
+      "Eliminación"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Por qué UNIQUE evita errores en una base de datos?",
+    "opciones": [
+      "Porque elimina datos",
+      "Porque evita duplicados",
+      "Porque crea tablas",
+      "Porque valida código"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué función tiene la restricción CHECK en SQL?",
+    "opciones": [
+      "Validar reglas o condiciones sobre los datos",
+      "Crear tablas",
+      "Eliminar datos",
+      "Insertar datos"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué representa una fila dentro de una tabla relacional?",
+    "opciones": [
+      "Columna",
+      "Registro",
+      "Tabla",
+      "Clave"
+    ],
+    "correcta": 1
+  }
+];
+
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir ❤️🩷🧡💛💚💙🩵💜🤍
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín - Lenguajes de Marcas 🎨</p>
+
+</footer>
+</body>
+</html>
