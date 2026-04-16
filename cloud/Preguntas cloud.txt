@@ -1,0 +1,21 @@
+Que es una región y que diferencias tiene con una AZ
+Que criterios llevan a decidir elegir una región u otra
+¿Qué tres factores son los fundamentales para determinar el coste de AWS?
+¿Qué es EC2, qué es S3?
+¿Qué es una política de IAM y en qué formato están escritas? 
+¿Quién es el responsable de gestionar la seguridad de mi aplicación y de los datos que utiliza?
+¿Cuántas ips hay disponibles para la red 192.168.1.0 / 24 ?
+¿Para qué sirve la tabla de enrutamiento en la red?
+¿Cuál es la diferencia entre un grupo de seguridad y un ACL en relación a la seguridad de la VPC?
+¿Qué significa que en mi grupo de seguridad permita la entrada al puerto 80 a 0.0.0.0/0?
+¿Qué es AWS Cloud Front?¿qué ventajas nos ofrece?
+¿Qué es una AMI? ¿Para que se utiliza en la creación de instancias EC2?
+EC2:¿se puede cambiar el tipo de una instancia que está arrancada?
+EC2, ¿qué ocurre con los discos que están asociados a una instancia (EBS Elastic Block Storage) cuando se para el servidor?
+¿Para qué sirve una ip elástica?
+¿A través de qué protocolo nos conectamos a servidores Windows?
+¿Cómo hago para añadir un nuevo disco duro a un servidor Windows?
+¿Cuando tiene sentido utilizar S3 y cuando EBS para el almacenamiento?
+¿S3 es un servicio global o está en una zona de disponibilidad?
+¿Qué diferencias hay entre utilizar Amazon RDS y utilizar EC2 con una base de datos?
+¿Qué ventajas tiene la configuración de Amazon RDS MultiAZ?
