@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "TEMA 1: La siniestralidad laboral es un elemento muy importante. ¿Cuántas personas mueren anualmente en el mundo por causas relacionadas con el trabajo?",
+    "opciones": ["Más de un millón", "Medio millón", "Doscientos cincuenta mil", "Trescientos Mil"],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: Marcos Urrutia, que es diseñador gráfico, ha tenido un corte en la muñeca derivado de realizar trabajos de carpintería en su tiempo libre. ¿Cómo se calificaría?",
+    "opciones": [
+      "Sería un accidente laboral",
+      "Sería una enfermedad profesional",
+      "Se trataría de una enfermedad profesional o de un accidente laboral dependiendo de si se ha producido de forma súbita o no",
+      "No sería ni enfermedad profesional ni accidente laboral"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿Cuál es la norma de mayor rango que recoge la protección de los trabajadores como algo fundamental?",
+    "opciones": [
+      "La Constitución",
+      "El Estatuto de los Trabajadores",
+      "La Ley de Prevención de Riesgos Laborales",
+      "La Biblia"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿Cuál de las siguientes situaciones NO tendría la condición de accidente de trabajo?",
+    "opciones": [
+      "Loli se rompe el codo como consecuencia de una caída a distinto nivel cuando subía las escaleras de la oficina",
+      "Gloria tiene un accidente de coche cuando iba a casa desde el trabajo",
+      "Mar le detectan una enfermedad derivada de la exposición a sustancias químicas en su trabajo",
+      "León, profesor de profesión, recibe una llave de inmovilización por parte de un alumno"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿En quién recae la responsabilidad de velar por la protección de la salud de los trabajadores y evitar accidentes?",
+    "opciones": [
+      "Exclusivamente en el empresario",
+      "Tanto en el empresario como en los trabajadores",
+      "Exclusivamente a los trabajadores",
+      "Exclusivamente a los representantes de los trabajadores"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿Cuál de las siguientes situaciones NO tiene la condición de enfermedad laboral?",
+    "opciones": [
+      "C Tangana, carpintero, desarrolla una alergia incurable al pino",
+      "Mercedes desarrolla síndrome del túnel carpiano como consecuencia de coser 12 horas al día en un taller de ropa",
+      "Luck desarrolla lumbalgia crónica tras 15 años trabajando como jornalero recogiendo cebollas",
+      "Javi, enfermero, se lesiona el hombro entrenando cuando va a mover un paciente"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿Cuál de los siguientes NO es un derecho de los trabajadores en materia preventiva?",
+    "opciones": [
+      "Recibir formación en materia preventiva",
+      "Formular propuestas al empresario",
+      "Vigilancia de su salud",
+      "Usar adecuadamente los equipos de trabajo"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿A qué hay que dar prioridad a la hora de diseñar la prevención de riesgos laborales en una empresa?",
+    "opciones": [
+      "Eliminar los riesgos de raíz",
+      "Comprar equipos de protección adecuados",
+      "Instruir a los trabajadores adecuadamente",
+      "Contratar un seguro médico que sea barato y a la vez bueno"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿Qué significan las siglas OIT?",
+    "opciones": [
+      "Organización independiente de trabajadores",
+      "Organización para el tránsito internacional de trabajadores",
+      "Organización Internacional del Trabajo",
+      "Organización del trabajo obrero internacional"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿De qué organismo internacional forma parte la OIT?",
+    "opciones": [
+      "Unión Europea",
+      "Unión de Pequeños Agricultores",
+      "Organización de las Naciones Unidas",
+      "Organización del Tratado del Atlántico Norte (OTAN)"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 1: ¿Cuál de los siguientes organismos tiene capacidad punitiva (puede poner sanciones)?",
+    "opciones": [
+      "La Inspección de Trabajo",
+      "La Organización Mundial de la Salud",
+      "La Fundación Europea para la Mejora de las Condiciones de Vida y de Trabajo",
+      "La Agencia Europea para la Seguridad y Salud en el Trabajo"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: ¿Cuál de las siguientes medidas preventivas no pertenece al ámbito de la seguridad en el trabajo?",
+    "opciones": [
+      "Control de exposición",
+      "Protecciones en maquinaria",
+      "Señalización",
+      "Formación en seguridad"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: Un inspector observa que el 90% de las bajas laborales de tu empresa son por problemas de espalda derivados de malas posturas. ¿Qué disciplina preventiva debe revisarse?",
+    "opciones": [
+      "Seguridad en el trabajo",
+      "Higiene industrial",
+      "Ergonomía",
+      "Psicosociología"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: Las medidas de protección se clasificarían de la siguiente forma:",
+    "opciones": [
+      "Individuales y colectivas",
+      "Generales y concretas",
+      "Abstractas y generales",
+      "Singulares y plurales"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: En la empresa Good Mercancías, SLU, se almacenan bienes con vehículos de carga. ¿Qué medida de protección colectiva sería más adecuada?",
+    "opciones": [
+      "Instalación de semáforos",
+      "Delimitar las zonas de tráfico",
+      "Controlar la velocidad de los vehículos",
+      "Equipos individuales de protección"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: Los riesgos derivados de las condiciones ambientales de la empresa se clasifican en:",
+    "opciones": [
+      "Físicos, biológicos y químicos",
+      "Mecánicos, ambientales y psicológicos",
+      "Generales, particulares y concretos",
+      "Abstractos y concretos"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: La evaluación de riesgos se centra en:",
+    "opciones": [
+      "Verificar si el riesgo se puede producir al menos una vez cada mes",
+      "Comprobar la gravedad y la probabilidad de que ocurra un riesgo",
+      "Tener en cuenta la evolución de la técnica",
+      "Evitar los riesgos en su origen"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: ¿Qué técnica de prevención se debería utilizar para ayudar a una persona que tiene problemas de hombro derivados de una mala postura en el trabajo?",
+    "opciones": [
+      "Seguridad en el trabajo",
+      "Higiene industrial",
+      "Ergonomía",
+      "Psicosociología"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: Según la Agencia Europea para la Seguridad y Salud en el Trabajo, ¿qué porcentaje de trabajadores se enfrenta a factores de riesgo psicosocial?",
+    "opciones": [
+      "20 por ciento",
+      "45 por ciento",
+      "15 por ciento",
+      "10 por ciento"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: ¿Cómo se denomina la manifestación de agotamiento emocional, despersonalización y baja realización personal en el trabajo?",
+    "opciones": [
+      "Estrés laboral",
+      "Mobbing",
+      "Carga mental excesiva",
+      "Burnout"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 2: En materia de prevención de riesgos laborales, siempre se debe priorizar:",
+    "opciones": [
+      "Las medidas individuales de protección frente a las colectivas",
+      "Las medidas de protección colectivas frente a las individuales",
+      "Las medidas de protección frente a la evitación de los riesgos",
+      "Las medidas de protección basadas en EPIs (equipos de protección individual)"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuál de los siguientes NO es un objetivo de los simulacros en un plan de evacuación?",
+    "opciones": [
+      "Evaluar la efectividad del plan",
+      "Formar y concienciar al personal",
+      "Identificar y corregir deficiencias",
+      "Aplicar medidas disciplinarias a quienes no realicen el simulacro correctamente"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuál de los siguientes NO es un medio de protección frente a emergencias?",
+    "opciones": [
+      "Equipos de detección",
+      "Alarma contra incendios",
+      "Extintores",
+      "Simulacros"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: La persona encargada de dirigir y supervisar la actuación en una emergencia se denomina:",
+    "opciones": [
+      "Jefe de servicio",
+      "Jefe de intervención",
+      "Jefe de planta",
+      "Jefazo"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: Las señales que advierten de algún peligro tendrán una forma y color:",
+    "opciones": [
+      "Triangular de color amarillo",
+      "Redonda con borde rojo",
+      "Redonda de color azul",
+      "Cuadrada de color verde"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: La actualización de las señales de advertencia conforme a la nomenclatura actual es una actuación que debería llevarse a cabo:",
+    "opciones": [
+      "Antes de emergencia",
+      "Durante la emergencia",
+      "Después de la emergencia",
+      "Todas las respuestas son correctas"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: El mantenimiento de las instalaciones presentes en una empresa es una actuación que se debe llevar a cabo:",
+    "opciones": [
+      "Antes de la emergencia",
+      "Durante la emergencia",
+      "Después de la emergencia",
+      "En cualquier momento, incluso durante la propia emergencia"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuál es el primer paso en la regla PAS?",
+    "opciones": [
+      "Socorrer a la víctima",
+      "Avisar a los servicios de emergencia",
+      "Proteger al accidentado",
+      "Realizar una evaluación médica"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Qué significa la 'A' en la regla PAS?",
+    "opciones": [
+      "Asistir a la víctima",
+      "Alertar a los servicios de emergencia especializados",
+      "Analizar la situación",
+      "Ayudar a los testigos"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Qué es el triaje?",
+    "opciones": [
+      "Un método para transportar heridos",
+      "Un método para prevenir accidentes",
+      "Un método para categorizar heridos en situaciones donde el número de víctimas es elevado",
+      "Un método para identificar enfermedades"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Qué se debe hacer con una persona inconsciente que respira?",
+    "opciones": [
+      "No hacer nada",
+      "Colocarla en posición lateral de seguridad",
+      "Administrar RCP",
+      "Moverla a un lugar seguro"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuántas compresiones por minuto se deben realizar en la RCP?",
+    "opciones": [
+      "60-80",
+      "80-100",
+      "100-120",
+      "120-140"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Qué tipo de quemadura afecta solo la capa superficial de la piel?",
+    "opciones": [
+      "Tercer grado",
+      "Segundo grado",
+      "Primer grado",
+      "Cuarto grado"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Qué maniobra se usa en un atragantamiento?",
+    "opciones": [
+      "Maniobra de Heimlich",
+      "Maniobra de Valsalva",
+      "Maniobra de Epley",
+      "Maniobra de Miller"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuál es la postura correcta ante una hemorragia nasal?",
+    "opciones": [
+      "Acostado boca abajo",
+      "Sentado con la cabeza hacia adelante",
+      "De pie",
+      "Acostado boca arriba"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: Adulto inconsciente que no respira. ¿Qué haces?",
+    "opciones": [
+      "Dar agua",
+      "Llamar al 112, abrir las vías aéreas y realizar RCP",
+      "Esperar a los especialistas",
+      "Intentar despertarle"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: Prioridad en situaciones con múltiples víctimas:",
+    "opciones": [
+      "Quien grita más",
+      "Heridas visibles",
+      "Quien lo pida",
+      "Peligro inmediato de muerte"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cómo actuarías ante una herida con sangrado abundante?",
+    "opciones": [
+      "Limpiar con jabón",
+      "Aplicar antiséptico",
+      "Aplicar presión directa",
+      "Esperar a que baje"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: Una persona ha tragado un objeto pero tose con fuerza. ¿Qué hacemos?",
+    "opciones": [
+      "Dejar toser",
+      "Dar golpes en la espalda",
+      "Aplicar la maniobra de Heimlich",
+      "Dar agua"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿En qué caso se debe usar la Posición Lateral de Seguridad (PLS)?",
+    "opciones": [
+      "Persona inconsciente que respira",
+      "Persona inconsciente que no respira",
+      "Fracturas",
+      "Quemaduras"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuál es la secuencia correcta de RCP en adultos?",
+    "opciones": [
+      "2 ventilaciones / 15 compresiones",
+      "30 compresiones / 2 ventilaciones",
+      "15 compresiones / 2 ventilaciones",
+      "2 ventilaciones y 30 compresiones"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Qué actuación forma parte de la evaluación primaria?",
+    "opciones": [
+      "Verificar fracturas craneales",
+      "Comprobar si la persona presenta sangrado",
+      "Comprobar la consciencia, respiración y pulso",
+      "Comprobar si la persona tiene dolor"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 3: ¿Cuál es el número de emergencias en España?",
+    "opciones": [
+      "911",
+      "112",
+      "999",
+      "000"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: ¿Cuál es la norma básica que regula las relaciones laborales en España?",
+    "opciones": [
+      "Código Civil",
+      "Ley General Tributaria",
+      "Estatuto de los Trabajadores",
+      "Estatuto Básico del Empleado Público"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: El Derecho del Trabajo regula:",
+    "opciones": [
+      "Solo las relaciones entre empresas",
+      "Las relaciones entre empresarios y trabajadores",
+      "Las relaciones entre consumidores y empresas",
+      "Solo las relaciones con la Administración"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Para que exista relación laboral deben darse ciertos elementos. ¿Cuál de los siguientes es uno de ellos?",
+    "opciones": [
+      "Competencia empresarial",
+      "Independencia",
+      "Voluntariedad",
+      "Autonomía"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Un trabajador presta sus servicios libremente sin imposición. ¿Qué elemento de la relación laboral se cumple?",
+    "opciones": [
+      "Dependencia",
+      "Voluntariedad",
+      "Remuneración",
+      "Ajenidad"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Cuando el trabajador está sometido a la organización del empresario se habla de:",
+    "opciones": [
+      "Remuneración",
+      "Jerarquía normativa",
+      "Ajenidad",
+      "Dependencia"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Cuando los beneficios y riesgos del negocio pertenecen al empresario hablamos de:",
+    "opciones": [
+      "Ajenidad",
+      "Dependencia",
+      "Personalidad",
+      "Subordinación jurídica"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: ¿Cuál de las siguientes situaciones NO se considera relación laboral?",
+    "opciones": [
+      "Empleado administrativo en una empresa",
+      "Trabajo voluntario en una ONG sin salario",
+      "Dependiente en una tienda",
+      "Trabajador contratado en una empresa"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: ¿Cuál de los siguientes colectivos tiene una relación laboral excluida?",
+    "opciones": [
+      "Personal del hogar",
+      "Alta dirección",
+      "Funcionarios públicos",
+      "Deportistas profesionales"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: ¿Cuál de los siguientes casos se considera relación laboral especial?",
+    "opciones": [
+      "Funcionarios",
+      "Deportistas profesionales",
+      "Trabajo por amistad",
+      "Trabajo familiar hasta segundo grado"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Los trabajos realizados por amistad o buena vecindad se consideran:",
+    "opciones": [
+      "Relación laboral común",
+      "Relación laboral especial",
+      "Relación laboral excluida",
+      "Relación funcionarial"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Un administrador de una sociedad mercantil normalmente tiene una relación:",
+    "opciones": [
+      "Laboral común",
+      "Laboral especial",
+      "Excluida del ámbito laboral",
+      "Funcionarial"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Dentro de la jerarquía normativa laboral, ¿qué norma tiene mayor rango?",
+    "opciones": [
+      "Constitución",
+      "Reglamento",
+      "Contrato de trabajo",
+      "Convenio colectivo"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: ¿Cuál de las siguientes normas tiene rango de ley?",
+    "opciones": [
+      "Circular administrativa",
+      "Real Decreto-ley",
+      "Orden ministerial",
+      "Instrucción"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: El Estatuto de los Trabajadores es un ejemplo de:",
+    "opciones": [
+      "Norma con rango de ley",
+      "Reglamento",
+      "Tratado internacional",
+      "Uso y costumbre"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Los convenios colectivos forman parte de:",
+    "opciones": [
+      "Jurisprudencia",
+      "Autonomía colectiva",
+      "Reglamentos",
+      "Derecho internacional"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Los usos y costumbres laborales se aplican cuando:",
+    "opciones": [
+      "Lo decide el empresario",
+      "La ley no regula una situación",
+      "El trabajador lo solicita",
+      "Lo establece el contrato"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: La jurisprudencia laboral está formada por:",
+    "opciones": [
+      "Convenios colectivos",
+      "Reglamentos",
+      "Sentencias del Tribunal Supremo",
+      "Órdenes ministeriales"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Las normas de la Unión Europea forman parte de:",
+    "opciones": [
+      "Fuentes externas del derecho laboral",
+      "Autonomía colectiva",
+      "Usos y costumbres",
+      "Fuentes internas"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: ¿Cuál de los siguientes no es un principio de aplicación de las normas laborales?",
+    "opciones": [
+      "Norma mínima",
+      "Norma más favorable",
+      "Principio de productividad",
+      "In dubio pro operario"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: El principio de norma mínima significa que:",
+    "opciones": [
+      "Solo se puede mejorar lo establecido en normas superiores",
+      "Se aplican siempre las normas más antiguas",
+      "La empresa decide qué norma aplicar",
+      "Las normas pueden empeorar la ley"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: El principio de norma más favorable se aplica cuando:",
+    "opciones": [
+      "La empresa quiere modificar el contrato",
+      "Hay dos normas aplicables al mismo caso",
+      "El trabajador cambia de empresa",
+      "Hay dudas en una norma"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: El principio in dubio pro operario significa que:",
+    "opciones": [
+      "Se interpreta la norma a favor del trabajador cuando hay duda",
+      "Decide el empresario",
+      "Se aplica siempre el convenio colectivo",
+      "Se aplica la norma más antigua"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: El principio de irrenunciabilidad de derechos implica que:",
+    "opciones": [
+      "El trabajador puede renunciar al salario mínimo",
+      "El trabajador no puede renunciar a derechos reconocidos por la ley",
+      "La empresa puede eliminar derechos si el trabajador acepta",
+      "El trabajador puede renunciar a vacaciones"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Una empresa ofrece 35 días de vacaciones aunque el convenio establece 30. ¿Qué principio se aplica?",
+    "opciones": [
+      "Jerarquía normativa",
+      "Norma mínima",
+      "Condición más beneficiosa",
+      "Usos y costumbres"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Si un trabajador tiene dos convenios aplicables y uno establece mejores condiciones salariales:",
+    "opciones": [
+      "Se aplica el más favorable al trabajador",
+      "Se aplica el más antiguo",
+      "Decide la empresa",
+      "Se aplica el de menor rango"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Si una norma puede interpretarse de dos formas y una beneficia más al trabajador:",
+    "opciones": [
+      "Se aplica la más restrictiva",
+      "Decide el empresario",
+      "Se aplica la interpretación más favorable al trabajador",
+      "Se aplica el convenio colectivo"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Un trabajador firma un documento renunciando a sus vacaciones anuales. Según el derecho laboral:",
+    "opciones": [
+      "Es válido si lo firma voluntariamente",
+      "No es válido por el principio de irrenunciabilidad",
+      "Es válido si lo permite la empresa",
+      "Es válido si lo autoriza el convenio"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Un hijo trabaja ocasionalmente en el negocio familiar conviviendo con los padres. Se considera:",
+    "opciones": [
+      "Relación laboral excluida",
+      "Relación laboral común",
+      "Relación laboral especial",
+      "Relación funcionarial"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 4: Una persona vende productos para una empresa pero asume el riesgo económico de la operación. Se considera:",
+    "opciones": [
+      "Relación laboral común",
+      "Relación laboral especial",
+      "Relación laboral excluida",
+      "Relación funcionarial"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Quiénes pueden firmar un contrato de trabajo según el Estatuto de los Trabajadores?",
+    "opciones": [
+      "Mayores de 16 años con permiso paterno o emancipados, y mayores de 18 sin restricciones",
+      "Únicamente las personas que tengan 18 años",
+      "Únicamente las personas que estén emancipadas",
+      "Extranjeros residentes, únicamente"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Leopoldo decide dejar su puesto en una empresa alemana para trabajar en España al obtener la nacionalidad española. ¿Sería válido el contrato?",
+    "opciones": [
+      "No, ya que le faltaría una causa válida",
+      "No, ya que carece de objeto",
+      "No, ya que carece de consentimiento",
+      "Sí, ya que Leopoldo venía prestando servicios en la empresa referida"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué tipo de contrato puede celebrarse verbalmente?",
+    "opciones": [
+      "Contrato a tiempo parcial",
+      "Contrato indefinido ordinario a jornada completa",
+      "Contrato formativo",
+      "Ninguno"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Clara tiene un contrato temporal de 4 meses para cubrir una baja de maternidad pero el contrato no especifica la causa ni la persona sustituida. ¿Qué ocurre?",
+    "opciones": [
+      "Se considera nulo",
+      "Se presume indefinido",
+      "Pierde validez legal",
+      "Ninguna de las anteriores"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué información debe incluir un contrato de trabajo?",
+    "opciones": [
+      "Duración",
+      "Retribuciones",
+      "Convenio colectivo de aplicación",
+      "Indemnización en caso de despido"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Un contrato de trabajo genera:",
+    "opciones": [
+      "Derechos únicamente para el empleador",
+      "Obligaciones para el trabajador",
+      "Obligaciones mutuas",
+      "Ninguna de las anteriores"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Cuál de los siguientes NO es un elemento necesario para que un contrato se considere válido?",
+    "opciones": [
+      "Consentimiento",
+      "Objeto",
+      "Causa",
+      "Objeción"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Cuál de las siguientes NO es una característica del objeto de los contratos?",
+    "opciones": [
+      "Debe ser lícito",
+      "Deben ser posibles",
+      "Deben ser determinados",
+      "Deben ser indeterminados"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Leopolda firma un contrato ficticio solo para cotizar y cobrar el desempleo, sin que exista actividad real. ¿Sería válido?",
+    "opciones": [
+      "No, ya que le faltaría una causa válida",
+      "No, ya que carecería de objeto",
+      "No, ya que carecería de consentimiento",
+      "No, ya que no es por escrito"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: A Lucía la contratan para vender sustancias ilegales en una tienda. ¿Sería válido el contrato?",
+    "opciones": [
+      "Sí, siempre que ella estuviera de acuerdo",
+      "No, porque carece de un objeto válido",
+      "Sí, ya que se dan los tres elementos: consentimiento, causa y voluntariedad"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué define esencialmente a un contrato de trabajo?",
+    "opciones": [
+      "La prestación de servicios voluntarios a cambio de salario",
+      "La realización de un trabajo ocasional",
+      "La colaboración entre empresas",
+      "La cesión de trabajadores"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Cuál NO es un elemento esencial del contrato de trabajo?",
+    "opciones": [
+      "Consentimiento",
+      "Objeto",
+      "Causa",
+      "Forma escrita"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El consentimiento en el contrato de trabajo debe ser:",
+    "opciones": [
+      "Presunto y tácito",
+      "Libre y sin vicios",
+      "Verbal obligatoriamente",
+      "Revocable unilateralmente"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: La causa del contrato de trabajo consiste en:",
+    "opciones": [
+      "La prestación laboral",
+      "La finalidad económica de la empresa",
+      "El intercambio de trabajo por salario",
+      "La duración del contrato"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Quién puede actuar como empresario en un contrato de trabajo?",
+    "opciones": [
+      "Solo personas físicas",
+      "Solo empresas mercantiles",
+      "Personas físicas, jurídicas o comunidades de bienes",
+      "Solo autónomos"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Un contrato verbal es válido cuando:",
+    "opciones": [
+      "Nunca es válido",
+      "Siempre que dure menos de un año",
+      "Siempre que dure menos de 6 meses",
+      "En contratos indefinidos"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Cuál es el contenido mínimo obligatorio de un contrato?",
+    "opciones": [
+      "Salario y vacaciones",
+      "Duración y jornada",
+      "Datos de las partes y tipo de contrato",
+      "Todas las anteriores"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué modalidad contractual es indefinida?",
+    "opciones": [
+      "Contrato por circunstancias de la producción",
+      "Contrato de sustitución",
+      "Contrato fijo discontinuo",
+      "Contrato de relevo"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El contrato fijo discontinuo se utiliza principalmente para:",
+    "opciones": [
+      "Trabajos permanentes continuos",
+      "Trabajos estacionales o intermitentes",
+      "Trabajos de sustitución",
+      "Trabajos formativos"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El contrato fijo discontinuo debe formalizarse:",
+    "opciones": [
+      "De forma verbal",
+      "De forma escrita",
+      "Solo si dura más de un año",
+      "Ante la autoridad laboral"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué contrato se utiliza para incrementos ocasionales e imprevisibles de actividad?",
+    "opciones": [
+      "Contrato de relevo",
+      "Contrato de sustitución",
+      "Contrato por circunstancias de la producción",
+      "Contrato formativo"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: La duración máxima del contrato por circunstancias imprevisibles es:",
+    "opciones": [
+      "3 meses",
+      "6 meses ampliables por convenio",
+      "Hasta 2 años",
+      "90 días al año"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué indemnización corresponde al finalizar un contrato temporal por producción?",
+    "opciones": [
+      "No tiene indemnización",
+      "8 días por año",
+      "12 días por año trabajado",
+      "20 días por año trabajado"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El contrato por circunstancias previsibles puede celebrarse como máximo:",
+    "opciones": [
+      "60 días al año",
+      "90 días al año",
+      "120 días continuados",
+      "6 meses"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Cuál es una característica del contrato por sustitución?",
+    "opciones": [
+      "Genera indemnización al finalizar",
+      "Siempre es a tiempo parcial",
+      "Puede iniciar 15 días antes del comienzo de la sustitución",
+      "Solo puede durar 6 meses"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: En el contrato de sustitución es obligatorio indicar:",
+    "opciones": [
+      "El salario del sustituido",
+      "El trabajador sustituido y la causa",
+      "La duración exacta del contrato",
+      "El convenio colectivo"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El contrato de relevo se celebra para:",
+    "opciones": [
+      "Sustituir bajas médicas",
+      "Cubrir la jubilación parcial de otro trabajador",
+      "Incrementos de producción",
+      "Formación profesional"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El trabajador relevista debe ser:",
+    "opciones": [
+      "Trabajador indefinido de la empresa",
+      "Autónomo colaborador",
+      "Trabajador sin experiencia pero con título habilitante",
+      "Trabajador en situación de desempleo"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: En el contrato de relevo ordinario, la duración mínima es:",
+    "opciones": [
+      "6 meses",
+      "1 año",
+      "Hasta jubilación total",
+      "Sin duración mínima"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué caracteriza al contrato de formación en alternancia?",
+    "opciones": [
+      "Compatibiliza trabajo y formación reglada",
+      "Solo puede durar 6 meses",
+      "Exige titulación previa",
+      "Es siempre a tiempo parcial"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: La duración del contrato de formación en alternancia es:",
+    "opciones": [
+      "Entre 6 meses y 1 año",
+      "Sin límite",
+      "Máximo 1 año",
+      "Entre 3 meses y 2 años"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: La retribución del contrato de formación en alternancia el primer año será como mínimo:",
+    "opciones": [
+      "50% del salario",
+      "60% del salario fijado en convenio",
+      "75% del salario mínimo",
+      "El SMI íntegro"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: ¿Qué requisito NO es necesario para el contrato de formación en alternancia?",
+    "opciones": [
+      "Plan formativo individual",
+      "Formalización escrita",
+      "Titulación previa",
+      "Alternancia real trabajo-formación"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: El contrato para la obtención de la práctica profesional requiere:",
+    "opciones": [
+      "Estar desempleado",
+      "Poseer una titulación reciente",
+      "No haber trabajado nunca",
+      "Ser menor de 25 años"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: La duración del contrato de práctica profesional es:",
+    "opciones": [
+      "Entre 6 meses y 1 año",
+      "Entre 3 meses y 2 años",
+      "Siempre 1 año",
+      "Sin límite"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: La retribución del contrato de práctica profesional:",
+    "opciones": [
+      "Puede ser inferior al SMI",
+      "Es la fijada en convenio y nunca inferior a la del contrato en alternancia",
+      "Es siempre el SMI",
+      "Es libremente pactada"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Un contrato a tiempo parcial se caracteriza por:",
+    "opciones": [
+      "Jornada inferior a la de un trabajador comparable a tiempo completo",
+      "Prohibición de horas complementarias",
+      "Ser siempre indefinido",
+      "No poder ser escrito"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Las horas complementarias pactadas solo pueden realizarse en:",
+    "opciones": [
+      "No pueden realizarse en ningún caso",
+      "Contratos a tiempo parcial indefinidos",
+      "Todos los contratos",
+      "Solo contratos formativos"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 5: Las Empresas de Trabajo Temporal (ETT):",
+    "opciones": [
+      "Ceden trabajadores sin contrato",
+      "No aplican convenios colectivos",
+      "Sustituyen a la empresa usuaria",
+      "Contratan y ceden trabajadores a empresas usuarias"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: La movilidad funcional es:",
+    "opciones": [
+      "Un cambio en tus funciones que implica llevar a cabo las de un grupo superior, exclusivamente",
+      "Un cambio en tus funciones que implica llevar a cabo las de un grupo inferior, exclusivamente",
+      "Un cambio en tus funciones que implica llevar a cabo las de un grupo equivalente, exclusivamente",
+      "Un cambio en tus funciones que puede implicar llevar a cabo las de un grupo superior, equivalente o inferior"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Lucas ha sido objeto de una movilidad funcional a una categoría inferior. ¿Durante cuánto tiempo puede durar esta situación?",
+    "opciones": [
+      "El tiempo indispensable",
+      "El tiempo suficiente",
+      "El tiempo que sea necesario a juicio del empresario",
+      "El tiempo que permanezca la necesidad"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Luis lleva tiempo desempeñando funciones de categoría superior. ¿Cuándo puede reclamar el ascenso o la cobertura del puesto?",
+    "opciones": [
+      "Sí, siempre que haya permanecido en ese puesto 8 meses en un plazo de 24 meses",
+      "Sí, siempre que permanezca en ese puesto 6 meses en un plazo de 24 meses",
+      "Sí, siempre que permanezca en ese puesto al menos seis meses en un plazo de 48 meses",
+      "Sí, 20 días por año trabajado con un máximo de 12 mensualidades"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: A Leopoldo le comunican un traslado definitivo a otra provincia. Si decide extinguir su contrato, ¿qué indemnización le corresponde?",
+    "opciones": [
+      "Sí, con una indemnización de 20 días por cada año trabajado con un máximo de 20 mensualidades",
+      "Sí, con una indemnización de 20 días por cada año trabajado con un máximo de 9 mensualidades",
+      "Sí, con una indemnización de 33 días por cada año trabajado con un máximo de 20 mensualidades",
+      "Sí, con una indemnización de 20 días por cada año trabajado con un máximo de 12 mensualidades"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: ¿Podría Leopoldo irse directamente del trabajo ante el traslado sin acudir al juzgado?",
+    "opciones": [
+      "Sí, siempre que avise con 20 días de antelación al jefe",
+      "Sí, siempre que avise con 15 días de antelación al jefe",
+      "No, ya que debe acudir primero al juzgado para que su contrato sea resuelto por el juez",
+      "No, primero tiene que pegarle una paliza al jefe"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Si Leopoldo decidiera impugnar la decisión de traslado, ¿en qué plazo debería hacerlo?",
+    "opciones": [
+      "20 días",
+      "15 días",
+      "10 días",
+      "5 días"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: ¿Cuál de los siguientes cambios NO daría derecho al trabajador a poner fin a su contrato por modificación sustancial?",
+    "opciones": [
+      "Jornada de trabajo",
+      "Régimen de trabajo a turnos",
+      "Horario",
+      "Sistema de rendimiento"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Si Luis decide irse por modificaciones sustanciales de su contrato, ¿qué indemnización le corresponde?",
+    "opciones": [
+      "Sí, 20 días por año trabajado con un máximo de 9 mensualidades",
+      "Sí, 33 días por año trabajado con un máximo de 24 mensualidades",
+      "Sí, 15 días por año trabajado con un máximo de 20 mensualidades",
+      "No le corresponde ninguna indemnización"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Luis descubre que la modificación sustancial de su contrato fue fraudulenta y con mala fe. ¿A qué indemnización adicional tendría derecho?",
+    "opciones": [
+      "Ninguna",
+      "50.000 euros",
+      "270 días de sueldo, en todo caso",
+      "33 días por año trabajado con un máximo de 24 mensualidades (o 720 días)"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: ¿La suspensión del contrato de trabajo implica la extinción del contrato?",
+    "opciones": [
+      "Sí",
+      "No",
+      "A veces",
+      "En ocasiones"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Señala la respuesta INCORRECTA en relación a la excedencia forzosa por ejercicio de cargo público.",
+    "opciones": [
+      "Su duración puede ser, como máximo, de cuatro años",
+      "La antigüedad computa",
+      "Se conserva el mismo puesto de trabajo",
+      "El trabajador debe reincorporarse en el plazo de un mes desde que finaliza la causa"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Lupecio ya ha disfrutado de una excedencia voluntaria. ¿Cuándo puede solicitar otra?",
+    "opciones": [
+      "Sí, cuando transcurran 3 años desde el final de la anterior excedencia",
+      "Sí, cuando transcurran 2 años desde el final de la anterior excedencia",
+      "Sí, siempre que sea amor verdadero",
+      "Sí, siempre que transcurran cuatro años desde el final de la anterior excedencia"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Leandro ha tenido un hijo. ¿Cuál será el plazo máximo de la excedencia por cuidado de hijos?",
+    "opciones": [
+      "1 año",
+      "2 años",
+      "3 años",
+      "4 años"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Señala la respuesta INCORRECTA respecto a la excedencia por cuidado de hijos.",
+    "opciones": [
+      "Puede solicitarla tanto el padre como la madre",
+      "Durante el primer año se reserva el puesto de trabajo",
+      "Computa la antigüedad",
+      "Hasta que no transcurren cuatro años no se puede disfrutar de otra excedencia por cuidado de hijos"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Liberto cierra su ferretería al jubilarse. Sus trabajadores, ¿tienen derecho a indemnización?",
+    "opciones": [
+      "Sí, un mes de salario",
+      "Sí, 22 días por año trabajado",
+      "Sí, 35 días por año trabajado",
+      "Sí, 100 días por año trabajado"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Liborio lleva varios meses sin cobrar. ¿Tendría derecho a extinguir su contrato por esta causa?",
+    "opciones": [
+      "Sí, siempre que haya dejado de cobrar durante tres meses aunque no sean consecutivos",
+      "No, ya que únicamente se permite poner fin al contrato en caso de retrasos",
+      "Sí, siempre que haya dejado de cobrar durante un mes",
+      "Sí, siempre que haya dejado de cobrar durante dos meses consecutivos"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Laura extingue su contrato por retrasos reiterados en el salario. ¿A qué indemnización tiene derecho?",
+    "opciones": [
+      "Sí, siempre que lo comunique al jefe con 15 días de antelación",
+      "Sí, de 33 días de salario por cada año trabajado con un máximo de 24 mensualidades",
+      "Sí, de 20 años de salario",
+      "Sí, siempre y cuando se conforme con una indemnización de 12 días por cada año trabajado"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Marcos es despedido y el juez declara el despido improcedente. ¿Quién decide si se readmite o indemniza?",
+    "opciones": [
+      "El empresario deberá decidir en un plazo de cinco días, si lo readmite o si le indemniza",
+      "El empresario deberá readmitir al trabajador en todo caso",
+      "El empresario deberá indemnizar al trabajador en todo caso",
+      "El trabajador decidirá, en un plazo de cinco días, si es readmitido o indemnizado"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Lola es despedida justo después de comunicar su embarazo. ¿Cómo calificaría el juez el despido?",
+    "opciones": [
+      "Procedente, con cero euros de indemnización",
+      "Improcedente, acordando la readmisión de la trabajadora",
+      "Improcedente, acordando indemnizar a la trabajadora a razón de 33 días por año trabajado",
+      "Nulo, debiendo ser readmitida la trabajadora, con el abono de los salarios de tramitación"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 7: Construcciones Matías despide a Laureano por causas económicas objetivas. ¿Qué debe hacer la empresa?",
+    "opciones": [
+      "Entregarle una carta de despido con las causas y poner a su disposición una indemnización de 20 días por año trabajado con un máximo de 12 mensualidades",
+      "Dar 15 días de sueldo como compensación por el despido sufrido",
+      "Dar 20 días de sueldo por compensación por el despido sufrido",
+      "Dar 33 días de sueldo como compensación por los daños morales sufridos"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Ana es trabajadora por cuenta ajena y ha sufrido un accidente en casa. ¿Qué tipo de contingencia cubre su baja laboral?",
+    "opciones": [
+      "Contingencia profesional",
+      "Contingencia común",
+      "Cotización adicional",
+      "Subsidio asistencial"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué entidad gestiona la recaudación de cuotas de la Seguridad Social en España?",
+    "opciones": [
+      "INSS",
+      "SEPE",
+      "IMSERSO",
+      "Tesorería General de la Seguridad Social"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál es el porcentaje de la base reguladora que recibe una persona en Incapacidad Permanente Absoluta?",
+    "opciones": [
+      "55%",
+      "75%",
+      "100%",
+      "50%"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué principio asegura que todos los ciudadanos tengan acceso al sistema de Seguridad Social?",
+    "opciones": [
+      "Contributividad",
+      "Equidad",
+      "Universalidad",
+      "Intergeneracionalidad"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Marta reduce su jornada al 50% para cuidar a su hija con cáncer. ¿Qué prestación puede solicitar?",
+    "opciones": [
+      "Prestación por maternidad",
+      "Prestación por cuidado de menores con enfermedad grave",
+      "Reducción de jornada por cuidado de familiar dentro del segundo grado",
+      "Subsidio por nacimiento"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Si un trabajador sufre un accidente en su puesto de trabajo, ¿qué tipo de contingencia es?",
+    "opciones": [
+      "Contingencia común",
+      "Contingencia profesional",
+      "Contingencia familiar",
+      "Contingencia económica"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál es el organismo encargado de las prestaciones no contributivas para mayores y dependientes?",
+    "opciones": [
+      "INSS",
+      "SEPE",
+      "IMSERSO",
+      "Mutuas"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué régimen cubre a los pescadores y trabajadores marítimos?",
+    "opciones": [
+      "Régimen General",
+      "RETA",
+      "Régimen Especial del Mar",
+      "Régimen de Funcionarios"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: En ausencia de regulación del convenio colectivo, ¿qué porcentaje de la base reguladora se cobra por Incapacidad Temporal entre los días 4 y 20?",
+    "opciones": [
+      "60%",
+      "50%",
+      "75%",
+      "100%"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Un trabajador sufre un accidente laboral. ¿Desde cuándo tiene derecho a percibir la prestación por IT?",
+    "opciones": [
+      "Desde el mismo día del accidente de trabajo",
+      "Desde el día siguiente al accidente de trabajo",
+      "Desde que acuda al centro hospitalario",
+      "A partir del tercer día de haber sufrido el accidente"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál de los siguientes colectivos está incluido en el RETA?",
+    "opciones": [
+      "Funcionarios",
+      "Trabajadores por cuenta ajena",
+      "Autónomos",
+      "Personal militar"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál será la edad de jubilación en el año 2027?",
+    "opciones": [
+      "60 años",
+      "65 años",
+      "66 años",
+      "67 años"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué tipo de prestación es la ayuda que se otorga a una persona con una discapacidad de nacimiento?",
+    "opciones": [
+      "Contributiva",
+      "No contributiva",
+      "Profesional",
+      "Especial"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Quién gestiona las prestaciones por desempleo en España?",
+    "opciones": [
+      "INSS",
+      "SEPE",
+      "IMSERSO",
+      "Tesorería General de la Seguridad Social"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Hasta cuándo se puede disfrutar de la pensión de viudedad?",
+    "opciones": [
+      "Hasta que se tengan nietos",
+      "Hasta que se vuelva a casar",
+      "Hasta cumplir 65 años",
+      "Hasta que se jubile"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Hasta qué edad puede disfrutar una persona de la pensión por orfandad?",
+    "opciones": [
+      "19 años",
+      "20 años",
+      "Hasta que lo necesite",
+      "25 años, siempre que no esté cursando estudios"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué prestación otorga un 100% de la base reguladora más complemento por asistencia de otra persona?",
+    "opciones": [
+      "Incapacidad Permanente Total",
+      "Gran Invalidez",
+      "Invalidez Parcial",
+      "Incapacidad Permanente Absoluta"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Un autónomo que realiza una actividad profesional y colabora con un familiar sin contrato se incluye en:",
+    "opciones": [
+      "Régimen General",
+      "RETA",
+      "Régimen Especial del Mar",
+      "MUFACE"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué prestación recibe una persona que no puede realizar ninguna profesión debido a una enfermedad permanente?",
+    "opciones": [
+      "Incapacidad Temporal",
+      "Incapacidad Permanente Total",
+      "Incapacidad Permanente Absoluta",
+      "Subsidio por enfermedad grave"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál es el requisito mínimo de cotización para acceder a la jubilación ordinaria con 65 años en 2025?",
+    "opciones": [
+      "30 años",
+      "38 años y 6 meses",
+      "40 años",
+      "25 años"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Una trabajadora deja de trabajar por riesgo durante la lactancia. ¿Qué duración tiene la prestación?",
+    "opciones": [
+      "Hasta que el hijo tenga 9 meses",
+      "Hasta que el hijo tenga 12 meses",
+      "Hasta que el hijo tenga 15 años",
+      "Hasta que el hijo tenga 18 meses"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál es la cuantía de la prestación por nacimiento y cuidado del menor?",
+    "opciones": [
+      "75% de la base reguladora",
+      "100% de la base reguladora",
+      "50% de la base reguladora",
+      "Variable según el caso"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuánto debe haber cotizado una madre de 34 años para acceder a la prestación por nacimiento y cuidado del menor?",
+    "opciones": [
+      "360 días a lo largo de la vida laboral",
+      "180 días a lo largo de toda su vida laboral",
+      "90 días en los últimos 7 años",
+      "No es necesaria cotización previa"
+    ],
+    "correcta": 0,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: Un trabajador en incapacidad temporal por enfermedad común, ¿cuánto percibe el día 19 de su baja?",
+    "opciones": [
+      "60% de la base reguladora (empresa)",
+      "55% de la base reguladora (INSS o mutua)",
+      "75% de la base reguladora (INSS o mutua)",
+      "60% de la base reguladora (INSS o mutua)"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál es el porcentaje de pensión por incapacidad permanente total?",
+    "opciones": [
+      "100%",
+      "55%",
+      "75%",
+      "33%"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué prestación está dirigida a compensar las interrupciones laborales por cuidado de hijos?",
+    "opciones": [
+      "Prestación por maternidad",
+      "Complemento para la reducción de la brecha de género",
+      "Prestación por lactancia",
+      "Ayuda familiar"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Qué colectivo tiene acceso al régimen de mutualidades como MUFACE o ISFAS?",
+    "opciones": [
+      "Autónomos",
+      "Trabajadores agrarios",
+      "Funcionarios",
+      "Empleados del hogar"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuál es la principal fuente de financiación del sistema de Seguridad Social?",
+    "opciones": [
+      "Subvenciones del Estado",
+      "Cotizaciones sociales",
+      "Aportaciones sindicales",
+      "Donaciones privadas"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "TEMA 8: ¿Cuánto cobrará un trabajador de prestación por desempleo a partir del día 181?",
+    "opciones": [
+      "50% de la base reguladora",
+      "80% de la base reguladora",
+      "60% de la base reguladora",
+      "75% de la base reguladora"
+    ],
+    "correcta": 2,
+    "cita": ""
+  }
+];
+
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín</p>
+
+</footer>
+</body>
+</html>
