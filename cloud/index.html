@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "AWS: ¿Qué es una región y qué diferencia tiene con una Zona de Disponibilidad (AZ)?",
+    "opciones": [
+      "Una región es un centro de datos individual; una AZ es un conjunto de regiones",
+      "Una región es un área geográfica con múltiples AZs; una AZ es un centro de datos o conjunto de ellos dentro de esa región",
+      "Una región y una AZ son lo mismo, solo cambia el nombre según el proveedor",
+      "Una AZ es más grande que una región y la engloba"
+    ],
+    "correcta": 1,
+    "cita": "Una región de AWS es una ubicación geográfica independiente que contiene múltiples Zonas de Disponibilidad (AZs). Cada AZ es uno o más centros de datos con alimentación, red y conectividad redundantes, físicamente separados de otras AZs dentro de la misma región."
+  },
+  {
+    "enunciado": "AWS: ¿Qué criterios son clave para elegir una región u otra?",
+    "opciones": [
+      "Solo el precio, ya que todos los servicios están disponibles en todas las regiones",
+      "Latencia respecto a los usuarios, cumplimiento normativo/legal, disponibilidad de servicios y coste",
+      "El número de AZs disponibles en esa región",
+      "La popularidad de la región entre otros clientes de AWS"
+    ],
+    "correcta": 1,
+    "cita": "Los criterios principales para elegir región son: proximidad a los usuarios finales (latencia), requisitos de cumplimiento legal y residencia de datos, disponibilidad de los servicios AWS necesarios y diferencias de precio entre regiones."
+  },
+  {
+    "enunciado": "AWS: ¿Cuáles son los tres factores fundamentales que determinan el coste en AWS?",
+    "opciones": [
+      "Número de usuarios, país de la cuenta y tipo de soporte contratado",
+      "Cómputo (tiempo de uso), almacenamiento (datos guardados) y transferencia de datos (salida de red)",
+      "Instancias EC2, buckets S3 y bases de datos RDS",
+      "CPU, RAM y ancho de banda de red de cada instancia"
+    ],
+    "correcta": 1,
+    "cita": "Los tres pilares del coste en AWS son: el cómputo (tiempo que se usan los recursos de procesamiento), el almacenamiento (cantidad de datos almacenados) y la transferencia de datos (principalmente el tráfico de salida hacia Internet)."
+  },
+  {
+    "enunciado": "AWS: ¿Qué es EC2 y qué es S3?",
+    "opciones": [
+      "EC2 es un servicio de bases de datos; S3 es un servicio de cómputo serverless",
+      "EC2 es un servicio de servidores virtuales en la nube; S3 es un servicio de almacenamiento de objetos",
+      "EC2 y S3 son dos nombres distintos para el mismo servicio de máquinas virtuales",
+      "EC2 es el servicio de red de AWS; S3 es el servicio de contenedores"
+    ],
+    "correcta": 1,
+    "cita": "EC2 (Elastic Compute Cloud) permite lanzar servidores virtuales (instancias) en la nube con recursos configurables. S3 (Simple Storage Service) es un servicio de almacenamiento de objetos altamente escalable, duradero y accesible vía HTTP."
+  },
+  {
+    "enunciado": "AWS IAM: ¿Qué es una política de IAM y en qué formato está escrita?",
+    "opciones": [
+      "Es un contrato de nivel de servicio escrito en XML",
+      "Es un documento en formato YAML que define roles de usuario",
+      "Es un documento en formato JSON que define permisos (qué acciones se permiten o deniegan sobre qué recursos)",
+      "Es una regla de firewall escrita en lenguaje Terraform"
+    ],
+    "correcta": 2,
+    "cita": "Una política de IAM es un documento JSON que especifica los permisos: qué acciones están permitidas o denegadas (Effect), sobre qué servicios y recursos (Action y Resource), y bajo qué condiciones opcionales (Condition)."
+  },
+  {
+    "enunciado": "AWS: ¿Quién es responsable de gestionar la seguridad de la aplicación y los datos que utiliza?",
+    "opciones": [
+      "AWS es responsable de todo, incluyendo los datos del cliente",
+      "El cliente es responsable de la seguridad EN la nube (aplicación, datos, configuración); AWS es responsable de la seguridad DE la nube (infraestructura física)",
+      "La responsabilidad se comparte al 50% entre AWS y el cliente en todos los aspectos",
+      "Un tercero certificado por AWS asume toda la responsabilidad legal"
+    ],
+    "correcta": 1,
+    "cita": "Según el modelo de responsabilidad compartida de AWS: AWS gestiona la seguridad de la infraestructura subyacente (hardware, instalaciones, red global). El cliente es responsable de la seguridad dentro de la nube: sus datos, aplicaciones, configuración de sistemas operativos, control de acceso e identidades."
+  },
+  {
+    "enunciado": "Redes: ¿Cuántas IPs hay disponibles para la red 192.168.1.0/24?",
+    "opciones": [
+      "256 IPs totales, 256 utilizables",
+      "256 IPs totales, 254 utilizables (se restan la de red y la de broadcast)",
+      "128 IPs totales, 126 utilizables",
+      "512 IPs totales, 510 utilizables"
+    ],
+    "correcta": 1,
+    "cita": "Una subred /24 tiene 256 direcciones IP (2^8). De ellas, la primera (192.168.1.0) es la dirección de red y la última (192.168.1.255) es la de broadcast, quedando 254 IPs utilizables para hosts."
+  },
+  {
+    "enunciado": "Redes: ¿Para qué sirve la tabla de enrutamiento?",
+    "opciones": [
+      "Para asignar IPs dinámicamente a los dispositivos de la red",
+      "Para filtrar el tráfico entrante y saliente según puertos y protocolos",
+      "Para determinar hacia dónde debe enviarse el tráfico de red según la dirección IP de destino",
+      "Para registrar los nombres de dominio asociados a cada IP"
+    ],
+    "correcta": 2,
+    "cita": "La tabla de enrutamiento contiene reglas que indican al router (o a la VPC) por dónde debe salir el tráfico según el destino. Cada entrada asocia un rango de IPs de destino con un siguiente salto (gateway, interfaz de red, etc.)."
+  },
+  {
+    "enunciado": "AWS VPC: ¿Cuál es la diferencia entre un Grupo de Seguridad y una ACL de red?",
+    "opciones": [
+      "No hay diferencia práctica; ambos funcionan igual a nivel de subred",
+      "El Grupo de Seguridad actúa a nivel de instancia y es stateful; la ACL actúa a nivel de subred y es stateless",
+      "La ACL actúa a nivel de instancia y es stateful; el Grupo de Seguridad actúa a nivel de subred y es stateless",
+      "Los Grupos de Seguridad solo permiten tráfico entrante; las ACLs solo controlan el tráfico saliente"
+    ],
+    "correcta": 1,
+    "cita": "Los Grupos de Seguridad se aplican a nivel de instancia EC2, son stateful (el tráfico de respuesta se permite automáticamente) y solo admiten reglas de permiso. Las ACLs de red se aplican a nivel de subred, son stateless (hay que definir reglas para entrada y salida por separado) y admiten reglas de permiso y denegación."
+  },
+  {
+    "enunciado": "AWS VPC: ¿Qué significa permitir la entrada al puerto 80 desde 0.0.0.0/0 en un Grupo de Seguridad?",
+    "opciones": [
+      "Solo los servidores internos de AWS pueden acceder al puerto 80",
+      "Cualquier dirección IP de Internet puede enviar tráfico HTTP al puerto 80 de esa instancia",
+      "Solo las IPs del rango 0.0.0.0 pueden acceder, lo que equivale a bloquear todo acceso",
+      "El acceso al puerto 80 queda restringido a la VPC local"
+    ],
+    "correcta": 1,
+    "cita": "El CIDR 0.0.0.0/0 representa todas las direcciones IPv4 posibles. Permitir el puerto 80 desde 0.0.0.0/0 significa que cualquier equipo en Internet puede conectarse al puerto HTTP (80) de esa instancia."
+  },
+  {
+    "enunciado": "AWS: ¿Qué es Amazon CloudFront y qué ventajas ofrece?",
+    "opciones": [
+      "Es un servicio de bases de datos distribuido globalmente",
+      "Es una CDN (red de distribución de contenido) que sirve contenido desde ubicaciones edge cercanas al usuario, reduciendo latencia y mejorando el rendimiento",
+      "Es una herramienta de monitorización del tráfico de red en la VPC",
+      "Es un balanceador de carga para instancias EC2 dentro de una región"
+    ],
+    "correcta": 1,
+    "cita": "Amazon CloudFront es la CDN de AWS. Distribuye contenido estático y dinámico desde más de 400 puntos de presencia (edge locations) en todo el mundo, reduciendo la latencia, absorbiendo picos de tráfico, integrándose con AWS Shield para protección DDoS y permitiendo HTTPS con certificados gratuitos via ACM."
+  },
+  {
+    "enunciado": "AWS EC2: ¿Qué es una AMI y para qué se utiliza en la creación de instancias?",
+    "opciones": [
+      "Es el tipo de instancia que define la CPU y RAM asignadas",
+      "Es una plantilla que contiene el sistema operativo, configuración y software necesario para lanzar una instancia EC2",
+      "Es la IP elástica asignada a una instancia recién creada",
+      "Es el grupo de seguridad por defecto que se aplica a toda instancia nueva"
+    ],
+    "correcta": 1,
+    "cita": "Una AMI (Amazon Machine Image) es una imagen predefinida que incluye el sistema operativo, configuraciones y el software instalado. Se usa como punto de partida al lanzar instancias EC2, permitiendo replicar entornos de forma rápida y consistente."
+  },
+  {
+    "enunciado": "AWS EC2: ¿Se puede cambiar el tipo de instancia mientras está en ejecución?",
+    "opciones": [
+      "Sí, se puede cambiar el tipo de instancia en caliente sin interrupciones",
+      "No, el tipo de instancia es permanente y no se puede cambiar nunca",
+      "No, hay que detener (stop) la instancia primero, cambiar el tipo y volver a arrancarla",
+      "Solo se puede cambiar el tipo si la instancia está en modo hibernación"
+    ],
+    "correcta": 2,
+    "cita": "Para cambiar el tipo de instancia EC2 es necesario detenerla (estado 'stopped'), modificar el tipo desde la consola o CLI, y volver a iniciarla. No es posible realizar este cambio con la instancia en estado 'running'."
+  },
+  {
+    "enunciado": "AWS EC2: ¿Qué ocurre con los volúmenes EBS cuando se detiene una instancia?",
+    "opciones": [
+      "Los volúmenes EBS se eliminan automáticamente al detener la instancia",
+      "Los volúmenes EBS persisten y siguen almacenando los datos; se vuelven a asociar cuando la instancia arranca de nuevo",
+      "Los datos del volumen EBS se mueven automáticamente a S3 al detener la instancia",
+      "Los volúmenes EBS se desconectan y deben volver a formatearse antes de usarse"
+    ],
+    "correcta": 1,
+    "cita": "Los volúmenes EBS son persistentes. Al detener una instancia EC2, los datos del volumen se conservan y el volumen permanece asociado a la instancia, que lo recupera al arrancar de nuevo. Solo se eliminan si se configura explícitamente la opción 'Delete on Termination' al terminar (no al detener) la instancia."
+  },
+  {
+    "enunciado": "AWS: ¿Para qué sirve una IP elástica (Elastic IP)?",
+    "opciones": [
+      "Para asignar automáticamente una IP privada a las instancias dentro de la VPC",
+      "Para disponer de una IP pública estática y fija que puede reasignarse entre instancias, garantizando continuidad ante fallos o reemplazos de instancia",
+      "Para conectar dos VPCs de distintas regiones mediante un túnel cifrado",
+      "Para limitar el ancho de banda de salida de una instancia EC2"
+    ],
+    "correcta": 1,
+    "cita": "Una Elastic IP es una dirección IPv4 pública y estática que permanece bajo el control de la cuenta AWS. Permite que una aplicación mantenga siempre la misma IP pública, incluso si se reemplaza la instancia subyacente, facilitando la recuperación ante fallos sin cambiar DNS."
+  },
+  {
+    "enunciado": "Sistemas: ¿A través de qué protocolo nos conectamos a servidores Windows remotamente?",
+    "opciones": [
+      "SSH (Secure Shell)",
+      "FTP (File Transfer Protocol)",
+      "RDP (Remote Desktop Protocol)",
+      "SFTP (SSH File Transfer Protocol)"
+    ],
+    "correcta": 2,
+    "cita": "El protocolo estándar para conectarse de forma remota a un escritorio Windows es RDP (Remote Desktop Protocol), que opera por defecto en el puerto TCP 3389 y proporciona una sesión gráfica interactiva."
+  },
+  {
+    "enunciado": "Windows Server: ¿Cómo se añade un nuevo disco duro a un servidor Windows?",
+    "opciones": [
+      "Se conecta el disco y Windows lo formatea automáticamente sin intervención",
+      "Se conecta el volumen EBS a la instancia, se inicializa en el Administrador de discos, se crea una partición, se formatea y se asigna una letra de unidad",
+      "Hay que reinstalar el sistema operativo para que detecte el nuevo disco",
+      "Basta con ejecutar el comando 'diskpart /add' en PowerShell"
+    ],
+    "correcta": 1,
+    "cita": "Tras asociar el volumen EBS a la instancia EC2 Windows, hay que abrir el Administrador de discos (diskmgmt.msc), inicializar el disco nuevo, crear un volumen simple, formatearlo con NTFS y asignarle una letra de unidad para que esté disponible en el sistema."
+  },
+  {
+    "enunciado": "AWS: ¿Cuándo tiene sentido usar S3 y cuándo EBS para almacenamiento?",
+    "opciones": [
+      "S3 es mejor siempre; EBS solo se usa para bases de datos legacy",
+      "EBS se usa para disco de sistema operativo y datos de aplicaciones con acceso de bloque; S3 para objetos estáticos, backups, archivos y contenido web accesible por HTTP",
+      "S3 y EBS son intercambiables; la elección depende solo del precio",
+      "EBS sirve para almacenamiento a largo plazo; S3 para datos temporales de alta velocidad"
+    ],
+    "correcta": 1,
+    "cita": "EBS es almacenamiento de bloques pensado para discos de instancias EC2 (sistema operativo, bases de datos, aplicaciones que necesitan baja latencia). S3 es almacenamiento de objetos ideal para archivos estáticos, copias de seguridad, logs, imágenes, vídeos y cualquier contenido accesible vía URL sin necesidad de estar montado como disco."
+  },
+  {
+    "enunciado": "AWS S3: ¿Es S3 un servicio global o está vinculado a una zona de disponibilidad?",
+    "opciones": [
+      "S3 está vinculado a una única AZ dentro de una región",
+      "S3 es completamente global y no pertenece a ninguna región",
+      "Los buckets de S3 se crean en una región específica, pero el servicio es accesible globalmente y replica los datos en múltiples AZs dentro de esa región",
+      "S3 replica automáticamente los datos en todas las regiones del mundo"
+    ],
+    "correcta": 2,
+    "cita": "S3 es un servicio regional: cada bucket se crea en una región concreta y AWS replica los objetos en múltiples AZs dentro de esa región para garantizar durabilidad del 99.999999999%. El acceso al bucket es global vía HTTP/HTTPS, pero los datos residen en la región elegida."
+  },
+  {
+    "enunciado": "AWS: ¿Qué diferencias hay entre usar Amazon RDS y usar EC2 con una base de datos instalada manualmente?",
+    "opciones": [
+      "No hay diferencias relevantes; RDS es simplemente EC2 con una base de datos preinstalada",
+      "RDS es un servicio gestionado (backups, parches, alta disponibilidad, réplicas automáticas); EC2 requiere que el equipo gestione manualmente toda la administración de la base de datos",
+      "EC2 con base de datos propia es siempre más económico que RDS en todos los escenarios",
+      "RDS solo soporta MySQL; EC2 permite cualquier motor de base de datos"
+    ],
+    "correcta": 1,
+    "cita": "Amazon RDS es un servicio de base de datos gestionado: AWS se encarga de los backups automáticos, aplicación de parches, failover, réplicas de lectura y monitorización. Con EC2 + base de datos propia, el equipo asume toda la responsabilidad operativa: instalación, actualizaciones, backups y alta disponibilidad."
+  },
+  {
+    "enunciado": "AWS RDS: ¿Qué ventajas ofrece la configuración Multi-AZ en Amazon RDS?",
+    "opciones": [
+      "Mejora el rendimiento de lectura distribuyendo las consultas entre varias instancias",
+      "Permite escalar la base de datos horizontalmente añadiendo más instancias de escritura",
+      "Proporciona alta disponibilidad y tolerancia a fallos mediante una réplica síncrona en otra AZ con failover automático",
+      "Reduce el coste de almacenamiento al comprimir los datos entre zonas"
+    ],
+    "correcta": 2,
+    "cita": "La configuración Multi-AZ de RDS mantiene una réplica síncrona de la base de datos en una segunda Zona de Disponibilidad. En caso de fallo de la instancia primaria (hardware, red o AZ), AWS realiza un failover automático a la réplica en pocos minutos, minimizando el tiempo de inactividad sin intervención manual."
+  }
+]
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín</p>
+
+</footer>
+</body>
+</html>
