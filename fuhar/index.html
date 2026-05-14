@@ -24,1135 +24,1984 @@
 
 const preguntas = [
   {
-    "enunciado": "TEMA 1: ¿En qué década se propuso la arquitectura Von Neumann, base de los ordenadores actuales?",
-    "opciones": ["1930", "1940", "1950", "1960"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Cuál es la principal diferencia entre la arquitectura Von Neumann y la Harvard?",
+    "enunciado": "¿En qué arquitectura se basan la inmensa mayoría de los dispositivos informáticos actuales?",
     "opciones": [
-      "Von Neumann no usa CPU",
-      "Von Neumann usa la misma memoria para datos e instrucciones; Harvard las separa",
-      "Harvard es más antigua",
-      "Von Neumann solo sirve para servidores"
+      "Arquitectura Harvard",
+      "Arquitectura Von Neumann",
+      "Arquitectura Monolítica",
+      "Arquitectura RISC"
     ],
     "correcta": 1,
-    "cita": ""
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
   },
   {
-    "enunciado": "TEMA 1: ¿Qué componente de la CPU se encarga de coordinar todas las operaciones como un 'director de orquesta'?",
-    "opciones": ["ALU", "Unidad de Control (CU)", "Memoria RAM", "Bus de datos"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Cuál es la función de la Unidad Aritmético-Lógica (ALU)?",
-    "opciones": ["Almacenar datos", "Realizar cálculos matemáticos y comparaciones lógicas", "Gestionar la energía", "Conectar el ratón"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué característica define a la memoria RAM?",
-    "opciones": ["Es permanente", "Es volátil (se borra al apagar)", "Es más lenta que el disco duro", "Solo es de lectura"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Cuál es el orden correcto de memorias de más rápida/cara a más lenta/barata?",
+    "enunciado": "¿Qué innovación principal introdujo John von Neumann en la década de 1940?",
     "opciones": [
-      "HDD > RAM > Caché > Registros",
-      "Registros > Caché > RAM > Almacenamiento",
-      "RAM > Registros > Caché > HDD",
-      "SSD > RAM > Registros > Caché"
-    ],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué bus se utiliza para indicar en qué posición de memoria se quiere leer o escribir?",
-    "opciones": ["Bus de datos", "Bus de control", "Bus de direcciones", "Bus USB"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué tipo de software gestiona los recursos del hardware y permite la ejecución de aplicaciones?",
-    "opciones": ["Driver", "Sistema Operativo", "Firmware", "Shareware"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Cómo se llama el software que traduce las órdenes del SO para un hardware específico?",
-    "opciones": ["BIOS", "Controlador (Driver)", "Kernel", "Compilador"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué licencia define al software propietario gratuito pero con restricciones de copia?",
-    "opciones": ["Software Libre", "Shareware", "Freeware", "Open Source"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué software permite probarlo gratis un tiempo y luego pide pago?",
-    "opciones": ["Freeware", "Shareware", "Adware", "Firmware"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Cuántas libertades fundamentales definen al Software Libre?",
-    "opciones": ["Dos", "Tres", "Cuatro", "Cinco"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué es un SoC (System on a Chip)?",
-    "opciones": ["Un sistema operativo", "Un chip que integra CPU, GPU y otros componentes", "Un tipo de memoria RAM", "Un cable de conexión"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Por qué es falso que 'Solo importan los GHz'?",
-    "opciones": ["Porque los GHz no existen", "Porque influyen la arquitectura, núcleos y caché", "Porque el software es más importante", "Porque la RAM es lo único que importa"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué elemento de Von Neumann gestiona la comunicación con el exterior?",
-    "opciones": ["CPU", "RAM", "Subsistema de Entrada/Salida", "Buses"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Cuál es el bus por el que viaja la información real procesada?",
-    "opciones": ["Bus de direcciones", "Bus de datos", "Bus de expansión", "Bus de sistema"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué componente es la base física donde se conectan todos los demás?",
-    "opciones": ["CPU", "Memoria", "Placa Base", "Disco duro"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué tipo de software es Linux?",
-    "opciones": ["Propietario", "Shareware", "Software Libre", "Freeware"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué ventaja tiene el software libre sobre el propietario?",
-    "opciones": ["Es siempre más bonito", "Permite estudiar y modificar el código", "No requiere instalación", "Funciona sin RAM"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 1: ¿Qué componente mantiene las instrucciones mientras se ejecutan?",
-    "opciones": ["HDD", "RAM", "Unidad de Control", "Monitor"],
-    "correcta": 1,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 2: ¿Qué componente físico aloja la CPU en la placa base?",
-    "opciones": ["Ranura RAM", "Zócalo (Socket)", "Chipset", "Puente Norte"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Cómo se llaman las ranuras donde se insertan los módulos de memoria?",
-    "opciones": ["PCIe", "DIMM", "SATA", "M.2"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Cuál es la diferencia de velocidad entre un SSD SATA y un SSD M.2 NVMe?",
-    "opciones": ["SATA es más rápido", "M.2 NVMe es mucho más rápido al usar PCIe", "Son iguales", "M.2 es solo para portátiles"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué tipo de disco duro usa platos giratorios y cabezales mecánicos?",
-    "opciones": ["SSD", "HDD", "NVMe", "SD"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué ranura de expansión se usa típicamente para las tarjetas gráficas modernas?",
-    "opciones": ["PCI", "AGP", "PCI Express x16", "PCI Express x1"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué gestiona el Chipset de la placa base?",
-    "opciones": ["La energía de la fuente", "El flujo de datos entre CPU, memoria y periféricos", "La velocidad del ventilador", "El teclado"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué limitación de tamaño de disco tiene la BIOS tradicional frente a UEFI?",
-    "opciones": ["BIOS no tiene límite", "BIOS está limitada a 2.2 TB", "UEFI está limitada a 1 TB", "Ambas son iguales"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué ventaja ofrece UEFI respecto a la interfaz de usuario?",
-    "opciones": ["Es solo texto", "Soporta gráficos y uso del ratón", "No tiene interfaz", "Es más lenta"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué es el POST (Power-On Self-Test)?",
-    "opciones": ["Un tipo de cable", "Un autodiagnóstico al encender el PC", "Un programa para instalar Windows", "Un virus"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Dónde se guardan los ajustes de la BIOS/UEFI cuando el PC está apagado?",
-    "opciones": ["En el HDD", "En la memoria CMOS (alimentada por pila)", "En la RAM", "En internet"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué función cumple el factor de forma ATX?",
-    "opciones": ["Define la velocidad de la CPU", "Define las dimensiones estándar de la placa y caja", "Es un tipo de memoria", "Es un protocolo de red"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué ocurre si el POST detecta un error crítico en la RAM?",
-    "opciones": ["El PC explota", "Emite una secuencia de pitidos o códigos LED", "Inicia Windows normalmente", "Se borra el disco"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué es el 'Secure Boot' en UEFI?",
-    "opciones": ["Un modo para jugar", "Una función que asegura que solo se cargue software de confianza al arrancar", "Un antivirus", "Un tipo de contraseña"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué componente conecta periféricos lentos como USB y audio en chipsets antiguos?",
-    "opciones": ["Puente Norte", "Puente Sur", "Socket", "VRM"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Cómo se accede normalmente a la BIOS/UEFI?",
-    "opciones": ["Desde Windows Update", "Pulsando una tecla (Supr, F2) durante el arranque", "Con un comando de voz", "Abriendo la caja"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué es el Clear CMOS?",
-    "opciones": ["Limpiar el polvo de la placa", "Resetear los ajustes de la BIOS a fábrica", "Formatear el SSD", "Actualizar drivers"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Para qué sirve el 'Boot Order'?",
-    "opciones": ["Para limpiar los discos", "Para elegir en qué dispositivo buscar el Sistema Operativo", "Para ordenar archivos", "Para acelerar la CPU"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué componente suministra energía estable a la CPU desde la placa base?",
-    "opciones": ["Chipset", "VRM", "Batería CMOS", "Puerto SATA"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Cuál es el tamaño de placa base más pequeño orientado a equipos compactos?",
-    "opciones": ["ATX", "Micro-ATX", "Mini-ITX", "E-ATX"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 2: ¿Qué se conecta habitualmente en una ranura PCIe x1?",
-    "opciones": ["GPU potente", "Tarjetas de red o sonido básicas", "Memoria RAM", "Procesador"],
-    "correcta": 1,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 3: ¿Cuál es el primer paso del ciclo de instrucción de la CPU?",
-    "opciones": ["Ejecutar (Execute)", "Decodificar (Decode)", "Recoger (Fetch)", "Almacenar (Store)"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué significa 'litografía' en un procesador?",
-    "opciones": ["El peso del chip", "El tamaño de los transistores (medido en nanómetros)", "La marca del fabricante", "El tipo de caja"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué postula la Ley de Moore?",
-    "opciones": ["La CPU será el doble de grande cada año", "El número de transistores se duplica cada dos años aproximadamente", "El precio sube siempre", "La RAM desaparecerá"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué arquitectura usa instrucciones complejas (x86)?",
-    "opciones": ["RISC", "CISC", "ARM", "MIPS"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué arquitectura usa instrucciones simples y es común en móviles (ARM)?",
-    "opciones": ["CISC", "RISC", "Intel Core", "SATA"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: Ordena las cachés de menor a mayor tamaño:",
-    "opciones": ["L1 < L2 < L3", "L3 < L2 < L1", "L2 < L1 < L3", "L1 < L3 < L2"],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué caché es la más rápida y cercana al núcleo?",
-    "opciones": ["L1", "L2", "L3", "RAM"],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué tipo de memoria RAM se usa actualmente en PCs modernos?",
-    "opciones": ["SDR", "DDR4 / DDR5", "EDO RAM", "SIMM"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué memoria es más rápida que la RAM pero más pequeña?",
-    "opciones": ["SSD", "HDD", "Caché", "DVD"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Para qué sirve el 'Overclocking'?",
-    "opciones": ["Para ahorrar energía", "Para aumentar la velocidad de reloj por encima de lo nominal", "Para limpiar el registro", "Para enfriar el PC"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué es el TDP de una CPU?",
-    "opciones": ["Su potencia de cálculo", "El calor máximo que genera y debe disiparse", "El tamaño en mm", "La cantidad de RAM"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué hace la CPU en el paso de 'Decodificación'?",
-    "opciones": ["Recoger datos de internet", "Entender qué operación debe realizar", "Sumar dos números", "Guardar en el disco"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué permite el Hyper-Threading / SMT?",
-    "opciones": ["Que la CPU use menos RAM", "Que un núcleo físico gestione dos hilos de ejecución", "Que el PC no haga ruido", "Que el SSD sea más rápido"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué ocurre con el precio por GB según bajamos en la jerarquía de memoria?",
-    "opciones": ["Aumenta", "Disminuye significativamente", "Se mantiene igual", "Es aleatorio"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué memoria está integrada directamente en el chip de la CPU?",
-    "opciones": ["RAM", "Caché", "BIOS", "Virtual"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué indica el número de núcleos de una CPU?",
-    "opciones": ["La cantidad de RAM soportada", "La capacidad de procesar tareas en paralelo", "La edad del procesador", "El número de ventiladores"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué es la memoria RAM 'Dual Channel'?",
-    "opciones": ["Tener dos marcas distintas", "Usar dos módulos para duplicar el ancho de banda", "Instalar RAM en el disco duro", "Tener dos sistemas operativos"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué mide la latencia (CAS) de una RAM?",
-    "opciones": ["La velocidad de reloj", "El tiempo que tarda en responder a una solicitud", "El color del módulo", "La capacidad en GB"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué tecnología usa Apple en sus chips M1/M2?",
-    "opciones": ["CISC", "RISC (basada en ARM)", "x86", "PATA"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 3: ¿Qué componente es responsable del ciclo Fetch-Execute?",
-    "opciones": ["RAM", "GPU", "CPU", "Chipset"],
-    "correcta": 2,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 4: ¿Qué es la ESD?",
-    "opciones": ["Un tipo de disco duro", "Descarga electrostática que daña componentes", "Un programa de montaje", "Una marca de placas"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Para qué sirve la pulsera antiestática?",
-    "opciones": ["Para no perderse", "Para igualar el potencial eléctrico y evitar ESD", "Para sujetar la CPU", "Para medir la temperatura"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Dónde debe aplicarse la pasta térmica?",
-    "opciones": ["En las ranuras RAM", "Sobre el IHS del procesador", "En el cable de alimentación", "En los pines del socket"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Cuál es la función de la pasta térmica?",
-    "opciones": ["Pegar el procesador", "Transferir calor eliminando burbujas de aire", "Aislar la electricidad", "Decorar el interior"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué marca indica la orientación correcta de la CPU?",
-    "opciones": ["Una estrella", "Un triángulo en una esquina", "Un código de barras", "Una letra 'A'"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Cómo se debe instalar la memoria RAM?",
-    "opciones": ["Con pegamento", "Alineando la muesca y presionando hasta oír el clic", "Tirándola sobre la placa", "No hace falta presión"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué son los 'standoffs' o separadores?",
-    "opciones": ["Tornillos para el disco duro", "Piezas que evitan que la placa base toque el chasis", "Ventiladores pequeños", "Cables de red"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué factor de forma es el más común en torres estándar?",
-    "opciones": ["Mini-ITX", "ATX", "SFX", "BTX"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué indica una luz roja fija en la placa al encender?",
-    "opciones": ["Todo va bien", "Fallo en algún componente (Debug LED)", "El PC está cargando", "Modo gaming activado"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Por qué es importante la gestión de cables?",
-    "opciones": ["Por estética y para no obstruir el flujo de aire", "Para que el PC pese menos", "Para ahorrar electricidad", "No es importante"],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué herramienta es básica para el montaje?",
-    "opciones": ["Martillo", "Destornillador Phillips #2", "Llave inglesa", "Pegamento"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué es el I/O Shield?",
-    "opciones": ["Una tarjeta de red", "La chapa metálica trasera para los puertos", "Un tipo de ventilador", "El protector de la RAM"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Cuándo se debe instalar el disipador?",
-    "opciones": ["Antes de poner la CPU", "Después de poner la CPU y la pasta térmica", "Al final de todo el montaje", "No es necesario"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué simulador es útil para practicar montaje?",
-    "opciones": ["The Sims", "PC Building Simulator", "Minecraft", "Flight Simulator"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué se debe hacer si un PC no enciende a la primera?",
-    "opciones": ["Tirarlo", "Revisar todas las conexiones y cables", "Cambiar la CPU", "Darle un golpe"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Dónde se conectan los botones frontales de la caja?",
-    "opciones": ["En el puerto SATA", "En el F_PANEL (Front Panel)", "En el zócalo", "En la fuente"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué componente suministra energía a toda la placa?",
-    "opciones": ["CPU", "Fuente de alimentación", "RAM", "CMOS"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Cómo se debe sujetar la placa base?",
-    "opciones": ["Por los cables", "Por los bordes para no tocar circuitos", "Por el socket", "Con las manos mojadas"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué es la refrigeración líquida AIO?",
-    "opciones": ["Echar agua al PC", "Un sistema de circuito cerrado con bomba y radiador", "Un ventilador con hielo", "Soplar muy fuerte"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 4: ¿Qué indica el manual de la placa sobre la RAM?",
-    "opciones": ["Nada importante", "El orden de los slots para Dual Channel", "El precio", "Cómo borrar archivos"],
-    "correcta": 1,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 5: ¿Qué tecnología combina datos, vídeo y carga en un solo cable USB-C?",
-    "opciones": ["HDMI", "Thunderbolt", "VGA", "SATA"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Cuál es la velocidad máxima de Thunderbolt 4?",
-    "opciones": ["10 Gbps", "40 Gbps", "100 Gbps", "5 Gbps"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué periférico es fundamental para procesar gráficos 3D masivos?",
-    "opciones": ["Tarjeta de sonido", "GPU (Tarjeta gráfica)", "Escáner", "Módem"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué conector se usa para monitores digitales modernos?",
-    "opciones": ["PS/2", "HDMI / DisplayPort", "COM1", "LPT1"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué protocolo aprovecha el bus PCIe para SSDs ultrarrápidos?",
-    "opciones": ["USB", "NVMe", "SATA", "IDE"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Cómo se llama el puerto para conectar a internet por cable?",
-    "opciones": ["USB", "Ethernet (RJ-45)", "SATA", "Jack 3.5"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué es un periférico de entrada?",
-    "opciones": ["Monitor", "Teclado", "Impresora", "Altavoces"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué es un periférico de salida?",
-    "opciones": ["Ratón", "Escáner", "Monitor", "Micrófono"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué ventaja tiene DisplayPort sobre HDMI?",
-    "opciones": ["Es más barato", "Soporta mayores frecuencias y múltiples monitores en cadena", "No transmite audio", "Es analógico"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Para qué sirve una tarjeta de sonido dedicada?",
-    "opciones": ["Para que el PC no haga ruido", "Para audio profesional de alta fidelidad", "Para acelerar la CPU", "Para conectar el teclado"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué es el 'Hot Plug'?",
-    "opciones": ["Un cable que se calienta", "Conectar/desconectar un dispositivo sin apagar el equipo", "Un virus", "Limpiar el PC"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué conector físico usa Thunderbolt 3 y 4?",
-    "opciones": ["USB-A", "USB-C", "Mini-HDMI", "Firewire"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué diferencia a un ratón óptico de uno láser?",
-    "opciones": ["El color", "El tipo de sensor y superficie de uso", "La batería", "El número de botones"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué es una GPU integrada?",
-    "opciones": ["Una tarjeta enorme", "Gráficos que vienen dentro de la propia CPU", "Un monitor con CPU", "No existe"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué interfaz usa una tarjeta de red 10GbE profesional?",
-    "opciones": ["USB 2.0", "PCIe", "SATA", "VGA"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué indica el logo de un rayo junto a un puerto USB-C?",
-    "opciones": ["Carga rápida", "Es un puerto Thunderbolt", "Peligro eléctrico", "Que es USB 2.0"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué periférico permite digitalizar documentos físicos?",
-    "opciones": ["Impresora", "Escáner", "Ratón", "Plotter"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué es un teclado mecánico?",
-    "opciones": ["Uno que no usa cables", "Uno que tiene interruptores individuales por tecla", "Uno de papel", "Uno para robots"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué tipo de panel de monitor ofrece mejores colores y ángulos?",
-    "opciones": ["TN", "IPS", "CRT", "Plasma"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 5: ¿Qué es el bus PCIe?",
-    "opciones": ["Un cable de red", "Un estándar de comunicación serie de alta velocidad para tarjetas", "Una marca de RAM", "Un software"],
-    "correcta": 1,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 6: ¿Cuáles son los tres tipos principales de unidades de almacenamiento?",
-    "opciones": ["HDD, SSD y NVMe", "RAM, ROM y Caché", "CD, DVD y Blu-ray", "USB, SD y microSD"],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué interfaz es estándar para servidores de alta gama por su robustez?",
-    "opciones": ["SATA", "SAS (Serial Attached SCSI)", "PATA", "USB"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué RAID suma capacidades y velocidad pero no tiene seguridad?",
-    "opciones": ["RAID 1", "RAID 0", "RAID 5", "RAID 10"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué RAID hace un 'espejo' exacto entre dos discos?",
-    "opciones": ["RAID 0", "RAID 1", "RAID 5", "JBOD"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué RAID usa paridad para permitir el fallo de un disco?",
-    "opciones": ["RAID 0", "RAID 1", "RAID 5", "RAID 0+1"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué es un NAS?",
-    "opciones": ["Un tipo de disco duro", "Un servidor de archivos conectado a la red", "Un protocolo de internet", "Un virus"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Por qué el HDD es más barato por GB?",
-    "opciones": ["Porque es más moderno", "Porque usa tecnología mecánica de platos", "Porque es más pequeño", "Porque no usa electricidad"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué formato físico tienen los SSD M.2?",
-    "opciones": ["Una caja de 3.5 pulgadas", "Una pequeña tarjeta alargada", "Un cable redondo", "Un cilindro"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Cuál es el principal punto débil del RAID 0?",
-    "opciones": ["Es lento", "Si un disco falla, se pierden todos los datos", "Es muy caro", "Solo admite dos discos"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué ventaja tiene NVMe sobre SATA?",
-    "opciones": ["Es más barato", "Mucho mayor ancho de banda al usar bus PCIe", "Es compatible con disqueteras", "No necesita placa base"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué es la paridad en RAID 5?",
-    "opciones": ["Un tipo de cable", "Información matemática que permite reconstruir datos perdidos", "Un disco vacío", "Una contraseña"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Es el RAID una copia de seguridad?",
-    "opciones": ["Sí, la mejor", "No, solo protege ante fallos físicos de discos", "Depende del precio", "Solo el RAID 0"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué es el formato 2.5 pulgadas?",
-    "opciones": ["Un tipo de tornillo", "El tamaño estándar de discos para portátiles y SSDs SATA", "La longitud del cable", "Un monitor"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué sucede si borras un archivo en un RAID 1?",
-    "opciones": ["Se queda en el otro disco", "Se borra en ambos simultáneamente (es un espejo)", "Se mueve a la nube", "No se puede borrar"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Cuál es el número mínimo de discos para un RAID 5?",
-    "opciones": ["Uno", "Dos", "Tres", "Cuatro"],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué interfaz es la evolución de PATA?",
-    "opciones": ["SATA", "USB", "NVMe", "SCSI"],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Para qué se usa un disco SAS?",
-    "opciones": ["Para jugar en casa", "Para entornos empresariales y servidores 24/7", "Para cámaras de fotos", "Para el mando de la TV"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué significa 'Hot Swapping'?",
-    "opciones": ["Que el disco quema", "Cambiar un disco sin apagar el servidor", "Formatear rápido", "Un tipo de RAID"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué es una unidad híbrida (SSHD)?",
-    "opciones": ["Un disco de agua", "Un disco mecánico con una pequeña caché SSD", "Dos discos pegados", "Un SSD muy lento"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 6: ¿Qué es la memoria Flash NAND?",
-    "opciones": ["La base de los SSDs", "Un tipo de RAM antigua", "Un cable", "Un software"],
-    "correcta": 0,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 7: ¿Qué caracteriza a un mainframe frente a un PC?",
-    "opciones": ["Es más pequeño", "Capacidad masiva de procesamiento de transacciones y fiabilidad extrema", "Es solo para juegos", "No usa electricidad"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es un CPD (Centro de Procesamiento de Datos)?",
-    "opciones": ["Un programa de ordenador", "Una instalación física para alojar sistemas informáticos críticos", "Una tienda de PCs", "Un tipo de cable"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Cómo se llama el armario donde se montan los servidores?",
-    "opciones": ["Caja", "Rack", "Estantería", "Maletero"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Cuál es el ancho estándar de un rack?",
-    "opciones": ["10 pulgadas", "19 pulgadas", "50 cm", "1 metro"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué mide la unidad 'U' en un rack?",
-    "opciones": ["La velocidad", "La altura del equipo (1.75 pulgadas)", "El peso", "El consumo"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es la refrigeración por pasillos fríos y calientes?",
-    "opciones": ["Aire acondicionado normal", "Optimización del flujo de aire orientando servidores cara a cara", "Usar hielo", "Abrir las ventanas"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es la redundancia energética?",
-    "opciones": ["Gastar mucha luz", "Tener varias fuentes de energía (SAI, generadores) por si una falla", "Usar pilas", "No apagar nunca las luces"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es un SAI / UPS?",
-    "opciones": ["Un tipo de servidor", "Un dispositivo que da energía temporal mediante baterías si hay un corte", "Un cable de red", "Un ventilador"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es la seguridad física en un CPD?",
-    "opciones": ["Antivirus", "Cámaras, control de acceso y vigilancia", "Firewalls", "Contraseñas"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es la seguridad lógica?",
-    "opciones": ["Poner candados", "Cifrado, firewalls y gestión de permisos", "Limpiar el polvo", "Cerrar la puerta"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué diferencia a un servidor de un PC en cuanto a RAM?",
-    "opciones": ["Usa RAM más barata", "Suele usar memoria ECC (que corrige errores)", "No usa RAM", "Usa la misma"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es la monitorización en un CPD?",
-    "opciones": ["Mirar las pantallas", "Vigilancia constante de temperatura, energía y estado de equipos", "Jugar online", "Instalar Windows"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es un sistema de extinción de incendios por gas?",
-    "opciones": ["Echar agua", "Usar gases que sofocan el fuego sin dañar la electrónica", "Soplar", "No existe"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Para qué sirve un suelo técnico?",
-    "opciones": ["Para que quede bonito", "Para pasar cables y canalizar aire frío por debajo", "Para hacer ejercicio", "Para ahorrar cemento"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es la criticidad de un negocio?",
-    "opciones": ["Lo mucho que critican", "Lo vital que es un sistema para que la empresa funcione", "El precio del servidor", "La velocidad de internet"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es un servidor 'Blade'?",
-    "opciones": ["Un servidor muy afilado", "Servidores modulares muy compactos que comparten chasis", "Un servidor con espada", "Un tipo de disco"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es un clúster de servidores?",
-    "opciones": ["Un servidor roto", "Un grupo de servidores que trabajan juntos como una sola unidad", "Un cable largo", "Una oficina"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es el PUE en un CPD?",
-    "opciones": ["Un programa", "Una métrica de eficiencia energética", "El peso del rack", "Un virus"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Qué es una red SAN?",
-    "opciones": ["Una red para personas", "Red de área de almacenamiento de alta velocidad", "Un tipo de router", "Un cable de audio"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 7: ¿Por qué los CPDs suelen tener doble acometida eléctrica?",
-    "opciones": ["Para gastar más", "Para tener suministro de dos subestaciones distintas por seguridad", "No la tienen", "Para cargar móviles"],
-    "correcta": 1,
-    "cita": ""
-  },
-
-  {
-    "enunciado": "TEMA 8: ¿Qué diferencia una imagen de respaldo de una copia de archivos?",
-    "opciones": ["Es lo mismo", "La imagen incluye el SO, aplicaciones y configuración completa", "La imagen es solo de fotos", "Los archivos son más seguros"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué significa P2V?",
-    "opciones": ["Pagar por ver", "Pasar un sistema físico a una máquina virtual", "Poner dos ventiladores", "Protocolo de vídeo"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es el mantenimiento preventivo?",
-    "opciones": ["Arreglar algo roto", "Tareas para evitar fallos antes de que ocurran (limpieza, etc.)", "Comprar un PC nuevo", "Instalar juegos"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es el mantenimiento correctivo?",
-    "opciones": ["Limpiar el PC", "Reparar o sustituir componentes que ya han fallado", "Hacer copias", "Mirar la temperatura"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es el mantenimiento predictivo?",
-    "opciones": ["Adivinar el futuro", "Usar datos (S.M.A.R.T, temperatura) para anticipar un fallo inminente", "Limpiar con aire", "Actualizar el BIOS"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué herramienta permite ver el estado de salud (S.M.A.R.T.) de un disco?",
-    "opciones": ["Word", "CrystalDiskInfo", "Calculadora", "Paint"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es una copia de seguridad incremental?",
-    "opciones": ["Copia todo siempre", "Copia solo lo que ha cambiado desde la última copia", "Borra todo", "Copia solo fotos"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es el Bare-Metal Restore?",
-    "opciones": ["Limpiar el metal", "Restaurar una imagen en un PC sin sistema operativo previo", "Cambiar la caja", "Pintar el PC"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Por qué el polvo es malo para el PC?",
-    "opciones": ["Porque es feo", "Porque actúa como aislante térmico y sube la temperatura", "No es malo", "Porque borra archivos"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué programa es útil para monitorizar temperaturas y voltajes?",
-    "opciones": ["HWiNFO", "Excel", "Chrome", "Spotify"],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es la regla 3-2-1 del backup?",
-    "opciones": ["3 PCs, 2 discos, 1 copia", "3 copias, 2 soportes, 1 fuera de la oficina", "3 días, 2 horas, 1 minuto", "No existe"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es el 'Ransomware'?",
-    "opciones": ["Un driver", "Virus que cifra tus datos y pide rescate", "Un juego", "Un tipo de RAM"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es un 'Snapshot'?",
-    "opciones": ["Una foto con el móvil", "Captura del estado de una máquina virtual en un momento dado", "Un cable", "Un tipo de disco"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Para qué sirve un spray de aire comprimido?",
-    "opciones": ["Para respirar", "Para limpiar el polvo de ventiladores y disipadores", "Para enfriar el café", "Para pintar"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué se debe hacer antes de limpiar el interior de un PC?",
-    "opciones": ["Encenderlo", "Apagarlo y desconectarlo de la corriente", "Poner música", "Abrir el navegador"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es la clonación de discos?",
-    "opciones": ["Tener dos discos iguales", "Crear una copia idéntica sector por sector de un disco en otro", "Un virus", "No se puede"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué componente suele fallar primero por tener partes móviles?",
-    "opciones": ["CPU", "HDD", "RAM", "Placa Base"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es un plan de recuperación de desastres (DRP)?",
-    "opciones": ["Un juego", "Documento con pasos a seguir para restaurar servicios tras un fallo grave", "Un cable", "Un tipo de BIOS"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Cada cuánto se recomienda una limpieza física interna?",
-    "opciones": ["Cada día", "Anualmente (dependiendo del entorno)", "Nunca", "Cada 10 años"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "TEMA 8: ¿Qué es verificar una copia de seguridad?",
-    "opciones": ["Mirar si el archivo está", "Comprobar que los datos se pueden restaurar correctamente", "Borrarla", "Ponerle nombre"],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Cómo se define el cloud computing según el texto?",
-    "opciones": [
-      "Alquilar un local físico para instalar servidores.",
-      "Usar recursos informáticos a través de Internet sin tener los servidores físicamente.",
-      "Comprar hardware e instalarlo en un centro de datos propio.",
-      "Instalar sistemas operativos en máquinas locales sin red."
-    ],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "En el modelo IaaS, ¿qué parte es gestionada por el proveedor?",
-    "opciones": [
-      "Aplicaciones y datos del cliente.",
-      "Hardware, red física, almacenamiento y virtualización.",
-      "Sistema operativo y middleware.",
-      "Instalación de parches de software del usuario."
-    ],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "En el modelo PaaS, ¿qué responsabilidad tiene el usuario?",
-    "opciones": [
-      "Actualizar los parches del sistema operativo.",
-      "Mantener el hardware físico.",
-      "Gestionar su aplicación y sus datos.",
-      "Gestionar la climatización de la sala de servidores."
+      "Inventar el primer ratón óptico",
+      "Eliminar el uso de la CPU",
+      "Unificar el almacenamiento de instrucciones y datos en la misma memoria",
+      "Separar físicamente la memoria de datos de la de instrucciones"
     ],
     "correcta": 2,
-    "cita": ""
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
   },
   {
-    "enunciado": "¿Cuál es un ejemplo de SaaS mencionado en el documento?",
+    "enunciado": "¿Cuáles son los cuatro pilares fundamentales de la arquitectura Von Neumann?",
     "opciones": [
-      "Gmail o Microsoft 365.",
-      "Instancias EC2 de AWS.",
-      "Google App Engine.",
-      "Azure Resource Manager."
+      "CPU, Memoria Principal, Periféricos de E/S y Buses de comunicación",
+      "Monitor, Teclado, Ratón e Impresora",
+      "Software de sistema, Aplicaciones, Drivers y BIOS",
+      "Internet, Redes, Servidores y Clientes"
     ],
     "correcta": 0,
-    "cita": ""
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
   },
   {
-    "enunciado": "¿Qué ventaja principal ofrece el modelo SaaS al usuario final?",
+    "enunciado": "¿Cómo se define a la Unidad Central de Procesamiento (CPU)?",
     "opciones": [
-      "Necesidad de instalar software en el servidor propio.",
-      "Control total sobre el sistema operativo.",
-      "Cero administración técnica.",
-      "Capacidad de configurar el hardware del servidor."
-    ],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Qué caracteriza a AWS según la descripción de los grandes proveedores?",
-    "opciones": [
-      "Está muy integrado exclusivamente con Active Directory.",
-      "No ofrece servicios de infraestructura.",
-      "Es el pionero y líder en cuota de mercado.",
-      "Es fuerte únicamente en inteligencia artificial de Google."
-    ],
-    "correcta": 2,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Qué caracteriza a Microsoft Azure en el mercado cloud?",
-    "opciones": [
-      "Estar enfocado solo en usuarios de Apple.",
-      "Muy integrado con el ecosistema Windows y empresas que usan Microsoft.",
-      "Ser el único proveedor que no ofrece IaaS.",
-      "No permitir el uso de bases de datos."
-    ],
-    "correcta": 1,
-    "cita": ""
-  },
-  {
-    "enunciado": "En el esquema visual de gestión, ¿quién gestiona la red física en IaaS?",
-    "opciones": [
-      "El usuario.",
-      "Nadie, es automática.",
-      "Ambos al 50%.",
-      "El proveedor."
+      "La interfaz gráfica que ve el usuario",
+      "El componente que almacena permanentemente los archivos",
+      "El cable que conecta el monitor a la corriente",
+      "El cerebro del ordenador que ejecuta instrucciones y procesa datos"
     ],
     "correcta": 3,
-    "cita": ""
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
   },
   {
-    "enunciado": "¿Qué permite el autoescalado mencionado en el caso de Netflix?",
+    "enunciado": "¿Qué función cumple la Memoria Principal (RAM)?",
     "opciones": [
-      "Lanzar más instancias automáticamente cuando sube la demanda y apagarlas cuando baja.",
-      "Evitar que los usuarios se conecten desde otros países.",
-      "Cambiar el código de la aplicación sin avisar.",
-      "Aumentar el precio de la suscripción según el horario."
-    ],
-    "correcta": 0,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Qué servicio de AWS usa Netflix para almacenamiento masivo de contenidos?",
-    "opciones": [
-      "Amazon EC2.",
-      "Google Cloud Storage.",
-      "AWS Lambda.",
-      "Amazon S3."
-    ],
-    "correcta": 3,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Qué ventaja de AWS permite a Netflix redirigir tráfico si falla una zona?",
-    "opciones": [
-      "Cero coste de almacenamiento.",
-      "Velocidad de internet ilimitada.",
-      "Disponibilidad muy alta.",
-      "Eliminación de la base de datos."
+      "Guardar fotos y videos para siempre",
+      "Enfriar el procesador mediante ventilación",
+      "Almacenar temporalmente programas y datos mientras se ejecutan",
+      "Traducir los comandos de voz del usuario"
     ],
     "correcta": 2,
-    "cita": ""
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
   },
   {
-    "enunciado": "¿Qué herramienta CLI se asocia con Google Cloud?",
+    "enunciado": "¿Qué permiten los Periféricos de Entrada/Salida?",
     "opciones": [
-      "AWS CLI.",
-      "Bash CLI.",
-      "Azure CLI.",
-      "gcloud CLI."
-    ],
-    "correcta": 3,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Para qué sirven las 'budget alerts' en la nube?",
-    "opciones": [
-      "Para actualizar el sistema operativo.",
-      "Para cambiar la contraseña.",
-      "Para borrar archivos antiguos.",
-      "Para avisar si el coste se acerca a un límite mensual."
-    ],
-    "correcta": 3,
-    "cita": ""
-  },
-  {
-    "enunciado": "¿Qué significa que el modelo de pago por uso convierte el gasto en OpEx?",
-    "opciones": [
-      "Que los servidores pasan a ser propiedad del cliente.",
-      "Que se convierte en un gasto operativo en lugar de una inversión inicial (CapEx).",
-      "Que el proveedor regala el hardware.",
-      "Que el gasto es siempre el mismo todos los meses."
+      "Realizar cálculos matemáticos complejos",
+      "La interacción del ordenador con el mundo exterior",
+      "Solo sirven para cargar la batería",
+      "Aumentar la velocidad de los buses"
     ],
     "correcta": 1,
-    "cita": ""
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué son los Buses de comunicación?",
+    "opciones": [
+      "Cables de alimentación de alto voltaje",
+      "Tipos de procesadores antiguos",
+      "Sistemas de transporte para empleados de tecnología",
+      "Autopistas digitales que transportan información entre componentes"
+    ],
+    "correcta": 3,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es un ejemplo de Software de Sistema?",
+    "opciones": [
+      "Sistemas Operativos y Controladores (Drivers)",
+      "Navegadores web y juegos",
+      "Antivirus y reproductores de música",
+      "Microsoft Word y Excel"
+    ],
+    "correcta": 0,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el Software de Aplicación?",
+    "opciones": [
+      "El conjunto de cables internos",
+      "Programas diseñados para realizar tareas específicas del usuario",
+      "El código que arranca la placa base",
+      "La estructura física de la caja"
+    ],
+    "correcta": 1,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué diferencia al Freeware del Software Libre?",
+    "opciones": [
+      "El Freeware siempre es de mejor calidad",
+      "No hay diferencia, son términos idénticos",
+      "El Software Libre es siempre de pago",
+      "El Freeware es gratuito pero restrictivo; el Software Libre otorga libertades de uso y modificación"
+    ],
+    "correcta": 3,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es un mito común sobre el hardware mencionado en el documento?",
+    "opciones": [
+      "Que un ordenador es solo la torre",
+      "Que la RAM no es necesaria para jugar",
+      "Que el teclado es más importante que la CPU",
+      "Que los monitores no emiten luz"
+    ],
+    "correcta": 0,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿De qué depende el rendimiento de un ordenador según el resumen final?",
+    "opciones": [
+      "Únicamente de los GHz del procesador",
+      "Solo de la capacidad del disco duro",
+      "Del equilibrio entre todos los subsistemas",
+      "Exclusivamente de la marca del monitor"
+    ],
+    "correcta": 2,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué permite la arquitectura Von Neumann sin necesidad de modificar el hardware?",
+    "opciones": [
+      "Reparar circuitos automáticamente",
+      "Cambiar el color de la interfaz",
+      "Aumentar la potencia eléctrica",
+      "Cambiar de tarea cargando un nuevo programa"
+    ],
+    "correcta": 3,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente se encarga de realizar operaciones lógicas y aritméticas?",
+    "opciones": [
+      "La memoria RAM",
+      "La ALU (dentro de la CPU)",
+      "El bus de datos",
+      "El teclado"
+    ],
+    "correcta": 1,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa que el software sea 'intangible'?",
+    "opciones": [
+      "Que son instrucciones lógicas que no se pueden tocar físicamente",
+      "Que solo funciona en la nube",
+      "Que no tiene ningún valor económico",
+      "Que desaparece al apagar el equipo"
+    ],
+    "correcta": 0,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué afirma el documento sobre el Software Libre en relación a su calidad?",
+    "opciones": [
+      "Nadie lo usa en entornos profesionales",
+      "Es examinado por miles de expertos, permitiendo detectar fallos rápido",
+      "Es muy difícil de instalar",
+      "Es de peor calidad por ser gratuito"
+    ],
+    "correcta": 1,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la función del DATO HISTÓRICO mencionado en la página 2?",
+    "opciones": [
+      "Describir el primer smartphone",
+      "Explicar cómo se inventó internet",
+      "Hablar sobre la vida de Bill Gates",
+      "Señalar que la arquitectura fue propuesta en 1945"
+    ],
+    "correcta": 3,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿A qué se refiere el término 'Sistema Funcional'?",
+    "opciones": [
+      "A la conexión a internet",
+      "A un programa de edición de fotos",
+      "Al conjunto de CPU, memoria y periféricos trabajando juntos",
+      "Solo a la placa base"
+    ],
+    "correcta": 2,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente unifica el almacenamiento de software y datos?",
+    "opciones": [
+      "La memoria principal",
+      "El bus de direcciones",
+      "El periférico de salida",
+      "La unidad de control"
+    ],
+    "correcta": 0,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué metáfora usa el texto para describir a la CPU?",
+    "opciones": [
+      "Almacén de datos",
+      "Motor de combustión",
+      "Cerebro digital altamente organizado",
+      "Corazón del sistema"
+    ],
+    "correcta": 2,
+    "cita": "UT1_Introduccion_y_arquitectura_basica.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente se describe como el 'sistema nervioso central' y 'esqueleto' del ordenador?",
+    "opciones": [
+      "El microprocesador (CPU)",
+      "La fuente de alimentación",
+      "La memoria RAM",
+      "La placa base (motherboard)"
+    ],
+    "correcta": 3,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el PCB en el contexto de una placa base?",
+    "opciones": [
+      "Una compleja placa de circuito impreso que interconecta los componentes",
+      "El ventilador principal del chasis",
+      "Un protocolo de comunicación inalámbrica",
+      "Un tipo de memoria volátil"
+    ],
+    "correcta": 0,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se conocen los diferentes tamaños estandarizados de las placas base?",
+    "opciones": [
+      "Modelos de escala",
+      "Factores de forma",
+      "Estándares de voltaje",
+      "Formatos de capacidad"
+    ],
+    "correcta": 1,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué factor de forma es el estándar para torres de sobremesa?",
+    "opciones": [
+      "Nano-ATX",
+      "Mini-ITX",
+      "Micro-ATX",
+      "ATX"
+    ],
+    "correcta": 3,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la característica principal del factor de forma Mini-ITX?",
+    "opciones": [
+      "Tiene el mayor número de ranuras de expansión",
+      "No necesita placa base",
+      "Es muy compacto, para equipos de pequeño formato",
+      "Es el que más energía consume"
+    ],
+    "correcta": 2,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente de la placa base es el receptáculo donde se aloja el cerebro del ordenador?",
+    "opciones": [
+      "El puente sur (Southbridge)",
+      "El zócalo (Socket)",
+      "La batería CMOS",
+      "La ranura RAM"
+    ],
+    "correcta": 1,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué permite que los componentes de la placa base se comuniquen entre sí?",
+    "opciones": [
+      "Los buses de datos",
+      "La carcasa de la torre",
+      "La pasta térmica",
+      "Los ventiladores"
+    ],
+    "correcta": 0,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa el término 'chipset' en una placa base?",
+    "opciones": [
+      "Un programa de edición de fotos",
+      "Es el conjunto de chips que gestiona el flujo de datos entre los componentes",
+      "La marca de la tarjeta gráfica",
+      "El cable de conexión al monitor"
+    ],
+    "correcta": 1,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué parte del chipset gestiona tradicionalmente la comunicación de alta velocidad (CPU y RAM)?",
+    "opciones": [
+      "BIOS/UEFI",
+      "Zócalo LGA",
+      "Puente Norte (Northbridge)",
+      "Puente Sur (Southbridge)"
+    ],
+    "correcta": 2,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿De qué se encarga generalmente el Puente Sur (Southbridge)?",
+    "opciones": [
+      "De periféricos y almacenamiento (USB, SATA, etc.)",
+      "Del cálculo matemático principal",
+      "De alimentar el monitor",
+      "De la gestión de la memoria caché L1"
+    ],
+    "correcta": 0,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa BIOS?",
+    "opciones": [
+      "Board Internal Optical Sensor",
+      "Binary Integrated Operating System",
+      "Basic Input/Output System",
+      "Basic Integrated Output Service"
+    ],
+    "correcta": 2,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Dónde se almacena el firmware BIOS/UEFI?",
+    "opciones": [
+      "En el disco duro principal",
+      "En la nube",
+      "En la memoria RAM",
+      "En un chip de memoria no volátil en la placa base"
+    ],
+    "correcta": 3,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la función del POST al encender el ordenador?",
+    "opciones": [
+      "Realizar un autodiagnóstico de encendido para verificar el hardware",
+      "Instalar el sistema operativo",
+      "Enviar un correo electrónico de estado",
+      "Borrar los archivos temporales"
+    ],
+    "correcta": 0,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué tecnología moderna ha sustituido a la antigua BIOS?",
+    "opciones": [
+      "DDR5",
+      "PCI Express 5.0",
+      "SATA III",
+      "UEFI (Unified Extensible Firmware Interface)"
+    ],
+    "correcta": 3,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Para qué sirve la pila de botón (CR2032) de la placa base?",
+    "opciones": [
+      "Para refrigerar el chipset",
+      "Para mantener la configuración de la BIOS y el reloj cuando no hay corriente",
+      "Para iluminar los LEDs internos",
+      "Para dar potencia extra al procesador"
+    ],
+    "correcta": 1,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué opción de la BIOS/UEFI se suele usar para recuperar el sistema tras una mala configuración?",
+    "opciones": [
+      "Overclock CPU 100%",
+      "Delete All Partitions",
+      "Load Optimized Defaults",
+      "Format Hard Drive"
+    ],
+    "correcta": 2,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué herramienta de virtualización menciona el texto para practicar configuraciones de UEFI?",
+    "opciones": [
+      "VirtualBox",
+      "Excel",
+      "Steam",
+      "Photoshop"
+    ],
+    "correcta": 0,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué sucede si la BIOS no detecta la memoria RAM durante el POST?",
+    "opciones": [
+      "Se abre automáticamente el navegador",
+      "El sistema suele emitir una serie de pitidos de error",
+      "El ordenador funciona más rápido",
+      "Se imprime un informe"
+    ],
+    "correcta": 1,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente interconecta físicamente todos los elementos para que se comuniquen?",
+    "opciones": [
+      "El cable HDMI",
+      "El ratón",
+      "La placa base",
+      "El chasis"
+    ],
+    "correcta": 2,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Qué factor de forma es más pequeño que el ATX pero tiene más ranuras que el Mini-ITX?",
+    "opciones": [
+      "Pico-ITX",
+      "XL-ATX",
+      "E-ATX",
+      "Micro-ATX"
+    ],
+    "correcta": 3,
+    "cita": "UT2_Placa Base, Chipset y BIOS.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se define comúnmente a la Unidad Central de Procesamiento (CPU)?",
+    "opciones": [
+      "Cerebro electrónico que ejecuta instrucciones y procesa datos",
+      "Sistema de refrigeración líquida",
+      "Periférico de entrada de alta velocidad",
+      "Unidad de almacenamiento masivo"
+    ],
+    "correcta": 0,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Cuáles son los tres pasos del ciclo de instrucción de la CPU?",
+    "opciones": [
+      "Read, Write, Delete",
+      "Input, Process, Output",
+      "Fetch, Decode, Execute (Recoger, Decodificar, Ejecutar)",
+      "Load, Store, Move"
+    ],
+    "correcta": 2,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿En qué unidad se mide la velocidad del ciclo de instrucción de la CPU?",
+    "opciones": [
+      "Voltios (V)",
+      "Hercios (Hz)",
+      "Amperios (A)",
+      "Bits por segundo (bps)"
+    ],
+    "correcta": 1,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Cuál fue el primer microprocesador comercial lanzado por Intel en 1971?",
+    "opciones": [
+      "Intel 4004",
+      "Intel 8086",
+      "Core i7",
+      "Pentium"
+    ],
+    "correcta": 0,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿A qué se refiere el término 'litografía' en la fabricación de CPUs?",
+    "opciones": [
+      "Al material de la carcasa externa",
+      "Al tipo de ventilador utilizado",
+      "Al lenguaje de programación del kernel",
+      "Al tamaño de los transistores, medido en nanómetros (nm)"
+    ],
+    "correcta": 3,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la función principal de la Unidad de Control (CU)?",
+    "opciones": [
+      "Coordinar y dirigir el flujo de datos y las instrucciones",
+      "Generar la señal de vídeo",
+      "Realizar cálculos matemáticos complejos",
+      "Almacenar los archivos del usuario"
+    ],
+    "correcta": 0,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente de la CPU realiza las operaciones matemáticas y lógicas?",
+    "opciones": [
+      "Memoria Caché",
+      "Registro de Instrucción",
+      "Unidad Aritmético-Lógica (ALU)",
+      "Unidad de Control"
+    ],
+    "correcta": 2,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué son los 'Registros' dentro de la CPU?",
+    "opciones": [
+      "Ranuras de expansión PCI",
+      "Pequeñas áreas de almacenamiento de ultra-alta velocidad",
+      "Puertos de conexión USB",
+      "Bases de datos externas"
+    ],
+    "correcta": 1,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué ventaja principal ofrece la Memoria Caché?",
+    "opciones": [
+      "Sustituye por completo a la memoria RAM",
+      "Permite almacenar terabytes de información",
+      "Reduce el tiempo de espera de la CPU al acceder a datos frecuentes",
+      "Hace que el monitor tenga más brillo"
+    ],
+    "correcta": 2,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el Overclocking?",
+    "opciones": [
+      "Formatear el disco duro a baja velocidad",
+      "Aumentar la velocidad de reloj por encima de las especificaciones de fábrica",
+      "Instalar dos procesadores en una misma placa",
+      "Reducir el consumo eléctrico para ahorrar energía"
+    ],
+    "correcta": 1,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el riesgo principal de realizar Overclocking?",
+    "opciones": [
+      "Aumento excesivo de la temperatura y posible inestabilidad",
+      "Que el teclado deje de funcionar",
+      "Pérdida de la conexión a internet",
+      "Que el sistema operativo se borre"
+    ],
+    "correcta": 0,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa que un procesador tenga múltiples núcleos (Multi-core)?",
+    "opciones": [
+      "Que no necesita memoria RAM externa",
+      "Que tiene muchas patillas de conexión",
+      "Que integra varios 'cerebros' independientes en un mismo chip",
+      "Que puede usar varias tarjetas gráficas"
+    ],
+    "correcta": 2,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el Multithreading (como el Hyper-Threading)?",
+    "opciones": [
+      "Un tipo de cableado interno de la placa base",
+      "Un método para descargar archivos más rápido",
+      "La limpieza física de los ventiladores",
+      "Tecnología que permite a un núcleo gestionar dos hilos de trabajo a la vez"
+    ],
+    "correcta": 3,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el Benchmarking?",
+    "opciones": [
+      "La actualización del firmware de la BIOS",
+      "Proceso de medir el rendimiento del hardware mediante pruebas estandarizadas",
+      "El diseño artístico de la caja del ordenador",
+      "Un sistema de seguridad contra virus"
+    ],
+    "correcta": 1,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué diferencia a un benchmark sintético de uno de 'mundo real'?",
+    "opciones": [
+      "No hay diferencia, son sinónimos",
+      "El sintético es manual y el real es automático",
+      "El sintético solo sirve para móviles",
+      "El sintético mide rendimiento teórico; el real mide rendimiento práctico"
+    ],
+    "correcta": 3,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Por qué no se deben comparar puntuaciones de diferentes programas de benchmark?",
+    "opciones": [
+      "Porque la CPU se puede sobrecalentar",
+      "Porque los resultados siempre son los mismos",
+      "Porque cada programa usa sus propios algoritmos y escalas de puntuación",
+      "Porque es ilegal según la licencia de uso"
+    ],
+    "correcta": 2,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué indica un valor bajo de nanómetros (nm) en la litografía de una CPU?",
+    "opciones": [
+      "Menor velocidad de procesamiento",
+      "Mayor eficiencia energética y más transistores en menos espacio",
+      "Que el procesador es físicamente más grande",
+      "Que el procesador es más antiguo"
+    ],
+    "correcta": 1,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué sucede en el paso 'Decode' (Decodificar) del ciclo de instrucción?",
+    "opciones": [
+      "Se guarda el resultado en el disco duro",
+      "Se borra la memoria RAM",
+      "Se apaga el equipo",
+      "La CPU interpreta la instrucción para saber qué operación realizar"
+    ],
+    "correcta": 3,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Qué función cumple el disipador/ventilador sobre la CPU?",
+    "opciones": [
+      "Mantener la temperatura dentro de límites seguros",
+      "Aumentar la cantidad de núcleos",
+      "Mejorar la conexión wifi",
+      "Limpiar el polvo de la placa"
+    ],
+    "correcta": 0,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿A qué se refiere el término 'Fetch' en el ciclo de CPU?",
+    "opciones": [
+      "Cerrar un programa",
+      "Expulsar un disco de la unidad óptica",
+      "Enviar datos a la impresora",
+      "Recoger una instrucción desde la memoria RAM"
+    ],
+    "correcta": 3,
+    "cita": "UT3_ Microprocesadores y memoria.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la principal amenaza invisible al manipular componentes electrónicos según el texto?",
+    "opciones": [
+      "La luz solar directa",
+      "El polvo ambiental",
+      "La humedad del aire",
+      "La descarga electrostática (ESD)"
+    ],
+    "correcta": 3,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué herramienta se recomienda usar para proteger los componentes de la carga acumulada al caminar?",
+    "opciones": [
+      "Pulsera antiestática conectada a masa",
+      "Destornillador con mango de madera",
+      "Gafas de protección",
+      "Guantes de látex desechables"
+    ],
+    "correcta": 0,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué tipo de destornillador es el adecuado para la mayoría de los tornillos de un PC?",
+    "opciones": [
+      "Allen de 3mm",
+      "Torx T10",
+      "Plano de precisión",
+      "Phillips #2 con punta imantada"
+    ],
+    "correcta": 3,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se recomienda preparar la placa base antes de introducirla en la caja?",
+    "opciones": [
+      "Atornillarla primero y luego poner los componentes",
+      "Instalar CPU, RAM y disipador fuera de la caja",
+      "Conectar todos los cables de la fuente primero",
+      "Limpiarla con agua destilada"
+    ],
+    "correcta": 1,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué elemento se debe colocar entre el microprocesador y el disipador para eliminar huecos de aire?",
+    "opciones": [
+      "Pasta térmica",
+      "Lámina de aluminio",
+      "Pegamento de contacto",
+      "Cinta aislante"
+    ],
+    "correcta": 0,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el I/O Shield o backplate?",
+    "opciones": [
+      "Un protector para el ventilador frontal",
+      "La chapa metálica trasera para los conectores de la placa",
+      "La tapa lateral transparente de la caja",
+      "Un filtro de polvo para la fuente"
+    ],
+    "correcta": 1,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué son los 'standoffs' o separadores?",
+    "opciones": [
+      "Piezas que evitan que la placa base toque el metal de la caja",
+      "Gomas para silenciar los discos duros",
+      "Soportes para la tarjeta gráfica",
+      "Bridas para organizar cables"
+    ],
+    "correcta": 0,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿En qué sentido se deben apretar los tornillos de la placa base?",
+    "opciones": [
+      "Todos los de la derecha primero",
+      "En el sentido de las agujas del reloj uno a uno",
+      "En cruz o X para repartir la presión",
+      "Solo los de las esquinas"
+    ],
+    "correcta": 2,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el cable de alimentación principal de la placa base?",
+    "opciones": [
+      "PCIe de 6 pines",
+      "ATX de 24 pines",
+      "Molex de 4 pines",
+      "SATA de energía"
+    ],
+    "correcta": 1,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué nombre recibe el conector que alimenta específicamente al procesador?",
+    "opciones": [
+      "USB interno",
+      "Front Panel Audio",
+      "EPS +12V (4 o 8 pines)",
+      "Chassis Fan"
+    ],
+    "correcta": 2,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se identifica la polaridad (positivo) en los cables del panel frontal si no hay colores?",
+    "opciones": [
+      "Por una pequeña flecha o triángulo en el plástico",
+      "No tienen polaridad",
+      "Es el que está a la izquierda",
+      "El cable siempre es rojo"
+    ],
+    "correcta": 0,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué beneficio aporta una buena gestión de cables (cable management)?",
+    "opciones": [
+      "Reduce el consumo de electricidad",
+      "Hace que el disco duro sea más silencioso",
+      "Mejora el flujo de aire y facilita el mantenimiento",
+      "Aumenta la velocidad del procesador"
+    ],
+    "correcta": 2,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué se debe comprobar antes de cerrar la caja por primera vez?",
+    "opciones": [
+      "Que la conexión a internet sea rápida",
+      "Que los ventiladores giran y los LEDs de la caja funcionan",
+      "Que el monitor no tenga píxeles muertos",
+      "Que el sistema operativo esté actualizado"
+    ],
+    "correcta": 1,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué simulador se menciona como herramienta pedagógica para practicar el montaje?",
+    "opciones": [
+      "Flight Simulator",
+      "Minecraft",
+      "The Sims",
+      "PC Building Simulator"
+    ],
+    "correcta": 3,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿A qué se debe el 99% de los fallos cuando un PC nuevo no enciende?",
+    "opciones": [
+      "Falta de pasta térmica",
+      "Conexiones sueltas o mal orientadas",
+      "Incompatibilidad de software",
+      "Componentes quemados por la fábrica"
+    ],
+    "correcta": 1,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el primer paso recomendado ante un PC que no arranca?",
+    "opciones": [
+      "Comprar una placa base nueva",
+      "Formatear el disco duro",
+      "Revisar cables asentados y botón Power conectado",
+      "Llamar al servicio técnico oficial"
+    ],
+    "correcta": 2,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para cortar las bridas sobrantes?",
+    "opciones": [
+      "Alicates de corte",
+      "Sierra de metal",
+      "Cúter de precisión",
+      "Tijeras de papel"
+    ],
+    "correcta": 0,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Sobre qué tipo de superficie se debe trabajar para evitar ESD?",
+    "opciones": [
+      "Directamente en el suelo",
+      "En una mesa de plástico con ruedas",
+      "Sobre una manta de lana",
+      "Mesa rígida evitando alfombras"
+    ],
+    "correcta": 3,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué se debe consultar siempre para conocer el 'pin-out' de los conectores frontales?",
+    "opciones": [
+      "La Wikipedia",
+      "La caja del procesador",
+      "El manual de la placa base",
+      "La etiqueta de la fuente"
+    ],
+    "correcta": 2,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué elemento ayuda a organizar los tornillos durante el montaje?",
+    "opciones": [
+      "El suelo de la habitación",
+      "Una bolsa de plástico",
+      "Un vaso con agua",
+      "Bandeja magnética"
+    ],
+    "correcta": 3,
+    "cita": "UT4_Montaje_mantenimiento_equipos.pdf"
+  },
+  {
+    "enunciado": "¿Qué permite una tarjeta de expansión en un equipo informático?",
+    "opciones": [
+      "Aumentar el tamaño físico de la caja",
+      "Añadir nuevas capacidades o mejorar drásticamente las existentes",
+      "Sustituir la fuente de alimentación",
+      "Eliminar la necesidad de usar un sistema operativo"
+    ],
+    "correcta": 1,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la ranura de expansión estándar utilizada por la mayoría de las tarjetas actuales?",
+    "opciones": [
+      "IDE",
+      "ISA",
+      "PCI Express (PCIe)",
+      "AGP"
+    ],
+    "correcta": 2,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente está diseñado específicamente para procesar imágenes, vídeo y gráficos 3D en paralelo?",
+    "opciones": [
+      "GPU (Graphics Processing Unit)",
+      "Memoria RAM",
+      "CPU",
+      "Chipset"
+    ],
+    "correcta": 0,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué ranura PCIe suele ocupar una GPU dedicada debido a su alta demanda de ancho de banda?",
+    "opciones": [
+      "PCIe x1",
+      "PCIe x16",
+      "PCIe x4",
+      "M.2 SATA"
+    ],
+    "correcta": 1,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué función cumple una tarjeta de red (NIC)?",
+    "opciones": [
+      "Procesa el sonido envolvente",
+      "Gestiona la velocidad del ventilador",
+      "Permite que el ordenador se conecte a una red y se comunique con otros equipos",
+      "Almacena los archivos del usuario"
+    ],
+    "correcta": 2,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se define un 'bus' en el contexto de hardware?",
+    "opciones": [
+      "Es el camino físico por el cual viajan los datos",
+      "Es un tipo de memoria volátil",
+      "Es el lenguaje de software que entienden los periféricos",
+      "Es el cable de alimentación de la red eléctrica"
+    ],
+    "correcta": 0,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué diferencia a un 'protocolo' de un 'bus'?",
+    "opciones": [
+      "No hay diferencia, son sinónimos",
+      "El protocolo es la pieza física de metal",
+      "El bus es inalámbrico y el protocolo es por cable",
+      "El protocolo es el conjunto de reglas o lenguaje que define cómo se intercambia la información"
+    ],
+    "correcta": 3,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el puerto más común para conectar periféricos como teclados, ratones y discos externos?",
+    "opciones": [
+      "PS/2",
+      "Serial RS-232",
+      "USB (Universal Serial Bus)",
+      "VGA"
+    ],
+    "correcta": 2,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué ventaja ofrece el estándar USB-C frente a versiones anteriores de USB?",
+    "opciones": [
+      "Es más lento pero más seguro",
+      "Solo funciona con ordenadores Apple",
+      "Es solo para dispositivos de audio",
+      "Es un conector reversible que puede transportar datos, vídeo y mucha energía"
+    ],
+    "correcta": 3,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Para qué se utilizan los puertos HDMI y DisplayPort?",
+    "opciones": [
+      "Para conectar módulos de memoria RAM",
+      "Para transmitir audio y vídeo digital de alta definición",
+      "Para la alimentación eléctrica de la torre",
+      "Para conectar impresoras antiguas"
+    ],
+    "correcta": 1,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué es NVMe (Non-Volatile Memory Express)?",
+    "opciones": [
+      "Un tipo de tarjeta de sonido profesional",
+      "Un sistema de refrigeración líquida",
+      "Un protocolo diseñado para SSDs de alta velocidad que aprovecha el bus PCIe",
+      "Una marca de tarjetas gráficas"
+    ],
+    "correcta": 2,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué tecnología combina datos, vídeo y energía en un solo cable a través de USB-C?",
+    "opciones": [
+      "Bluetooth",
+      "Thunderbolt",
+      "FireWire",
+      "Ethernet"
+    ],
+    "correcta": 1,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la velocidad máxima típica de Thunderbolt 3 y 4 mencionada en el resumen?",
+    "opciones": [
+      "40 Gbps",
+      "100 Gbps",
+      "10 Gbps",
+      "480 Mbps"
+    ],
+    "correcta": 0,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se puede saber visualmente si un puerto USB-C es compatible con Thunderbolt?",
+    "opciones": [
+      "No se puede saber visualmente",
+      "El puerto es de color verde",
+      "Suele tener el logo de un rayo junto al puerto",
+      "El puerto es más ancho de lo normal"
+    ],
+    "correcta": 2,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué mito sobre USB-C y Thunderbolt desmiente el documento?",
+    "opciones": [
+      "Que todo puerto USB-C es compatible con Thunderbolt",
+      "Que el USB-C es más lento que el USB-A",
+      "Que el cable USB-C no tiene posición",
+      "Que Thunderbolt solo sirve para cargar el móvil"
+    ],
+    "correcta": 0,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué tipo de ranura PCIe se usa comúnmente para tarjetas de red sencillas o puertos USB adicionales?",
+    "opciones": [
+      "PCIe x32",
+      "DIMM",
+      "PCIe x16",
+      "PCIe x1"
+    ],
+    "correcta": 3,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la función de una tarjeta de sonido dedicada frente a la integrada?",
+    "opciones": [
+      "Hacer que internet vaya más rápido",
+      "Ofrecer mayor calidad de audio y funciones de procesamiento profesional",
+      "Aumentar la resolución de la pantalla",
+      "Aligerar el peso de la placa base"
+    ],
+    "correcta": 1,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué es un DAC en una tarjeta de sonido?",
+    "opciones": [
+      "Un puerto de conexión de vídeo",
+      "Un sistema de almacenamiento de datos",
+      "Un tipo de procesador gráfico",
+      "Convertidor de señal digital a analógica"
+    ],
+    "correcta": 3,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué significan las siglas GPU?",
+    "opciones": [
+      "Graphics Processing Unit",
+      "Graphical Protocol Universal",
+      "Global Peripheral Utility",
+      "General Process Unit"
+    ],
+    "correcta": 0,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Qué permite el 'USB-C Alt Mode'?",
+    "opciones": [
+      "Conectar el PC a una red de 100Gbps",
+      "Duplicar la frecuencia del procesador",
+      "Cargar la batería sin cables",
+      "Enviar señales de vídeo (como DisplayPort) a través del conector USB-C"
+    ],
+    "correcta": 3,
+    "cita": "UT5_Tarjetas de expansion y perifericos.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la principal diferencia entre la memoria RAM y las unidades de almacenamiento según el texto?",
+    "opciones": [
+      "La RAM es volátil y el almacenamiento es permanente",
+      "La RAM es más barata por gigabyte",
+      "La RAM utiliza platos giratorios",
+      "El almacenamiento es más rápido que la RAM"
+    ],
+    "correcta": 0,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué ventaja principal tienen los HDD frente a los SSD?",
+    "opciones": [
+      "Su velocidad de acceso es mayor",
+      "Son más resistentes a los golpes",
+      "No tienen partes móviles",
+      "Su precio por gigabyte es muy bajo"
+    ],
+    "correcta": 3,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿En qué tecnología se basan las unidades SSD?",
+    "opciones": [
+      "Cinta de acceso secuencial",
+      "Memoria flash NAND",
+      "Platos magnéticos giratorios",
+      "Láser de alta precisión"
+    ],
+    "correcta": 1,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa que un SSD utilice el protocolo NVMe?",
+    "opciones": [
+      "Que es exclusivo para sistemas Linux",
+      "Que requiere una fuente de alimentación propia",
+      "Que solo se puede usar de forma externa por USB",
+      "Que aprovecha el bus PCIe para alcanzar velocidades mucho mayores"
+    ],
+    "correcta": 3,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el formato físico de SSD que se conecta directamente a un puerto en la placa base y parece una 'barrita de chicle'?",
+    "opciones": [
+      "3.5 pulgadas",
+      "M.2",
+      "SATA III",
+      "2.5 pulgadas"
+    ],
+    "correcta": 1,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué significan las siglas RAID?",
+    "opciones": [
+      "Real Analog Integrated Drive",
+      "Rapid Access Interface Device",
+      "Remote Archive Internet Data",
+      "Redundant Array of Independent Disks"
+    ],
+    "correcta": 3,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el objetivo principal del RAID 0?",
+    "opciones": [
+      "Permitir que falle un disco sin perder datos",
+      "Reducir el consumo eléctrico",
+      "Maximizar el rendimiento sumando la velocidad de los discos",
+      "Crear una copia espejo de seguridad"
+    ],
+    "correcta": 2,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué sucede si falla un solo disco en una configuración RAID 0?",
+    "opciones": [
+      "El sistema sigue funcionando sin problemas",
+      "Se pierden todos los datos de la matriz",
+      "El sistema simplemente va más lento",
+      "Se puede recuperar la información del disco espejo"
+    ],
+    "correcta": 1,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cómo funciona el RAID 1 (Mirroring)?",
+    "opciones": [
+      "Divide los datos en bloques por todos los discos",
+      "Borra los datos al apagar el equipo",
+      "Duplica los datos en dos discos de forma idéntica",
+      "Utiliza un disco para paridad"
+    ],
+    "correcta": 2,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la principal ventaja del RAID 1?",
+    "opciones": [
+      "No requiere controladora",
+      "Es el sistema más rápido de escritura",
+      "Se suma la capacidad de todos los discos",
+      "Alta disponibilidad: si un disco falla, el otro tiene toda la información"
+    ],
+    "correcta": 3,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cuántos discos se necesitan como mínimo para montar un RAID 5?",
+    "opciones": [
+      "2 discos",
+      "5 discos",
+      "3 discos",
+      "1 disco"
+    ],
+    "correcta": 2,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué técnica utiliza el RAID 5 para permitir la recuperación de datos si falla un disco?",
+    "opciones": [
+      "Paridad distribuida",
+      "Copia exacta en cada disco",
+      "Memoria caché externa",
+      "Striping sin redundancia"
+    ],
+    "correcta": 0,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué combinación de niveles RAID forma el llamado RAID 10?",
+    "opciones": [
+      "RAID 0 + RAID 5",
+      "RAID 1 + RAID 0",
+      "RAID 5 + RAID 1",
+      "RAID 2 + RAID 3"
+    ],
+    "correcta": 1,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué es un NAS (Network Attached Storage)?",
+    "opciones": [
+      "Un dispositivo de almacenamiento conectado a la red para compartir archivos",
+      "Una aplicación para limpiar el disco duro",
+      "Un tipo de procesador para servidores",
+      "Un cable especial para discos NVMe"
+    ],
+    "correcta": 0,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es una de las funciones típicas de un NAS mencionadas en el documento?",
+    "opciones": [
+      "Minado de criptomonedas",
+      "Edición de fotos profesional",
+      "Sustituir a la tarjeta gráfica",
+      "Servidor multimedia (Plex, Video Station)"
+    ],
+    "correcta": 3,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué afirma el documento respecto a 'RAID no es una copia de seguridad'?",
+    "opciones": [
+      "RAID protege ante fallos físicos, pero no ante borrados accidentales o virus",
+      "Si tienes RAID 1, ya no necesitas hacer backups",
+      "RAID solo sirve para empresas",
+      "RAID es mejor que cualquier copia externa"
+    ],
+    "correcta": 0,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa el '1' en la regla de copia de seguridad 3-2-1?",
+    "opciones": [
+      "Usar un solo tipo de soporte",
+      "Tener solo una copia de los archivos",
+      "Tener al menos una copia fuera de la ubicación física (casa u oficina)",
+      "Tardar un día en hacer la copia"
+    ],
+    "correcta": 2,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente gestiona físicamente la matriz RAID?",
+    "opciones": [
+      "La controladora RAID (dedicada o integrada)",
+      "El monitor",
+      "El sistema operativo únicamente",
+      "La fuente de alimentación"
+    ],
+    "correcta": 0,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Qué factor limita la velocidad de los discos HDD mecánicos?",
+    "opciones": [
+      "El color del cable de datos",
+      "La dependencia de partes móviles y la rotación de los platos",
+      "La capacidad total en TB",
+      "El fabricante del disco"
+    ],
+    "correcta": 1,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Por qué los NAS modernos se comparan con un smartphone en el texto?",
+    "opciones": [
+      "Porque tienen pantallas táctiles de 6 pulgadas",
+      "Porque funcionan con batería",
+      "Por tener una interfaz intuitiva y apps instalables",
+      "Porque sirven para hacer llamadas"
+    ],
+    "correcta": 2,
+    "cita": "UT6_Almacenamiento y sistemas RAID_NAS.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el objetivo principal del diseño de la arquitectura de un PC personal?",
+    "opciones": [
+      "Garantizar la redundancia total de todos los componentes",
+      "Priorizar la versatilidad y la relación calidad-precio para un único usuario",
+      "Sustituir a un mainframe en tareas críticas",
+      "Permitir el acceso simultáneo de miles de usuarios"
+    ],
+    "correcta": 1,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente suele faltar en un PC personal pero es común en servidores para corregir errores de datos?",
+    "opciones": [
+      "Puerto USB-C",
+      "Disco duro mecánico",
+      "Memoria ECC",
+      "Tarjeta gráfica dedicada"
+    ],
+    "correcta": 2,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué caracteriza a un servidor departamental frente a un PC?",
+    "opciones": [
+      "Está diseñado para ofrecer servicios a un grupo de usuarios de forma continua",
+      "Es más pequeño y transportable que un portátil",
+      "Se apaga obligatoriamente todas las noches",
+      "Solo puede ejecutar aplicaciones de ofimática"
+    ],
+    "correcta": 0,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la función de los mainframes en las grandes organizaciones?",
+    "opciones": [
+      "Almacenar únicamente copias de seguridad temporales",
+      "Servir como estaciones de juego para los empleados",
+      "Sustituir la conexión a internet de la empresa",
+      "Procesar volúmenes masivos de transacciones con una fiabilidad cercana al 100%"
+    ],
+    "correcta": 3,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa el acrónimo CPD?",
+    "opciones": [
+      "Control de Procesos Digitales",
+      "Central de Programación Directa",
+      "Centro de Procesamiento de Datos",
+      "Centro de Protección de Dispositivos"
+    ],
+    "correcta": 2,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la unidad de medida estándar para el ancho de los racks en un CPD?",
+    "opciones": [
+      "10 pulgadas",
+      "19 pulgadas",
+      "24 pulgadas",
+      "50 centímetros"
+    ],
+    "correcta": 1,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿A qué equivale una unidad de altura 'U' en un rack?",
+    "opciones": [
+      "2,5 pulgadas",
+      "5 pulgadas",
+      "10 centímetros",
+      "1,75 pulgadas (4,44 cm)"
+    ],
+    "correcta": 3,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el propósito del diseño de pasillos fríos y calientes en un CPD?",
+    "opciones": [
+      "Optimizar el flujo térmico y mejorar la eficiencia de la refrigeración",
+      "Evitar que los cables se mezclen con el aire",
+      "Iluminar mejor las salas de servidores",
+      "Separar a los técnicos de los servidores"
+    ],
+    "correcta": 0,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué dispositivo garantiza el suministro eléctrico inmediato ante un corte de luz antes de que entren los generadores?",
+    "opciones": [
+      "Regleta con protección de picos",
+      "SAI / UPS",
+      "Transformador de alta tensión",
+      "Inversor solar"
+    ],
+    "correcta": 1,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué es la redundancia N+1 en un sistema de energía o refrigeración?",
+    "opciones": [
+      "Tener el doble de componentes de los necesarios",
+      "Tener solo un componente funcionando",
+      "No tener ningún componente de reserva",
+      "Tener un componente adicional de reserva además de los necesarios"
+    ],
+    "correcta": 3,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿En qué consiste la seguridad física de un CPD?",
+    "opciones": [
+      "Medidas para evitar el acceso no autorizado al recinto, como biometría o cámaras",
+      "Cifrado de las bases de datos",
+      "Instalación de cortafuegos de software",
+      "Uso de contraseñas complejas"
+    ],
+    "correcta": 0,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué es un PUE (Power Usage Effectiveness)?",
+    "opciones": [
+      "El nombre de un modelo de rack",
+      "Un protocolo de transferencia de archivos",
+      "Una métrica que mide la eficiencia energética de un CPD",
+      "Un sistema de extinción de incendios"
+    ],
+    "correcta": 2,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es el valor ideal de PUE?",
+    "opciones": [
+      "10.0",
+      "0.5",
+      "2.0",
+      "1.0 (toda la energía va a los equipos informáticos)"
+    ],
+    "correcta": 3,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué tipo de extinción de incendios se prefiere en las salas de servidores?",
+    "opciones": [
+      "Aspersores de agua a alta presión",
+      "Gases inertes que desplazan el oxígeno sin dañar el hardware",
+      "Extintores de polvo químico estándar",
+      "Espuma densa"
+    ],
+    "correcta": 1,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué analogía usa el texto para explicar la seguridad física y lógica?",
+    "opciones": [
+      "Un doble candado",
+      "Un paraguas",
+      "Un muro de piedra",
+      "Una red de pesca"
+    ],
+    "correcta": 0,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué afirma el mito sobre la ubicación de los datos en 'la nube'?",
+    "opciones": [
+      "Que los datos se borran al cerrar la sesión",
+      "Que los datos residen en servidores físicos reales dentro de CPDs",
+      "Que la nube no requiere hardware",
+      "Que los datos flotan en el aire mediante ondas"
+    ],
+    "correcta": 1,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Por qué un firewall no es suficiente para la seguridad total de un CPD?",
+    "opciones": [
+      "Porque es una medida obsoleta",
+      "Porque solo funciona con internet por cable",
+      "Porque ralentiza demasiado el servidor",
+      "Porque no protege contra robos físicos o fallos de alimentación"
+    ],
+    "correcta": 3,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué ventaja ofrece un servidor frente a un PC en términos de mantenimiento?",
+    "opciones": [
+      "Es más barato de reparar",
+      "Se actualiza solo sin intervención humana",
+      "Componentes intercambiables en caliente (hot-swap) sin apagar el equipo",
+      "No requiere limpieza de polvo"
+    ],
+    "correcta": 2,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué es un rack en el contexto de un CPD?",
+    "opciones": [
+      "Un armario metálico estandarizado para alojar servidores y equipos",
+      "Una herramienta de gestión de copias de seguridad",
+      "Un sistema operativo para servidores",
+      "Un tipo de cable de red de alta velocidad"
+    ],
+    "correcta": 0,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Cómo se organizan las capas de seguridad en un CPD profesional?",
+    "opciones": [
+      "Privada y pública",
+      "Interna y externa únicamente",
+      "Física, lógica y organizativa",
+      "Alta, media y baja"
+    ],
+    "correcta": 2,
+    "cita": "UT7_Soluciones empresariales y CPD.pdf"
+  },
+  {
+    "enunciado": "¿Qué diferencia fundamental hay entre una copia de archivos y una imagen de respaldo?",
+    "opciones": [
+      "La imagen es una fotografía exacta de todo el disco, incluyendo el SO y configuración",
+      "No hay diferencia, son términos sinónimos",
+      "La imagen de respaldo solo guarda documentos de texto",
+      "La copia de archivos incluye los drivers del sistema"
+    ],
+    "correcta": 0,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué permite realizar un 'bare-metal restore'?",
+    "opciones": [
+      "Recuperar solo las fotos borradas de la papelera",
+      "Limpiar el polvo físico de los componentes internos",
+      "Reconstruir un sistema desde cero en un disco vacío sin reinstalar el SO manualmente",
+      "Actualizar la BIOS automáticamente"
+    ],
+    "correcta": 2,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa el proceso P2V (Physical to Virtual)?",
+    "opciones": [
+      "Pasar datos de una nube a un disco duro local",
+      "Migrar un sistema operativo instalado en un equipo físico a una máquina virtual",
+      "Imprimir un documento digital en papel",
+      "Convertir un vídeo de YouTube a formato MP4"
+    ],
+    "correcta": 1,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la característica principal de una copia de seguridad completa?",
+    "opciones": [
+      "Copia todos los datos seleccionados, siendo la base para otros tipos de copia",
+      "Solo copia los archivos modificados ese mismo día",
+      "No permite recuperar el sistema operativo",
+      "Es la más rápida de realizar pero la más lenta de restaurar"
+    ],
+    "correcta": 0,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Cómo funciona una copia de seguridad diferencial?",
+    "opciones": [
+      "Copia solo lo que ha cambiado desde la última copia incremental",
+      "Borra los archivos del origen tras realizar la copia",
+      "Solo funciona con archivos de menos de 1GB",
+      "Copia todos los archivos modificados desde la última copia completa"
+    ],
+    "correcta": 3,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué ventaja ofrece la copia incremental frente a la diferencial?",
+    "opciones": [
+      "Es mucho más rápida y ocupa menos espacio en cada ejecución",
+      "Permite trabajar con el ordenador apagado",
+      "Es más fácil de restaurar porque solo requiere dos pasos",
+      "No necesita una copia completa previa"
+    ],
+    "correcta": 0,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué mantenimiento se basa en la limpieza física y actualizaciones periódicas para evitar fallos?",
+    "opciones": [
+      "Mantenimiento predictivo",
+      "Mantenimiento reactivo",
+      "Mantenimiento preventivo",
+      "Mantenimiento correctivo"
+    ],
+    "correcta": 2,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la función del mantenimiento predictivo?",
+    "opciones": [
+      "Formatear el equipo una vez al mes por protocolo",
+      "Anticipar fallos analizando datos como la temperatura o parámetros S.M.A.R.T.",
+      "Instalar programas de oficina para el usuario",
+      "Reparar componentes que ya se han quemado"
+    ],
+    "correcta": 1,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué indica el parámetro S.M.A.R.T. de un disco duro?",
+    "opciones": [
+      "La resolución máxima que soporta el monitor",
+      "La velocidad de descarga de la red internet",
+      "El estado de salud y la probabilidad de fallo inminente del dispositivo",
+      "El número de programas instalados en el sistema"
+    ],
+    "correcta": 2,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Por qué es peligroso el polvo acumulado dentro de un ordenador?",
+    "opciones": [
+      "Borra los datos de la memoria RAM al contacto",
+      "Actúa como aislante térmico, elevando la temperatura y envejeciendo los componentes",
+      "Hace que el teclado deje de funcionar de forma inalámbrica",
+      "Atrae rayos durante las tormentas eléctricas"
+    ],
+    "correcta": 1,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la recomendación principal al limpiar un equipo por dentro?",
+    "opciones": [
+      "Hacerlo con el equipo apagado y descargando la electricidad estática",
+      "Usar agua y jabón abundante sobre la placa base",
+      "Limpiar los ventiladores mientras están girando a máxima velocidad",
+      "Utilizar un secador de pelo con aire muy caliente"
+    ],
+    "correcta": 0,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué herramienta se menciona para monitorizar temperaturas y voltajes en tiempo real?",
+    "opciones": [
+      "Recuva",
+      "Microsoft Word",
+      "HWiNFO",
+      "VLC Player"
+    ],
+    "correcta": 2,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué software se especializa en comprobar el estado de salud de los discos (S.M.A.R.T.)?",
+    "opciones": [
+      "Google Chrome",
+      "WinRAR",
+      "Adobe Photoshop",
+      "CrystalDiskInfo"
+    ],
+    "correcta": 3,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué tipo de mantenimiento se aplica cuando un componente ya ha fallado?",
+    "opciones": [
+      "Mantenimiento predictivo",
+      "Mantenimiento correctivo",
+      "Mantenimiento preventivo",
+      "Mantenimiento proactivo"
+    ],
+    "correcta": 1,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué ventaja tiene realizar un mantenimiento preventivo anual?",
+    "opciones": [
+      "Permite que el equipo funcione sin conexión eléctrica",
+      "Hace que el procesador sea de una generación más moderna",
+      "Sustituye la necesidad de hacer copias de seguridad",
+      "Alarga la vida útil del equipo y evita paradas inesperadas por sobrecalentamiento"
+    ],
+    "correcta": 3,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué proceso permite mover un servidor virtual a un hardware físico?",
+    "opciones": [
+      "Backup Bare-metal",
+      "Snapshot",
+      "V2P (Virtual to Physical)",
+      "P2V"
+    ],
+    "correcta": 2,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿En qué consiste el 'aislamiento' en el mantenimiento preventivo según el manual?",
+    "opciones": [
+      "Desconectar el equipo de la red local",
+      "Verificar que el flujo de aire sea correcto y no haya obstrucciones",
+      "Poner el ordenador en una habitación sin ventanas",
+      "Instalar un firewall muy restrictivo"
+    ],
+    "correcta": 1,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué se debe revisar inmediatamente después de mover físicamente un equipo?",
+    "opciones": [
+      "Que el fondo de pantalla siga siendo el mismo",
+      "Que la papelera de reciclaje esté vacía",
+      "Que la versión del navegador esté actualizada",
+      "Que todos los ventiladores giren correctamente y no haya cables sueltos"
+    ],
+    "correcta": 3,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué es una 'instancia' de backup según el contexto de imágenes de sistema?",
+    "opciones": [
+      "Un estado guardado del sistema en un punto temporal específico",
+      "Un tipo de cable para conectar discos duros",
+      "Una multa por no hacer copias de seguridad",
+      "El nombre de la carpeta donde se guardan las fotos"
+    ],
+    "correcta": 0,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué afirma el mito sobre las herramientas de monitorización?",
+    "opciones": [
+      "Que solo funcionan en ordenadores de gama muy alta",
+      "Que rompen el procesador al leer las temperaturas",
+      "Que son obligatorias por ley en todos los países",
+      "Que tienen un consumo mínimo y su beneficio supera con creces su coste"
+    ],
+    "correcta": 3,
+    "cita": "UT8_Copias de seguridad y mantenimiento.pdf"
+  },
+  {
+    "enunciado": "¿Qué define al modelo de servicio IaaS (Infrastructure as a Service)?",
+    "opciones": [
+      "Permite ejecutar código solo cuando ocurre un evento específico",
+      "El proveedor ofrece bloques básicos como máquinas virtuales, redes y almacenamiento",
+      "Es un software listo para usar a través del navegador",
+      "El proveedor gestiona las aplicaciones y los datos del usuario"
+    ],
+    "correcta": 1,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué analogía utiliza el texto para describir el modelo SaaS?",
+    "opciones": [
+      "Como alojarse en un hotel: todo está amueblado y listo, tú solo lo usas",
+      "Como comprar un coche y pagar las reparaciones",
+      "Como alquilar un piso vacío que debes amueblar",
+      "Como construir tu propia casa desde los cimientos"
+    ],
+    "correcta": 0,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿En qué modelo de nube el usuario se encarga únicamente de las aplicaciones y los datos, mientras el proveedor gestiona el SO y el hardware?",
+    "opciones": [
+      "On-premise",
+      "IaaS",
+      "PaaS (Platform as a Service)",
+      "SaaS"
+    ],
+    "correcta": 2,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es una ventaja clave de la computación en la nube frente al modelo on-premise?",
+    "opciones": [
+      "Control manual de la temperatura del CPD",
+      "Pago por uso: solo pagas por los recursos que consumes",
+      "Propiedad física total del hardware",
+      "Necesidad de una gran inversión inicial (CAPEX)"
+    ],
+    "correcta": 1,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa el término 'Elasticidad' en el contexto de la nube?",
+    "opciones": [
+      "La posibilidad de conectar periféricos antiguos",
+      "Que los cables de red son muy flexibles",
+      "Poder usar el mismo servidor durante 10 años",
+      "La capacidad de aumentar o reducir recursos automáticamente según la demanda"
+    ],
+    "correcta": 3,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Quiénes son los tres proveedores líderes de nube (Hyperscalers) mencionados?",
+    "opciones": [
+      "Netflix, Spotify y HBO",
+      "Intel, AMD y NVIDIA",
+      "AWS, Microsoft Azure y Google Cloud Platform",
+      "Apple, Samsung y Sony"
+    ],
+    "correcta": 2,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué es una Región en la infraestructura de un proveedor de nube?",
+    "opciones": [
+      "Un solo servidor de gran tamaño",
+      "Un país donde la nube está prohibida",
+      "El nombre del software de gestión",
+      "Un área geográfica física que contiene múltiples zonas de disponibilidad"
+    ],
+    "correcta": 3,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué garantiza una Zona de Disponibilidad (AZ)?",
+    "opciones": [
+      "Aislamiento ante fallos: si una zona falla, las otras siguen operativas",
+      "Conexión a internet gratuita para los usuarios",
+      "Que el precio será el mismo en todo el mundo",
+      "Que no se pueden usar sistemas operativos Linux"
+    ],
+    "correcta": 0,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿En qué consiste el modelo de Responsabilidad Compartida?",
+    "opciones": [
+      "Varios usuarios comparten la misma contraseña",
+      "El proveedor es el único responsable de los hackeos",
+      "El proveedor asegura la infraestructura y el usuario asegura sus datos y configuraciones",
+      "El usuario paga la mitad de la factura de luz del CPD"
+    ],
+    "correcta": 2,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué componente es responsabilidad del cliente en un modelo IaaS?",
+    "opciones": [
+      "El sistema operativo, aplicaciones y cortafuegos de red",
+      "La refrigeración de los racks",
+      "La seguridad física de las instalaciones",
+      "El mantenimiento de los discos duros físicos"
+    ],
+    "correcta": 0,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es la principal causa de brechas de datos en la nube según el documento?",
+    "opciones": [
+      "Fallos en el hardware del proveedor",
+      "Tormentas eléctricas sobre los CPDs",
+      "Falta de potencia en los procesadores",
+      "El error humano (malas configuraciones o permisos)"
+    ],
+    "correcta": 3,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué permite la computación Serverless?",
+    "opciones": [
+      "Almacenar datos en el espacio exterior",
+      "Ejecutar código sin gestionar servidores, pagando solo por el tiempo de ejecución",
+      "Navegar por internet sin conexión",
+      "Usar ordenadores que no tienen procesador"
+    ],
+    "correcta": 1,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué es el Edge Computing?",
+    "opciones": [
+      "Procesar los datos lo más cerca posible de donde se generan para reducir latencia",
+      "El nombre de una nube privada",
+      "Un tipo de monitor con bordes curvos",
+      "Hacer copias de seguridad en cintas magnéticas"
+    ],
+    "correcta": 0,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Para qué sirve el modelo AIaaS (AI as a Service)?",
+    "opciones": [
+      "Generar criptomonedas de forma gratuita",
+      "Limpiar los servidores automáticamente",
+      "Ofrecer capacidades de Inteligencia Artificial listas para usar mediante APIs",
+      "Sustituir a los técnicos de mantenimiento por robots"
+    ],
+    "correcta": 2,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué significa 'Cloud First' como estrategia empresarial?",
+    "opciones": [
+      "Tener los servidores en el piso más alto del edificio",
+      "Priorizar el uso de soluciones en la nube para cualquier nuevo proyecto",
+      "Ser la primera empresa en usar internet",
+      "Usar solo nubes que sean gratis"
+    ],
+    "correcta": 1,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué técnica permite gestionar la infraestructura mediante archivos de texto?",
+    "opciones": [
+      "SMS (Short Message Service)",
+      "JPG (Joint Photographic Experts Group)",
+      "IaC (Infrastructure as Code)",
+      "PDF (Portable Document Format)"
+    ],
+    "correcta": 2,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué herramienta de AWS ayuda a optimizar costes y seguridad (mencionada en el resumen)?",
+    "opciones": [
+      "Windows Defender",
+      "Google Maps",
+      "Adobe Reader",
+      "Trusted Advisor"
+    ],
+    "correcta": 3,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué es una Nube Híbrida?",
+    "opciones": [
+      "Una nube que funciona con energía solar",
+      "Una combinación de nube privada (on-premise) y nube pública",
+      "Un sistema que solo funciona cuando llueve",
+      "Un ordenador que es mitad tablet mitad PC"
+    ],
+    "correcta": 1,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Cuál es un beneficio del escalado horizontal?",
+    "opciones": [
+      "Añadir más máquinas para repartir la carga de trabajo",
+      "Aumentar solo la memoria RAM de un equipo",
+      "Hacer que el servidor sea físicamente más alto",
+      "Cambiar el color de la caja del ordenador"
+    ],
+    "correcta": 0,
+    "cita": "UT9_Computacion en la nube.pdf"
+  },
+  {
+    "enunciado": "¿Qué medida de seguridad se recomienda activar siempre para acceder a la consola de la nube?",
+    "opciones": [
+      "Compartir la cuenta con todo el departamento",
+      "No poner nunca contraseña",
+      "Usar solo redes Wi-Fi públicas",
+      "MFA (Multi-Factor Authentication)"
+    ],
+    "correcta": 3,
+    "cita": "UT9_Computacion en la nube.pdf"
   }
 ]
 
