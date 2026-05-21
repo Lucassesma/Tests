@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Interactivo Autocorregible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- React y ReactDOM desde CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel para permitir JSX en navegadores -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const preguntas = [
+  {
+    "enunciado": "¿Qué componente de un PC procesa los datos y ejecuta los programas?",
+    "opciones": [
+      "RAM",
+      "Disco Duro",
+      "CPU",
+      "Placa Base"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Cuál de estas direcciones IPv4 es privada?",
+    "opciones": [
+      "8.8.8.8",
+      "192.168.1.5",
+      "172.217.17.46",
+      "104.21.5.12"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "En SQL, ¿qué cláusula se usa para filtrar los resultados de una consulta agrupada?",
+    "opciones": [
+      "WHERE",
+      "ORDER BY",
+      "LIMIT",
+      "HAVING"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Qué lenguaje se usa principalmente para estructurar documentos con etiquetas (como <libro> o <autor>)?",
+    "opciones": [
+      "Python",
+      "XML",
+      "Java",
+      "SQL"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Qué comando de Linux se usa para cambiar los permisos de un archivo?",
+    "opciones": [
+      "chown",
+      "chmod",
+      "ls",
+      "pwd"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "Si quieres que una tabla no permita valores nulos en una columna, ¿qué restricción SQL usas?",
+    "opciones": [
+      "UNIQUE",
+      "PRIMARY KEY",
+      "NOT NULL",
+      "CHECK"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Qué dispositivo de red opera en la capa 2 del modelo OSI y usa direcciones MAC para reenviar tramas?",
+    "opciones": [
+      "Router",
+      "Hub",
+      "Switch",
+      "Modem"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Qué tipo de almacenamiento pierde sus datos cuando se apaga el ordenador?",
+    "opciones": [
+      "SSD",
+      "HDD",
+      "ROM",
+      "RAM"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "En un diagrama E-R, ¿qué símbolo representa una Entidad?",
+    "opciones": [
+      "Rombo",
+      "Rectángulo",
+      "Óvalo",
+      "Círculo"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Cuál es la función principal de un servidor DNS?",
+    "opciones": [
+      "Asignar IPs automáticamente.",
+      "Traducir nombres de dominio a direcciones IP.",
+      "Proteger la red de ataques externos.",
+      "Almacenar páginas web."
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "Si quieres borrar toda la ESTRUCTURA de una tabla en SQL (no solo los datos), ¿qué usas?",
+    "opciones": [
+      "DELETE TABLE",
+      "REMOVE TABLE",
+      "TRUNCATE TABLE",
+      "DROP TABLE"
+    ],
+    "correcta": 3,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Qué significa XSD en el contexto de Lenguajes de Marcas?",
+    "opciones": [
+      "XML Structure Definition",
+      "XML Schema Definition",
+      "eXtensible System Data",
+      "eXtensible Syntax Document"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "En Windows, ¿qué herramienta administrativa se usa para crear y gestionar usuarios locales?",
+    "opciones": [
+      "Administrador de tareas",
+      "Administración de equipos",
+      "Visor de eventos",
+      "Monitor de rendimiento"
+    ],
+    "correcta": 1,
+    "cita": ""
+  },
+  {
+    "enunciado": "Si un disco duro está particionado con el estilo MBR, ¿cuál es el número máximo de particiones PRIMARIAS?",
+    "opciones": [
+      "1",
+      "2",
+      "4",
+      "128"
+    ],
+    "correcta": 2,
+    "cita": ""
+  },
+  {
+    "enunciado": "¿Qué comando de Git se usa para subir los cambios locales al repositorio remoto?",
+    "opciones": [
+      "git commit",
+      "git push",
+      "git pull",
+      "git add"
+    ],
+    "correcta": 1,
+    "cita": ""
+  }
+]
+
+function TestInteractivo() {
+  const [respuestas, setRespuestas] = React.useState(Array(preguntas.length).fill(null));
+  const [corregido, setCorregido] = React.useState(false);
+
+  const seleccionar = (pIndex, rIndex) => {
+    const copia = [...respuestas];
+    copia[pIndex] = rIndex;
+    setRespuestas(copia);
+  };
+
+  const puntaje = respuestas.reduce((acc, r, i) => {
+    if (r === preguntas[i].correcta) return acc + 1;
+    return acc;
+  }, 0);
+
+  return (
+    <div className="test-container">
+      <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+      {preguntas.map((p, i) => (
+        <div key={i} className="card">
+          <h2 className="question-title">
+            {i + 1}. {p.enunciado}
+          </h2>
+
+          {p.opciones.map((op, j) => {
+            const seleccionado = respuestas[i] === j;
+            const esCorrecta = p.correcta === j;
+
+            let clases = "answer-btn";
+            if (seleccionado) clases += " answer-selected";
+            if (corregido && seleccionado && !esCorrecta) clases += " answer-wrong";
+            if (corregido && esCorrecta) clases += " answer-correct";
+
+            return (
+              <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                {op}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+
+      <div className="result-section">
+        <button className="btn-correct" onClick={() => setCorregido(true)}>
+          Corregir 
+        </button>
+
+        {corregido && (
+          <p className="result-text">
+            Resultado: {puntaje} / {preguntas.length}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+</script>
+<footer>
+  <p>Creado por Olga M. Moreno Martín</p>
+
+</footer>
+</body>
+</html>
