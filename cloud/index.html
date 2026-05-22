@@ -24,235 +24,1269 @@
 
 const preguntas = [
   {
-    "enunciado": "AWS: ¿Qué es una región y qué diferencia tiene con una Zona de Disponibilidad (AZ)?",
+    "enunciado": "1. Una empresa quiere migrar sus servidores desde una infraestructura on-premise a la nube. ¿Cuál es la principal ventaja de este cambio? [cite: 1, 2]",
     "opciones": [
-      "Una región es un centro de datos individual; una AZ es un conjunto de regiones",
-      "Una región es un área geográfica con múltiples AZs; una AZ es un centro de datos o conjunto de ellos dentro de esa región",
-      "Una región y una AZ son lo mismo, solo cambia el nombre según el proveedor",
-      "Una AZ es más grande que una región y la engloba"
+      "Garantizar capacidad de cómputo sobredimensionada de forma permanente. [cite: 3]",
+      "Mantener el control del hardware y su mantenimiento. [cite: 4]",
+      "Incrementar los costes fijos asociados a la infraestructura tecnológica. [cite: 5]",
+      "Ajustar los recursos de cómputo según la demanda del negocio. [cite: 6]"
     ],
-    "correcta": 1,
-    "cita": "Una región de AWS es una ubicación geográfica independiente que contiene múltiples Zonas de Disponibilidad (AZs). Cada AZ es uno o más centros de datos con alimentación, red y conectividad redundantes, físicamente separados de otras AZs dentro de la misma región."
+    "correcta": 3,
+    "cita": "Escalabilidad y pago por uso: la nube permite ajustar los recursos de forma dinámica sin sobreaprovisionamiento. [cite: 7]"
   },
   {
-    "enunciado": "AWS: ¿Qué criterios son clave para elegir una región u otra?",
+    "enunciado": "2. ¿Cuál de las siguientes opciones NO es una característica propia de la computación en la nube? [cite: 8]",
     "opciones": [
-      "Solo el precio, ya que todos los servicios están disponibles en todas las regiones",
-      "Latencia respecto a los usuarios, cumplimiento normativo/legal, disponibilidad de servicios y coste",
-      "El número de AZs disponibles en esa región",
-      "La popularidad de la región entre otros clientes de AWS"
+      "Autoservicio bajo demanda para gestionar recursos. [cite: 9]",
+      "Acceso a los servicios a través de internet. [cite: 10]",
+      "Solo se facturan los recursos utilizados. [cite: 11]",
+      "Aprovisionamiento definido de antemano. [cite: 12]"
     ],
-    "correcta": 1,
-    "cita": "Los criterios principales para elegir región son: proximidad a los usuarios finales (latencia), requisitos de cumplimiento legal y residencia de datos, disponibilidad de los servicios AWS necesarios y diferencias de precio entre regiones."
+    "correcta": 3,
+    "cita": "En cloud los recursos son elásticos y bajo demanda, no aprovisionados de antemano. [cite: 14]"
   },
   {
-    "enunciado": "AWS: ¿Cuáles son los tres factores fundamentales que determinan el coste en AWS?",
+    "enunciado": "3. ¿Cuál es la principal diferencia entre una nube pública, una nube privada y una nube híbrida? [cite: 15]",
     "opciones": [
-      "Número de usuarios, país de la cuenta y tipo de soporte contratado",
-      "Cómputo (tiempo de uso), almacenamiento (datos guardados) y transferencia de datos (salida de red)",
-      "Instancias EC2, buckets S3 y bases de datos RDS",
-      "CPU, RAM y ancho de banda de red de cada instancia"
+      "El tipo de sistema operativo que utilizan. [cite: 16]",
+      "Quién es el propietario y cómo se comparten los recursos. [cite: 17]",
+      "El número de usuarios que pueden acceder. [cite: 18]",
+      "El lenguaje de programación de las aplicaciones. [cite: 19]"
     ],
     "correcta": 1,
-    "cita": "Los tres pilares del coste en AWS son: el cómputo (tiempo que se usan los recursos de procesamiento), el almacenamiento (cantidad de datos almacenados) y la transferencia de datos (principalmente el tráfico de salida hacia Internet)."
+    "cita": "La diferencia fundamental está en la propiedad y el modelo de compartición de recursos entre el proveedor y la empresa. [cite: 20]"
   },
   {
-    "enunciado": "AWS: ¿Qué es EC2 y qué es S3?",
+    "enunciado": "4. ¿Cuál es una ventaja real de la nube? [cite: 21]",
     "opciones": [
-      "EC2 es un servicio de bases de datos; S3 es un servicio de cómputo serverless",
-      "EC2 es un servicio de servidores virtuales en la nube; S3 es un servicio de almacenamiento de objetos",
-      "EC2 y S3 son dos nombres distintos para el mismo servicio de máquinas virtuales",
-      "EC2 es el servicio de red de AWS; S3 es el servicio de contenedores"
+      "Escala bajo demanda. [cite: 22]",
+      "Es más barata siempre. [cite: 23]",
+      "No requiere administración técnica. [cite: 24]",
+      "Elimina la necesidad de planificar la capacidad. [cite: 25]"
+    ],
+    "correcta": 0,
+    "cita": "La elasticidad es una de las características fundamentales de la nube: los recursos pueden aumentarse o reducirse automáticamente según la demanda, sin necesidad de planificar capacidad a largo plazo. [cite: 26]"
+  },
+  {
+    "enunciado": "5. ¿Cuál es la principal ventaja económica de pasar de un modelo on-premise a la nube? [cite: 27]",
+    "opciones": [
+      "Se convierte la inversión fija en hardware en un gasto variable por uso. [cite: 28]",
+      "Se eliminan por completo todos los gastos de Tl al transferirlos al proveedor. [cite: 29]",
+      "El proveedor asume todos los riesgos de seguridad de la nube. [cite: 30]",
+      "Se incrementan los costes fijos pero aumenta el rendimiento general del sistema. [cite: 31]"
+    ],
+    "correcta": 0,
+    "cita": "En la nube pasas de comprar servidores por adelantado a pagar solo por lo que consumes, mejorando la agilidad financiera y eliminando la sobreestimación de capacidad. [cite: 32]"
+  },
+  {
+    "enunciado": "6. ¿Cuál es la principal diferencia entre los modelos SaaS, PaaS e laas en computación en la nube? [cite: 33]",
+    "opciones": [
+      "El grado de responsabilidad que asume el proveedor en el mantenimiento del hardware físico. [cite: 34]",
+      "El nivel de control y gestión que tiene el usuario sobre la infraestructura y el software. [cite: 35]",
+      "El tipo de licenciamiento del sistema operativo utilizado. [cite: 36]",
+      "El rendimiento de las aplicaciones desplegadas. [cite: 37]"
     ],
     "correcta": 1,
-    "cita": "EC2 (Elastic Compute Cloud) permite lanzar servidores virtuales (instancias) en la nube con recursos configurables. S3 (Simple Storage Service) es un servicio de almacenamiento de objetos altamente escalable, duradero y accesible vía HTTP."
+    "cita": "A más nivel de abstracción (SaaS), menos control tiene el cliente. En laaS el cliente gestiona más capas; en SaaS, casi ninguna. [cite: 38, 39]"
   },
   {
-    "enunciado": "AWS IAM: ¿Qué es una política de IAM y en qué formato está escrita?",
+    "enunciado": "7. ¿Cuál de los siguientes ejemplos NO está correctamente asociado a su modelo de servicio en la nube? [cite: 40]",
     "opciones": [
-      "Es un contrato de nivel de servicio escrito en XML",
-      "Es un documento en formato YAML que define roles de usuario",
-      "Es un documento en formato JSON que define permisos (qué acciones se permiten o deniegan sobre qué recursos)",
-      "Es una regla de firewall escrita en lenguaje Terraform"
+      "Amazon AWS como ejemplo de laas. [cite: 41]",
+      "Google Drive como ejemplo de Saas. [cite: 42]",
+      "Microsoft Azure como ejemplo de laas. [cite: 43]",
+      "WordPress instalado como ejemplo de SaaS. [cite: 44]"
+    ],
+    "correcta": 3,
+    "cita": "WordPress instalado y gestionado por el usuario es una aplicación autogestionada, no SaaS. SaaS implica que el proveedor gestiona todo, incluyendo la aplicación. [cite: 46, 47]"
+  },
+  {
+    "enunciado": "8. En un modelo laaS (Infrastructure as a Service), ¿qué componentes son responsabilidad del usuario? [cite: 48]",
+    "opciones": [
+      "Aplicaciones, datos, sistema operativo y middleware. [cite: 49]",
+      "Aplicaciones y datos. [cite: 50]",
+      "Servidores físicos y red. [cite: 51]",
+      "Virtualización y almacenamiento. [cite: 52]"
+    ],
+    "correcta": 0,
+    "cita": "En laaS, AWS gestiona el hardware y la virtualización. El cliente es responsable del sistema operativo, middleware, aplicaciones y datos. [cite: 53, 54]"
+  },
+  {
+    "enunciado": "9. ¿En qué situación tiene más sentido utilizar una estrategia multicloud? [cite: 55]",
+    "opciones": [
+      "Cuando una empresa quiere consolidar la infraestructura y reducir el número de servidores físicos. [cite: 56]",
+      "Cuando se utilizan servicios de un único proveedor para simplificar la gestión. [cite: 57]",
+      "Cuando se combinan servicios de varios proveedores para evitar dependencia de uno solo. [cite: 58]",
+      "Cuando se requiere alta disponibilidad dentro de una misma región usando múltiples cuentas de un único proveedor. [cite: 59]"
     ],
     "correcta": 2,
-    "cita": "Una política de IAM es un documento JSON que especifica los permisos: qué acciones están permitidas o denegadas (Effect), sobre qué servicios y recursos (Action y Resource), y bajo qué condiciones opcionales (Condition)."
+    "cita": "La estrategia multicloud evita el vendor lock-in (dependencia de un único proveedor) y permite elegir los mejores servicios de cada plataforma. [cite: 60]"
   },
   {
-    "enunciado": "AWS: ¿Quién es responsable de gestionar la seguridad de la aplicación y los datos que utiliza?",
+    "enunciado": "10. ¿Cuál de las siguientes opciones es correcta sobre regiones y zonas de disponibilidad? [cite: 61]",
     "opciones": [
-      "AWS es responsable de todo, incluyendo los datos del cliente",
-      "El cliente es responsable de la seguridad EN la nube (aplicación, datos, configuración); AWS es responsable de la seguridad DE la nube (infraestructura física)",
-      "La responsabilidad se comparte al 50% entre AWS y el cliente en todos los aspectos",
-      "Un tercero certificado por AWS asume toda la responsabilidad legal"
+      "Una región está formada por varias Availability Zones independientes entre sí. [cite: 62]",
+      "Una Availability Zone contiene varias regiones dentro de ella. [cite: 63]",
+      "Una región está en un único centro de datos físico. [cite: 64]",
+      "Las regiones y las Availability Zones son exactamente lo mismo. [cite: 65]"
+    ],
+    "correcta": 0,
+    "cita": "Cada región de AWS está compuesta por múltiples zonas de disponibilidad (AZ) separadas físicamente pero interconectadas con alta velocidad. [cite: 66]"
+  },
+  {
+    "enunciado": "11. Una empresa que maneja datos personales quiere desplegar su aplicación en AWS. ¿Qué criterio puede ser determinante a la hora de elegir una región? [cite: 67, 68]",
+    "opciones": [
+      "El tipo de hardware utilizado en los centros de datos. [cite: 69]",
+      "La legislación y normativas de protección de datos aplicables en esa región. [cite: 70]",
+      "El número de cuentas de usuario creadas en AWS. [cite: 71]",
+      "La interfaz de la consola de AWS en ese país. [cite: 72]"
     ],
     "correcta": 1,
-    "cita": "Según el modelo de responsabilidad compartida de AWS: AWS gestiona la seguridad de la infraestructura subyacente (hardware, instalaciones, red global). El cliente es responsable de la seguridad dentro de la nube: sus datos, aplicaciones, configuración de sistemas operativos, control de acceso e identidades."
+    "cita": "El cumplimiento legal (como el RGPD en Europa) es un criterio clave al elegir región cuando se manejan datos personales. [cite: 73]"
   },
   {
-    "enunciado": "Redes: ¿Cuántas IPs hay disponibles para la red 192.168.1.0/24?",
+    "enunciado": "12. ¿Por qué es importante elegir correctamente la región en la nube donde se despliega una aplicación? [cite: 74]",
     "opciones": [
-      "256 IPs totales, 256 utilizables",
-      "256 IPs totales, 254 utilizables (se restan la de red y la de broadcast)",
-      "128 IPs totales, 126 utilizables",
-      "512 IPs totales, 510 utilizables"
+      "Porque mejora la latencia al estar cerca de los usuarios, ayuda a cumplir normativas legales y puede optimizar disponibilidad y costes. [cite: 75]",
+      "Porque garantiza automáticamente la seguridad total de los datos y elimina la necesidad de copias de seguridad. [cite: 76]",
+      "Porque permite usar cualquier región sin impacto en rendimiento, costes o cumplimiento legal. [cite: 77]",
+      "Ninguna de las anteriores. [cite: 77]"
     ],
-    "correcta": 1,
-    "cita": "Una subred /24 tiene 256 direcciones IP (2^8). De ellas, la primera (192.168.1.0) es la dirección de red y la última (192.168.1.255) es la de broadcast, quedando 254 IPs utilizables para hosts."
+    "correcta": 0,
+    "cita": "Los tres criterios principales para elegir región son: latencia (cercanía a usuarios), cumplimiento legal y optimización de costes y disponibilidad. [cite: 78]"
   },
   {
-    "enunciado": "Redes: ¿Para qué sirve la tabla de enrutamiento?",
+    "enunciado": "13. ¿Qué afirmación describe mejor la relación entre Región y Availability Zone? [cite: 79]",
     "opciones": [
-      "Para asignar IPs dinámicamente a los dispositivos de la red",
-      "Para filtrar el tráfico entrante y saliente según puertos y protocolos",
-      "Para determinar hacia dónde debe enviarse el tráfico de red según la dirección IP de destino",
-      "Para registrar los nombres de dominio asociados a cada IP"
+      "Una región es una AZ con más recursos. [cite: 80]",
+      "Una AZ puede pertenecer a varias regiones. [cite: 81]",
+      "Una región contiene varias AZ independientes. [cite: 81]",
+      "Varias regiones forman una sola AZ. [cite: 82]"
     ],
     "correcta": 2,
-    "cita": "La tabla de enrutamiento contiene reglas que indican al router (o a la VPC) por dónde debe salir el tráfico según el destino. Cada entrada asocia un rango de IPs de destino con un siguiente salto (gateway, interfaz de red, etc.)."
+    "cita": "Cada región de AWS está compuesta por múltiples zonas de disponibilidad (AZ) separadas físicamente. Las AZs de una región están interconectadas con alta velocidad pero son independientes entre sí. [cite: 83, 84]"
   },
   {
-    "enunciado": "AWS VPC: ¿Cuál es la diferencia entre un Grupo de Seguridad y una ACL de red?",
+    "enunciado": "14. ¿Qué mejora principalmente un despliegue en varias Availability Zones? [cite: 85]",
     "opciones": [
-      "No hay diferencia práctica; ambos funcionan igual a nivel de subred",
-      "El Grupo de Seguridad actúa a nivel de instancia y es stateful; la ACL actúa a nivel de subred y es stateless",
-      "La ACL actúa a nivel de instancia y es stateful; el Grupo de Seguridad actúa a nivel de subred y es stateless",
-      "Los Grupos de Seguridad solo permiten tráfico entrante; las ACLs solo controlan el tráfico saliente"
+      "La velocidad de acceso de las instancias. [cite: 86]",
+      "El tiempo de respuesta de la aplicación. [cite: 87]",
+      "El coste de la infraestructura. [cite: 88]",
+      "La tolerancia a fallos del sistema. [cite: 89]"
     ],
-    "correcta": 1,
-    "cita": "Los Grupos de Seguridad se aplican a nivel de instancia EC2, son stateful (el tráfico de respuesta se permite automáticamente) y solo admiten reglas de permiso. Las ACLs de red se aplican a nivel de subred, son stateless (hay que definir reglas para entrada y salida por separado) y admiten reglas de permiso y denegación."
+    "correcta": 3,
+    "cita": "Distribuir los recursos en varias AZ garantiza que si una zona falla por corte de luz u otro incidente, las demás siguen operativas. Esto mejora la resiliencia y la disponibilidad del sistema. [cite: 91, 92]"
   },
   {
-    "enunciado": "AWS VPC: ¿Qué significa permitir la entrada al puerto 80 desde 0.0.0.0/0 en un Grupo de Seguridad?",
+    "enunciado": "15. ¿Cuál de las siguientes asociaciones entre un servicio de AWS y su función es correcta? [cite: 93]",
     "opciones": [
-      "Solo los servidores internos de AWS pueden acceder al puerto 80",
-      "Cualquier dirección IP de Internet puede enviar tráfico HTTP al puerto 80 de esa instancia",
-      "Solo las IPs del rango 0.0.0.0 pueden acceder, lo que equivale a bloquear todo acceso",
-      "El acceso al puerto 80 queda restringido a la VPC local"
-    ],
-    "correcta": 1,
-    "cita": "El CIDR 0.0.0.0/0 representa todas las direcciones IPv4 posibles. Permitir el puerto 80 desde 0.0.0.0/0 significa que cualquier equipo en Internet puede conectarse al puerto HTTP (80) de esa instancia."
-  },
-  {
-    "enunciado": "AWS: ¿Qué es Amazon CloudFront y qué ventajas ofrece?",
-    "opciones": [
-      "Es un servicio de bases de datos distribuido globalmente",
-      "Es una CDN (red de distribución de contenido) que sirve contenido desde ubicaciones edge cercanas al usuario, reduciendo latencia y mejorando el rendimiento",
-      "Es una herramienta de monitorización del tráfico de red en la VPC",
-      "Es un balanceador de carga para instancias EC2 dentro de una región"
-    ],
-    "correcta": 1,
-    "cita": "Amazon CloudFront es la CDN de AWS. Distribuye contenido estático y dinámico desde más de 400 puntos de presencia (edge locations) en todo el mundo, reduciendo la latencia, absorbiendo picos de tráfico, integrándose con AWS Shield para protección DDoS y permitiendo HTTPS con certificados gratuitos via ACM."
-  },
-  {
-    "enunciado": "AWS EC2: ¿Qué es una AMI y para qué se utiliza en la creación de instancias?",
-    "opciones": [
-      "Es el tipo de instancia que define la CPU y RAM asignadas",
-      "Es una plantilla que contiene el sistema operativo, configuración y software necesario para lanzar una instancia EC2",
-      "Es la IP elástica asignada a una instancia recién creada",
-      "Es el grupo de seguridad por defecto que se aplica a toda instancia nueva"
-    ],
-    "correcta": 1,
-    "cita": "Una AMI (Amazon Machine Image) es una imagen predefinida que incluye el sistema operativo, configuraciones y el software instalado. Se usa como punto de partida al lanzar instancias EC2, permitiendo replicar entornos de forma rápida y consistente."
-  },
-  {
-    "enunciado": "AWS EC2: ¿Se puede cambiar el tipo de instancia mientras está en ejecución?",
-    "opciones": [
-      "Sí, se puede cambiar el tipo de instancia en caliente sin interrupciones",
-      "No, el tipo de instancia es permanente y no se puede cambiar nunca",
-      "No, hay que detener (stop) la instancia primero, cambiar el tipo y volver a arrancarla",
-      "Solo se puede cambiar el tipo si la instancia está en modo hibernación"
+      "EC2: almacenamiento de objetos para guardar archivos. [cite: 94]",
+      "S3: servicio de bases de datos relacionales gestionadas. [cite: 95]",
+      "VPC: red privada donde se despliegan los recursos en la nube. [cite: 96]",
+      "IAM: servicio para crear máquinas virtuales. [cite: 97]"
     ],
     "correcta": 2,
-    "cita": "Para cambiar el tipo de instancia EC2 es necesario detenerla (estado 'stopped'), modificar el tipo desde la consola o CLI, y volver a iniciarla. No es posible realizar este cambio con la instancia en estado 'running'."
+    "cita": "VPC (Virtual Private Cloud) es el servicio que define la red privada aislada donde se despliegan los recursos de AWS. [cite: 98]"
   },
   {
-    "enunciado": "AWS EC2: ¿Qué ocurre con los volúmenes EBS cuando se detiene una instancia?",
+    "enunciado": "16. ¿Qué es el Free Tier de AWS y por qué es importante conocerlo? [cite: 99]",
     "opciones": [
-      "Los volúmenes EBS se eliminan automáticamente al detener la instancia",
-      "Los volúmenes EBS persisten y siguen almacenando los datos; se vuelven a asociar cuando la instancia arranca de nuevo",
-      "Los datos del volumen EBS se mueven automáticamente a S3 al detener la instancia",
-      "Los volúmenes EBS se desconectan y deben volver a formatearse antes de usarse"
+      "Un conjunto de servicios gratuitos disponibles para los usuarios sin límites. [cite: 100]",
+      "Un periodo de prueba con límites de uso gratuitos que ayudan a aprender y evitar costes inesperados. [cite: 101]",
+      "Un servicio que bloquea automáticamente cualquier gasto inesperado en la cuenta. [cite: 102]",
+      "Una herramienta exclusiva para empresas grandes con ventajas a partir de cierto gasto. [cite: 103]"
     ],
     "correcta": 1,
-    "cita": "Los volúmenes EBS son persistentes. Al detener una instancia EC2, los datos del volumen se conservan y el volumen permanece asociado a la instancia, que lo recupera al arrancar de nuevo. Solo se eliminan si se configura explícitamente la opción 'Delete on Termination' al terminar (no al detener) la instancia."
+    "cita": "El Free Tier permite usar servicios de AWS de forma gratuita dentro de unos límites definidos, ideal para aprender y controlar costes al comenzar. [cite: 104]"
   },
   {
-    "enunciado": "AWS: ¿Para qué sirve una IP elástica (Elastic IP)?",
+    "enunciado": "17. ¿Cuál es el objetivo principal de la Calculadora de precios de AWS? [cite: 105]",
     "opciones": [
-      "Para asignar automáticamente una IP privada a las instancias dentro de la VPC",
-      "Para disponer de una IP pública estática y fija que puede reasignarse entre instancias, garantizando continuidad ante fallos o reemplazos de instancia",
-      "Para conectar dos VPCs de distintas regiones mediante un túnel cifrado",
-      "Para limitar el ancho de banda de salida de una instancia EC2"
-    ],
-    "correcta": 1,
-    "cita": "Una Elastic IP es una dirección IPv4 pública y estática que permanece bajo el control de la cuenta AWS. Permite que una aplicación mantenga siempre la misma IP pública, incluso si se reemplaza la instancia subyacente, facilitando la recuperación ante fallos sin cambiar DNS."
-  },
-  {
-    "enunciado": "Sistemas: ¿A través de qué protocolo nos conectamos a servidores Windows remotamente?",
-    "opciones": [
-      "SSH (Secure Shell)",
-      "FTP (File Transfer Protocol)",
-      "RDP (Remote Desktop Protocol)",
-      "SFTP (SSH File Transfer Protocol)"
+      "Monitorizar el consumo real y generar facturas mensuales. [cite: 106]",
+      "Crear y desplegar recursos directamente en AWS. [cite: 107]",
+      "Estimar el coste de distintos servicios antes de desplegarlos y comparar configuraciones. [cite: 108]",
+      "Aplicar automáticamente descuentos por uso prolongado. [cite: 109]"
     ],
     "correcta": 2,
-    "cita": "El protocolo estándar para conectarse de forma remota a un escritorio Windows es RDP (Remote Desktop Protocol), que opera por defecto en el puerto TCP 3389 y proporciona una sesión gráfica interactiva."
+    "cita": "La AWS Pricing Calculator sirve para estimar costes antes de crear los recursos, permitiendo comparar configuraciones y presupuestar proyectos. [cite: 110]"
   },
   {
-    "enunciado": "Windows Server: ¿Cómo se añade un nuevo disco duro a un servidor Windows?",
+    "enunciado": "18. ¿Cuál de las siguientes limitaciones de la Calculadora de precios de AWS es correcta? [cite: 111]",
     "opciones": [
-      "Se conecta el disco y Windows lo formatea automáticamente sin intervención",
-      "Se conecta el volumen EBS a la instancia, se inicializa en el Administrador de discos, se crea una partición, se formatea y se asigna una letra de unidad",
-      "Hay que reinstalar el sistema operativo para que detecte el nuevo disco",
-      "Basta con ejecutar el comando 'diskpart /add' en PowerShell"
-    ],
-    "correcta": 1,
-    "cita": "Tras asociar el volumen EBS a la instancia EC2 Windows, hay que abrir el Administrador de discos (diskmgmt.msc), inicializar el disco nuevo, crear un volumen simple, formatearlo con NTFS y asignarle una letra de unidad para que esté disponible en el sistema."
-  },
-  {
-    "enunciado": "AWS: ¿Cuándo tiene sentido usar S3 y cuándo EBS para almacenamiento?",
-    "opciones": [
-      "S3 es mejor siempre; EBS solo se usa para bases de datos legacy",
-      "EBS se usa para disco de sistema operativo y datos de aplicaciones con acceso de bloque; S3 para objetos estáticos, backups, archivos y contenido web accesible por HTTP",
-      "S3 y EBS son intercambiables; la elección depende solo del precio",
-      "EBS sirve para almacenamiento a largo plazo; S3 para datos temporales de alta velocidad"
-    ],
-    "correcta": 1,
-    "cita": "EBS es almacenamiento de bloques pensado para discos de instancias EC2 (sistema operativo, bases de datos, aplicaciones que necesitan baja latencia). S3 es almacenamiento de objetos ideal para archivos estáticos, copias de seguridad, logs, imágenes, vídeos y cualquier contenido accesible vía URL sin necesidad de estar montado como disco."
-  },
-  {
-    "enunciado": "AWS S3: ¿Es S3 un servicio global o está vinculado a una zona de disponibilidad?",
-    "opciones": [
-      "S3 está vinculado a una única AZ dentro de una región",
-      "S3 es completamente global y no pertenece a ninguna región",
-      "Los buckets de S3 se crean en una región específica, pero el servicio es accesible globalmente y replica los datos en múltiples AZs dentro de esa región",
-      "S3 replica automáticamente los datos en todas las regiones del mundo"
+      "No figuran todos los servicios en la calculadora, lo que genera problemas en los presupuestos. [cite: 112]",
+      "No permite estimar más de un servicio a la vez. [cite: 113]",
+      "La estimación puede no ser exacta, por lo que a veces es mejor empezar con un uso real y revisar la factura. [cite: 114]",
+      "Solo puede usarse con cuentas de pago. [cite: 115]"
     ],
     "correcta": 2,
-    "cita": "S3 es un servicio regional: cada bucket se crea en una región concreta y AWS replica los objetos en múltiples AZs dentro de esa región para garantizar durabilidad del 99.999999999%. El acceso al bucket es global vía HTTP/HTTPS, pero los datos residen en la región elegida."
+    "cita": "La estimación de la calculadora no siempre coincide exactamente con la factura real, ya que pueden influir factores como el tráfico de red o uso real de recursos. [cite: 116]"
   },
   {
-    "enunciado": "AWS: ¿Qué diferencias hay entre usar Amazon RDS y usar EC2 con una base de datos instalada manualmente?",
+    "enunciado": "19. Al realizar una estimación en la AWS Pricing Calculator, ¿qué combinación de factores suele tener un impacto más alto en el coste final? [cite: 117]",
     "opciones": [
-      "No hay diferencias relevantes; RDS es simplemente EC2 con una base de datos preinstalada",
-      "RDS es un servicio gestionado (backups, parches, alta disponibilidad, réplicas automáticas); EC2 requiere que el equipo gestione manualmente toda la administración de la base de datos",
-      "EC2 con base de datos propia es siempre más económico que RDS en todos los escenarios",
-      "RDS solo soporta MySQL; EC2 permite cualquier motor de base de datos"
+      "Tipo de servicio, tamaño del recurso, horas de uso y región seleccionada. [cite: 118]",
+      "Número de usuarios IAM, políticas de permisos y grupos asignados. [cite: 119]",
+      "Zona de disponibilidad elegida, nombre del recurso y etiquetas aplicadas. [cite: 120]",
+      "Ninguna de las anteriores. [cite: 120]"
     ],
-    "correcta": 1,
-    "cita": "Amazon RDS es un servicio de base de datos gestionado: AWS se encarga de los backups automáticos, aplicación de parches, failover, réplicas de lectura y monitorización. Con EC2 + base de datos propia, el equipo asume toda la responsabilidad operativa: instalación, actualizaciones, backups y alta disponibilidad."
+    "correcta": 0,
+    "cita": "El precio depende principalmente del tipo de servicio, el tamaño del recurso, el tiempo de uso y la región seleccionada. [cite: 121]"
   },
   {
-    "enunciado": "AWS RDS: ¿Qué ventajas ofrece la configuración Multi-AZ en Amazon RDS?",
+    "enunciado": "20. ¿Qué es Amazon EC2 dentro de los servicios de AWS? [cite: 122]",
     "opciones": [
-      "Mejora el rendimiento de lectura distribuyendo las consultas entre varias instancias",
-      "Permite escalar la base de datos horizontalmente añadiendo más instancias de escritura",
-      "Proporciona alta disponibilidad y tolerancia a fallos mediante una réplica síncrona en otra AZ con failover automático",
-      "Reduce el coste de almacenamiento al comprimir los datos entre zonas"
+      "Un servicio para crear y gestionar máquinas virtuales bajo demanda. [cite: 123]",
+      "Un sistema de almacenamiento de archivos distribuido. [cite: 124]",
+      "Un servicio de bases de datos gestionadas. [cite: 125]",
+      "Un servicio de computación serverless donde no es necesario levantar servidores. [cite: 126]"
+    ],
+    "correcta": 0,
+    "cita": "EC2 (Elastic Compute Cloud) es el servicio de máquinas virtuales de AWS, donde el cliente controla el sistema operativo y la configuración. [cite: 127]"
+  },
+  {
+    "enunciado": "21. ¿Cuál es la función principal de Amazon S3? [cite: 128]",
+    "opciones": [
+      "Ejecutar aplicaciones sin necesidad de servidores. [cite: 129]",
+      "Crear redes privadas virtuales en la nube. [cite: 130]",
+      "Proporcionar almacenamiento de objetos escalable. [cite: 131]",
+      "Gestionar usuarios y permisos. [cite: 132]"
     ],
     "correcta": 2,
-    "cita": "La configuración Multi-AZ de RDS mantiene una réplica síncrona de la base de datos en una segunda Zona de Disponibilidad. En caso de fallo de la instancia primaria (hardware, red o AZ), AWS realiza un failover automático a la réplica en pocos minutos, minimizando el tiempo de inactividad sin intervención manual."
+    "cita": "Amazon S3 (Simple Storage Service) es el servicio de almacenamiento de objetos de AWS, ideal para guardar archivos, backups y contenido web. [cite: 133]"
+  },
+  {
+    "enunciado": "22. Según el modelo de responsabilidad compartida de AWS, ¿qué tarea es responsabilidad del cliente al usar una instancia EC2? [cite: 134]",
+    "opciones": [
+      "La seguridad física del centro de datos. [cite: 135]",
+      "La infraestructura de virtualización. [cite: 136]",
+      "El mantenimiento del hardware del servidor. [cite: 137]",
+      "La actualización y configuración del sistema operativo de la instancia. [cite: 138]"
+    ],
+    "correcta": 3,
+    "cita": "El cliente es responsable de configurar y actualizar el sistema operativo. AWS gestiona la seguridad física, el hardware y la virtualización. [cite: 139, 140]"
+  },
+  {
+    "enunciado": "23. En el modelo de responsabilidad compartida de AWS, ¿quién es responsable de la capa de virtualización que permite ejecutar instancias EC2? [cite: 141]",
+    "opciones": [
+      "El cliente, ya que decide el tipo de instancia y el sistema operativo. [cite: 142]",
+      "El cliente, porque configura la red y los grupos de seguridad. [cite: 143]",
+      "AWS, ya que gestiona el hipervisor y la infraestructura de virtualización. [cite: 144]",
+      "Ambos, de forma compartida y configurable. [cite: 145]"
+    ],
+    "correcta": 2,
+    "cita": "AWS gestiona el hipervisor y la capa de virtualización. El cliente solo elige el tipo de instancia y el SO, pero no gestiona el hipervisor. [cite: 146, 147]"
+  },
+  {
+    "enunciado": "24. ¿Qué responsabilidad NO asume AWS en el modelo de responsabilidad compartida? [cite: 148]",
+    "opciones": [
+      "La seguridad física de los centros de datos. [cite: 149]",
+      "El mantenimiento del hardware subyacente. [cite: 150]",
+      "La configuración del sistema operativo. [cite: 151]",
+      "La infraestructura global de red. [cite: 152]"
+    ],
+    "correcta": 2,
+    "cita": "En el modelo de responsabilidad compartida, AWS gestiona la infraestructura física y la red. El cliente es responsable de configurar el SO, las aplicaciones, los datos y los accesos IAM. [cite: 153, 154]"
+  },
+  {
+    "enunciado": "25. ¿Qué es un usuario de IAM en AWS? [cite: 155]",
+    "opciones": [
+      "Un recurso que define permisos sobre otros servicios. [cite: 156]",
+      "Una persona o aplicación que puede autenticarse en una cuenta de AWS. [cite: 157]",
+      "Un conjunto de permisos reutilizables. [cite: 158]",
+      "Un mecanismo para conectar cuentas entre regiones. [cite: 159]"
+    ],
+    "correcta": 1,
+    "cita": "Un usuario de IAM representa a una persona o aplicación que necesita acceder a la cuenta de AWS con credenciales propias. [cite: 161]"
+  },
+  {
+    "enunciado": "26. ¿Qué es una política de IAM y en qué formato están escritas normalmente? [cite: 162]",
+    "opciones": [
+      "Un conjunto de reglas de red escritas en YAML. [cite: 163]",
+      "Un usuario especial con permisos administrativos. [cite: 164]",
+      "Un documento que define permisos sobre recursos y que está escrito en formato JSON. [cite: 165]",
+      "Un rol que se asigna automáticamente a los servicios de AWS. [cite: 166]"
+    ],
+    "correcta": 2,
+    "cita": "Una política de IAM es un documento en formato JSON que define qué acciones se permiten o deniegan sobre qué recursos de AWS. [cite: 167]"
+  },
+  {
+    "enunciado": "27. Una empresa quiere que varias aplicaciones en EC2 accedan a Amazon S3 sin usar usuarios ni contraseñas. ¿Cuál es la opción MÁS adecuada en IAM? [cite: 168, 169]",
+    "opciones": [
+      "Crear un usuario de IAM y compartir sus credenciales. [cite: 170]",
+      "Asignar una política directamente al bucket de S3. [cite: 171]",
+      "Utilizar un rol de IAM asociado a la instancia EC2. [cite: 172]",
+      "Añadir los permisos al usuario root. [cite: 173]"
+    ],
+    "correcta": 2,
+    "cita": "Los roles de IAM permiten acceso seguro entre servicios de AWS sin necesidad de gestionar usuarios ni contraseñas. Es la práctica recomendada para aplicaciones en EC2. [cite: 174, 175]"
+  },
+  {
+    "enunciado": "28. Según el modelo de responsabilidad compartida de AWS, ¿quién es el responsable de gestionar la seguridad de una aplicación y de los datos que utiliza? [cite: 176]",
+    "opciones": [
+      "AWS, ya que la aplicación se ejecuta en su infraestructura. [cite: 177]",
+      "AWS, siempre que se utilicen servicios en la nube. [cite: 178]",
+      "Ambos, pero solo cuando se usan servicios serverless. [cite: 179]",
+      "El cliente, ya que es responsable de la seguridad en la nube (aplicaciones y datos). [cite: 180]"
+    ],
+    "correcta": 3,
+    "cita": "El cliente es responsable de la seguridad de lo que despliega en la nube: aplicaciones, datos y configuraciones de acceso. [cite: 181]"
+  },
+  {
+    "enunciado": "30. ¿Cuál de las siguientes afirmaciones describe MEJOR el concepto de computación en la nube? [cite: 182]",
+    "opciones": [
+      "Un sistema de virtualización que permite ejecutar múltiples máquinas virtuales en servidores locales de la empresa. [cite: 183]",
+      "Un protocolo de red que conecta los centros de datos de una empresa con sus oficinas remotas de forma segura. [cite: 184]",
+      "Un servicio exclusivo de almacenamiento remoto para empresas con necesidades de backup y recuperación. [cite: 185]",
+      "Un modelo que facilita el acceso bajo demanda a recursos de Tl a través de internet, sin necesidad de infraestructura propia. [cite: 186]"
+    ],
+    "correcta": 3,
+    "cita": "La computación en la nube permite acceder a recursos tecnológicos (cómputo, almacenamiento, redes) a través de internet sin necesidad de poseer ni gestionar la infraestructura física subyacente. [cite: 187]"
+  },
+  {
+    "enunciado": "32. Dada una dirección IPv4 como 192.0.2.0, ¿cuál de las siguientes afirmaciones es correcta? [cite: 188]",
+    "opciones": [
+      "Cada número decimal de la dirección IPv4 se representa usando 4 bits. [cite: 189]",
+      "Cada uno de los cuatro bloques de la dirección IPv4 se representa con 8 bits. [cite: 190]",
+      "La dirección IPv4 completa se representa usando 16 bits. [cite: 191]",
+      "El valor decimal máximo que puede tomar uno de los bloques es 512. [cite: 192]"
+    ],
+    "correcta": 1,
+    "cita": "Una dirección IPv4 tiene 32 bits divididos en 4 octetos de 8 bits cada uno. Cada octeto puede valer entre 0 y 255 en decimal. [cite: 193, 194]"
+  },
+  {
+    "enunciado": "33. Una startup quiere lanzar su primera aplicación web sin invertir capital en servidores. ¿Qué ventaja financiera fundamental ofrece la nube frente al modelo tradicional on-premise? [cite: 195, 196]",
+    "opciones": [
+      "Garantiza costes nulos durante los primeros meses de operación para startups. [cite: 197]",
+      "Permite externalizar completamente el equipo de TI al proveedor cloud. [cite: 198]",
+      "Convierte los costes de infraestructura de gasto fijo e inicial en gasto variable según el consumo real. [cite: 199]",
+      "Elimina la necesidad de contratar soporte técnico especializado. [cite: 200]"
+    ],
+    "correcta": 2,
+    "cita": "La nube transforma la inversión inicial en hardware (CapEx) en un coste operativo variable que se paga en función del uso real (OpEx), mejorando la liquidez financiera, especialmente en startups. [cite: 201]"
+  },
+  {
+    "enunciado": "34. ¿Por qué fue necesario introducir el protocolo IPv6 frente a IPv4? [cite: 202]",
+    "opciones": [
+      "Porque IPv6 utiliza un formato de direcciones más legible que IPv4. [cite: 203]",
+      "Porque IPv4 no permite el uso de direcciones en formato hexadecimal. [cite: 204]",
+      "Porque el número de direcciones disponibles en IPv4 es insuficiente. [cite: 205]",
+      "Porque IPv6 sustituye completamente a los protocolos de enrutamiento. [cite: 206]"
+    ],
+    "correcta": 2,
+    "cita": "IPv4 solo permite unos 4.000 millones de direcciones, insuficientes para la cantidad de dispositivos conectados actuales. IPv6 amplía el espacio a 340 sextillones de direcciones. [cite: 207, 208]"
+  },
+  {
+    "enunciado": "35. ¿Qué rango de direcciones IP representa la red 192.168.1.0/24? [cite: 209]",
+    "opciones": [
+      "Desde 192.168.1.0 hasta 192.168.1.255. [cite: 210]",
+      "Desde 192.168.1.1 hasta 192.168.1.24. [cite: 211]",
+      "Desde 192.168.0.0 hasta 192.168.255.255. [cite: 212]",
+      "Desde 192.168.1.0 hasta 192.168.1.24. [cite: 213]"
+    ],
+    "correcta": 0,
+    "cita": "Un prefijo/24 tiene 8 bits para hosts: $2^{\\wedge}8=256$ IPs totales, de 0 a .255. La.0 es la dirección de red y la .255 es el broadcast. [cite: 214, 215]"
+  },
+  {
+    "enunciado": "36. En el modelo laas de computación en la nube, ¿qué componentes de la pila tecnológica son responsabilidad del usuario? [cite: 216]",
+    "opciones": [
+      "Solo las aplicaciones y los datos de negocio que despliega en la plataforma. [cite: 217]",
+      "Únicamente el sistema operativo, ya que el resto lo gestiona el proveedor. [cite: 218]",
+      "Desde el networking físico hasta las aplicaciones, incluyendo toda la pila tecnológica. [cite: 219]",
+      "El sistema operativo, middleware, runtime, aplicaciones y datos. [cite: 220]"
+    ],
+    "correcta": 3,
+    "cita": "En laaS, el proveedor gestiona hardware, red física y virtualización. El cliente gestiona desde el sistema operativo hacia arriba: SO, middleware, runtime, aplicaciones y datos. [cite: 221, 222]"
+  },
+  {
+    "enunciado": "37. ¿Cuál de las siguientes opciones describe correctamente una función de una puerta de enlace a Internet (Internet Gateway) en una VPC? [cite: 223]",
+    "opciones": [
+      "Permitir la comunicación privada entre subredes dentro de la misma VPC sin acceso a Internet. [cite: 224]",
+      "Proporcionar acceso a Internet únicamente para instancias que no tienen direcciones IP públicas. [cite: 225]",
+      "Actuar como destino en las tablas de enrutamiento para el tráfico que debe salir a Internet. [cite: 226]",
+      "Ninguna de las anteriores. [cite: 227]"
+    ],
+    "correcta": 2,
+    "cita": "El Internet Gateway (IGW) es el componente que permite enrutar tráfico desde la VPC hacia Internet. Actúa como destino (0.0.0.0/0) en la tabla de enrutamiento de las subredes públicas. [cite: 228, 229]"
+  },
+  {
+    "enunciado": "38. ¿Qué es una VPC (Virtual Private Cloud) en AWS y para qué sirve? [cite: 230]",
+    "opciones": [
+      "Un servicio para crear máquinas virtuales aisladas dentro de una región de AWS. [cite: 231]",
+      "Una red privada virtual aislada donde se despliegan y conectan los recursos de AWS. [cite: 232]",
+      "Un servicio de almacenamiento privado cifrado para datos sensibles de la empresa. [cite: 233]",
+      "Un sistema de monitorización del tráfico de red entre servicios de AWS. [cite: 234]"
+    ],
+    "correcta": 1,
+    "cita": "Una VPC es una red virtual aislada lógicamente dentro de la nube de AWS. Permite definir rangos de IPs, subredes, tablas de enrutamiento y controlar qué tráfico entra y sale de los recursos. [cite: 235, 236]"
+  },
+  {
+    "enunciado": "39. Al planificar el despliegue de una infraestructura en AWS, ¿cuál de los siguientes NO es un criterio válido para seleccionar la región? [cite: 237]",
+    "opciones": [
+      "La proximidad geográfica a los usuarios finales para minimizar la latencia. [cite: 238]",
+      "La posibilidad de acceder físicamente a los centros de datos para labores de mantenimiento del equipo propio. [cite: 239]",
+      "El cumplimiento de regulaciones locales de protección de datos. [cite: 240]",
+      "Las diferencias de precio entre regiones para optimizar costes. [cite: 241]"
+    ],
+    "correcta": 1,
+    "cita": "En la nube pública no es posible ni necesario acceder físicamente a los servidores; AWS gestiona todo el hardware. Los criterios válidos para elegir región son: latencia, cumplimiento normativo y optimización de costes. [cite: 242, 243]"
+  },
+  {
+    "enunciado": "40. ¿Cuántas direcciones IP contiene una subred con el prefijo/24? [cite: 244]",
+    "opciones": [
+      "24 direcciones disponibles para asignar a hosts. [cite: 245]",
+      "256 en total, siendo 254 utilizables para hosts. [cite: 246]",
+      "512 en total, con 510 utilizables para hosts. [cite: 247]",
+      "65.536 direcciones en total para la red. [cite: 248]"
+    ],
+    "correcta": 1,
+    "cita": "Un prefijo/24 tiene 8 bits para hosts: $2^{\\wedge}8=256$ IPs totales. Se restan la dirección de red y la de broadcast, quedando 254 utilizables por hosts. [cite: 249, 250]"
+  },
+  {
+    "enunciado": "41. ¿Qué significa permitir tráfico desde 0.0.0.0/0 en una regla de un grupo de seguridad de AWS? [cite: 251]",
+    "opciones": [
+      "Que solo se permite tráfico desde la red interna de la VPC. [cite: 252]",
+      "Que se permite tráfico desde cualquier dirección IP. [cite: 253]",
+      "Que únicamente se permite tráfico desde direcciones privadas. [cite: 254]",
+      "Que se restringe el acceso a una única subred concreta. [cite: 255]"
+    ],
+    "correcta": 1,
+    "cita": "0.0.0.0/0 en notación CIDR representa todas las direcciones IP posibles, es decir, tráfico proveniente de cualquier origen en Internet. [cite: 256]"
+  },
+  {
+    "enunciado": "42. ¿Cómo se relacionan las Regiones y las Zonas de Disponibilidad (AZ) en la infraestructura global de AWS? [cite: 257]",
+    "opciones": [
+      "Cada AZ contiene a su vez varias Regiones para distribuir la carga geográficamente. [cite: 258]",
+      "Una Región es un único centro de datos físico que puede dividirse en zonas lógicas. [cite: 259]",
+      "Una Región agrupa varias AZ físicamente separadas pero interconectadas dentro de una misma área geográfica. [cite: 260]",
+      "Las AZ son réplicas de una Región alojadas en zonas geográficas completamente distintas. [cite: 261]"
+    ],
+    "correcta": 2,
+    "cita": "Una Región de AWS está formada por múltiples Zonas de Disponibilidad: centros de datos físicamente separados e independientes entre sí, pero conectados mediante redes de alta velocidad dentro de la misma área geográfica. [cite: 262]"
+  },
+  {
+    "enunciado": "43. ¿Cuál de las siguientes afirmaciones es correcta sobre los Security Groups y las Network ACL (NACL) en AWS? [cite: 263]",
+    "opciones": [
+      "Las Network ACL se aplican a nivel de instancia y los Security Groups a nivel de subred. [cite: 264]",
+      "Los Security Groups se aplican a nivel de instancia y las Network ACL a nivel de subred. [cite: 265]",
+      "Los Security Groups y las Network ACL se aplican exactamente al mismo nivel. [cite: 266]",
+      "Ninguna de las anteriores. [cite: 267]"
+    ],
+    "correcta": 1,
+    "cita": "Los Security Groups actúan como cortafuegos a nivel de instancia. Las NACL actúan a nivel de subred. [cite: 268]"
+  },
+  {
+    "enunciado": "44. Una instancia EC2 tiene asociado un grupo de seguridad que no permite tráfico de entrada HTTP (puerto 80). ¿Qué ocurrirá si un usuario intenta acceder a esa instancia desde un navegador web? [cite: 269, 270]",
+    "opciones": [
+      "La conexión será rechazada porque el tráfico de entrada no está permitido. [cite: 271]",
+      "La conexión funcionará porque el tráfico de salida está permitido por defecto. [cite: 272]",
+      "La instancia redirigirá automáticamente la conexión a HTTPS. [cite: 273]",
+      "El acceso dependerá de la subred en la que esté desplegada la instancia. [cite: 274]"
+    ],
+    "correcta": 0,
+    "cita": "Los Security Groups deniegan por defecto todo el tráfico que no esté explícitamente permitido. Si el puerto 80 no está abierto, la conexión se rechaza. [cite: 275, 276]"
+  },
+  {
+    "enunciado": "45. Según el modelo de precios de AWS, ¿cuál de los siguientes factores NO genera costes directamente en la plataforma? [cite: 277]",
+    "opciones": [
+      "El almacenamiento utilizado en volúmenes EBS y buckets S3. [cite: 278]",
+      "El tiempo de cómputo de las instancias EC2 en ejecución. [cite: 279]",
+      "La transferencia de datos salientes desde AWS hacia internet. [cite: 280]",
+      "El número de reglas definidas en los Security Groups de la VPC. [cite: 281]"
+    ],
+    "correcta": 3,
+    "cita": "Las reglas de los Security Groups no generan coste directo en AWS. Lo que sí genera coste son el cómputo (instancias activas), el almacenamiento y la transferencia de datos salientes hacia internet. [cite: 282, 283]"
+  },
+  {
+    "enunciado": "46. Una instancia EC2 tiene asociado un grupo de seguridad que permite tráfico de entrada HTTP (puerto 80), pero NO permite tráfico de entrada HTTPS (puerto 443). ¿Qué ocurrirá si un usuario intenta acceder usando https://? [cite: 284, 285]",
+    "opciones": [
+      "La conexión será rechazada porque el tráfico al puerto 443 no está permitido. [cite: 286]",
+      "La conexión funcionará porque el puerto 80 está permitido. [cite: 287]",
+      "La instancia redirigirá automáticamente la conexión HTTPS al puerto 80. [cite: 288]",
+      "El acceso funcionará solo si la instancia está en una subred pública. [cite: 289]"
+    ],
+    "correcta": 0,
+    "cita": "El tráfico HTTPS utiliza el puerto 443. Si ese puerto no está permitido en el Security Group, la conexión será bloqueada, independientemente de que el puerto 80 esté abierto. [cite: 290]"
+  },
+  {
+    "enunciado": "47. Tienes dos instancias EC2 (A y B) en la misma subred. La instancia A debe comunicarse con B por el puerto 3306 (MySQL), pero B no debe ser accesible desde Internet. ¿Cuál es la configuración correcta? [cite: 291, 292, 293]",
+    "opciones": [
+      "Permitir tráfico entrante al puerto 3306 desde 0.0.0.0/0 en el grupo de seguridad de B. [cite: 294]",
+      "Permitir tráfico saliente al puerto 3306 en el grupo de seguridad de A y tráfico entrante desde el grupo de seguridad de A en el grupo de seguridad de B. [cite: 294]",
+      "Asignar ambos grupos de seguridad a una subred privada sin reglas de entrada. [cite: 295]",
+      "Configurar una regla de entrada en la tabla de rutas de la VPC para el puerto 3306. [cite: 296]"
+    ],
+    "correcta": 1,
+    "cita": "Se permite salida desde A y entrada en B solo desde el grupo de seguridad de A. Así se restringe el acceso a MySQL únicamente a la instancia A, sin exponerlo a Internet. [cite: 297]"
+  },
+  {
+    "enunciado": "48. Dentro del modelo de responsabilidad compartida de AWS, ¿cuál de las siguientes tareas es responsabilidad EXCLUSIVA del cliente? [cite: 298]",
+    "opciones": [
+      "El mantenimiento y actualización del hardware físico de los servidores. [cite: 299]",
+      "La gestión de la infraestructura global de red de AWS. [cite: 300]",
+      "La seguridad y el control de acceso a los datos de la aplicación. [cite: 301]",
+      "La disponibilidad física y el mantenimiento de los centros de datos. [cite: 302]"
+    ],
+    "correcta": 2,
+    "cita": "El cliente es responsable de la seguridad 'en' la nube: sus datos, aplicaciones, configuraciones de SO y accesos IAM. AWS gestiona la seguridad 'de' la nube: hardware, infraestructura física y virtualización. [cite: 303, 304]"
+  },
+  {
+    "enunciado": "49. Un grupo de seguridad de una instancia EC2 tiene una regla de entrada que permite el puerto 443. No se ha configurado ninguna regla de salida. ¿Qué ocurre con el tráfico de respuesta que genera la instancia? [cite: 305, 306]",
+    "opciones": [
+      "Se bloquea porque no hay reglas de salida configuradas explícitamente. [cite: 307]",
+      "Sale correctamente porque al configurar de entrada se configura de salida automáticamente. [cite: 308]",
+      "Hay que abrir el puerto 443 también en las reglas de salida. [cite: 309]",
+      "El tráfico de salida lo gestionan exclusivamente las ACLs de la subred. [cite: 310]"
+    ],
+    "correcta": 1,
+    "cita": "Los Security Groups son stateful: si permites tráfico de entrada, la respuesta correspondiente sale automáticamente sin necesidad de configurar una regla de salida. Las NACLs, en cambio, son stateless. [cite: 311, 312]"
+  },
+  {
+    "enunciado": "50. ¿Cuál es la diferencia clave entre una subred pública y una subred privada en una VPC de AWS? [cite: 313]",
+    "opciones": [
+      "La subred pública usa IPv6 y la privada solo IPv4. [cite: 314]",
+      "La subred pública tiene más capacidad de IPs que la privada por defecto. [cite: 315]",
+      "La subred pública tiene una ruta al Internet Gateway; la privada no tiene acceso directo a internet. [cite: 316]",
+      "La subred privada no puede contener instancias EC2, solo bases de datos RDS. [cite: 317]"
+    ],
+    "correcta": 2,
+    "cita": "La diferencia está en la tabla de enrutamiento: si tiene una ruta 0.0.0.0/0 apuntando al Internet Gateway, es pública. Si no tiene esa ruta, es privada y sus recursos no son alcanzables desde internet. [cite: 318, 319]"
+  },
+  {
+    "enunciado": "51. ¿Qué elemento de IAM se utiliza para definir qué acciones están permitidas o denegadas sobre un recurso específico de AWS? [cite: 320]",
+    "opciones": [
+      "Un grupo de IAM, que agrupa usuarios con necesidades de acceso similares. [cite: 321]",
+      "Un rol de IAM, que se asigna temporalmente a servicios o usuarios externos. [cite: 322]",
+      "Una política de IAM, documento en formato JSON que especifica permisos sobre recursos. [cite: 323]",
+      "Un usuario de IAM, que representa a una persona o aplicación con credenciales propias. [cite: 324]"
+    ],
+    "correcta": 2,
+    "cita": "Las políticas de IAM son documentos JSON que definen permisos: qué acciones (Allow/Deny) se pueden realizar sobre qué recursos de AWS. Se asocian a usuarios, grupos o roles para controlar el acceso. [cite: 325, 326]"
+  },
+  {
+    "enunciado": "52. Una empresa despliega un servidor web en EC2 y una base de datos en RDS dentro de una VPC. ¿En qué tipo de subred debe colocarse la base de datos y por qué? [cite: 327, 328]",
+    "opciones": [
+      "En una subred pública, para que el equipo de desarrollo acceda directamente. [cite: 329]",
+      "En la misma subred que el servidor web para simplificar la configuración de red. [cite: 330]",
+      "En una subred privada, sin acceso directo desde internet. [cite: 331]",
+      "En una subred con su propio Internet Gateway para recibir actualizaciones. [cite: 332]"
+    ],
+    "correcta": 2,
+    "cita": "La base de datos debe estar en una subred privada: solo el servidor web debe poder conectarse a ella internamente. Exponer la base de datos a internet supondría un riesgo de seguridad grave. [cite: 333, 334]"
+  },
+  {
+    "enunciado": "53. ¿Dónde es mejor colocar una base de datos en una VPC? [cite: 335]",
+    "opciones": [
+      "En una subred pública con ACL. [cite: 335]",
+      "Da igual el tipo de subred si está bien filtrada. [cite: 336]",
+      "En una subred privada. [cite: 337]",
+      "En la subred pública con security groups. [cite: 338]"
+    ],
+    "correcta": 2,
+    "cita": "La base de datos no debe ser accesible desde internet. Debe colocarse en una subred privada, donde solo el servidor de aplicaciones pueda conectarse a ella internamente. [cite: 339, 340]"
+  },
+  {
+    "enunciado": "54. En el diseño de una arquitectura segura en AWS, ¿cuál es la ubicación recomendada para una base de datos que almacena información sensible? [cite: 341]",
+    "opciones": [
+      "En una subred pública para facilitar el acceso del equipo de administración desde internet. [cite: 342]",
+      "En la misma subred que el servidor web para simplificar la conectividad. [cite: 343]",
+      "En cualquier subred, ya que los Security Groups proporcionan protección suficiente. [cite: 344]",
+      "En una subred privada sin acceso directo desde internet, accesible solo desde la capa de aplicación. [cite: 345]"
+    ],
+    "correcta": 3,
+    "cita": "Las bases de datos deben colocarse en subredes privadas: no deben ser accesibles desde internet. Solo el servidor de aplicaciones debe poder conectarse a ellas internamente a través de reglas de Security Group. [cite: 346, 347]"
+  },
+  {
+    "enunciado": "55. ¿Qué pasa si eliminas la ruta $0.0.0.0/0$ de la tabla de enrutamiento asociada a una subred pública? [cite: 348]",
+    "opciones": [
+      "La instancia pierde su IP privada. [cite: 349]",
+      "Pierde acceso a Internet. [cite: 350]",
+      "Cambia de zona de disponibilidad. [cite: 351]",
+      "Se apaga la instancia. [cite: 352]"
+    ],
+    "correcta": 1,
+    "cita": "La ruta $0.0.0.0/0\\rightarrow$ Internet Gateway es la que habilita el acceso a internet. Al eliminarla, la subred deja de ser pública y las instancias pierden la conectividad con internet. [cite: 353, 354]"
+  },
+  {
+    "enunciado": "56. ¿Qué ocurre si una regla de entrada de un Security Group bloquea un puerto necesario? [cite: 355]",
+    "opciones": [
+      "La conexión se rechaza. [cite: 356]",
+      "El tráfico se redirige a otro puerto. [cite: 357]",
+      "La regla se aplica solo al tráfico saliente. [cite: 358]",
+      "El tráfico se permite si la instancia inició la conexión. [cite: 359]"
+    ],
+    "correcta": 0,
+    "cita": "Los Security Groups son stateful: si no hay una regla que permita explícitamente el tráfico entrante en un puerto, la conexión se rechaza directamente. No se redirige ni se reenvía. [cite: 360, 361]"
+  },
+  {
+    "enunciado": "57. En una tabla de enrutamiento de AWS, ¿qué significa configurar como destino la dirección 0.0.0.0/0 apuntando al Internet Gateway? [cite: 362]",
+    "opciones": [
+      "Que solo el tráfico de la red interna de la VPC puede salir a través de ese gateway. [cite: 363]",
+      "Que únicamente el tráfico IPv6 utilizará esa ruta por defecto. [cite: 364]",
+      "Que todo el tráfico que no coincida con otras rutas más específicas será enviado a internet a través del IGW. [cite: 365]",
+      "Que el rango completo de IPs privadas de la VPC tiene acceso restringido al exterior. [cite: 366]"
+    ],
+    "correcta": 2,
+    "cita": "La ruta 0.0.0.0/0 es la ruta por defecto: captura cualquier tráfico cuyo destino no coincida con rutas más específicas y lo reenvía al Internet Gateway, otorgando acceso a internet a esa subred. [cite: 367, 368]"
+  },
+  {
+    "enunciado": "58. En la regla de un grupo de seguridad de AWS aparece como origen la IP 203.0.113.25/32. ¿Qué significa esta notación y qué tráfico permite? [cite: 369, 370]",
+    "opciones": [
+      "Permite tráfico desde todos los hosts en la red 203.0.113.0. [cite: 371]",
+      "Permite tráfico desde los primeros 32 hosts de la red 203.0.113.0. [cite: 372]",
+      "Permite tráfico únicamente desde esa dirección IP concreta y ninguna otra. [cite: 373]",
+      "Bloquea el tráfico procedente de esa dirección IP específica. [cite: 374]"
+    ],
+    "correcta": 2,
+    "cita": "El sufijo/32 en CIDR significa que los 32 bits son fijos, identificando exactamente una única dirección IP. Es la forma habitual de permitir acceso a un solo equipo concreto, como la IP de un administrador. [cite: 375, 376]"
+  },
+  {
+    "enunciado": "59. En una VPC tienes una subred cuya tabla de enrutamiento tiene esta regla: destino $0.0.0.0/0\\rightarrow igw-$ xxxxxxxx. ¿Qué tipo de subred es esta y qué implica? [cite: 377, 378]",
+    "opciones": [
+      "Una subred privada, porque el Internet Gateway controla el tráfico saliente. [cite: 379]",
+      "Una subred de administración, porque usa la ruta por defecto del router interno. [cite: 380]",
+      "Una subred pública, porque el tráfico hacia cualquier IP puede salir a internet a través del IGW. [cite: 381]",
+      "Una subred de base de datos, porque redirige todo el tráfico al gateway de datos. [cite: 382]"
+    ],
+    "correcta": 2,
+    "cita": "Cuando una tabla de enrutamiento tiene la ruta 0.0.0.0/0 apuntando a un Internet Gateway (igw-...), la subred es pública. Las instancias con IP pública en esa subred pueden comunicarse con internet. [cite: 383, 384]"
+  },
+  {
+    "enunciado": "60. Una instancia EC2 usa una IP pública asignada automáticamente (no elástica). ¿Qué ocurre con esa IP al detener e iniciar la instancia? [cite: 385, 386]",
+    "opciones": [
+      "La IP queda reservada en la cuenta y se reasigna automáticamente a la misma instancia. [cite: 387]",
+      "La IP pública puede cambiar, ya que las IPs dinámicas se liberan al detener la instancia. [cite: 388]",
+      "La IP se convierte en una IP privada dentro del rango de la VPC. [cite: 389]",
+      "La IP solo cambia si la instancia se mueve a otra zona de disponibilidad. [cite: 390]"
+    ],
+    "correcta": 1,
+    "cita": "Las IPs públicas dinámicas en EC2 se liberan al detener la instancia. Al volver a iniciarla, AWS asigna una nueva IP pública diferente. Para mantener la misma IP se debe usar una Elastic IP (IP pública estática). [cite: 391, 392, 393]"
+  },
+  {
+    "enunciado": "61. Una empresa necesita desplegar un servidor web con Linux en AWS. ¿Cuáles son los elementos imprescindibles al lanzar una instancia EC2? [cite: 394, 395]",
+    "opciones": [
+      "Solo el tipo de instancia y el nombre del servidor. [cite: 396]",
+      "AMI, tipo de instancia, par de claves y grupo de seguridad. [cite: 397]",
+      "Solo la AMI y la región donde se va a desplegar. [cite: 398]",
+      "El sistema operativo, el hostname y la dirección IP pública. [cite: 399]"
+    ],
+    "correcta": 1,
+    "cita": "Al lanzar EC2 se deben seleccionar la AMI (imagen), el tipo de instancia, la configuración de red, el grupo de seguridad y el par de claves para el acceso. [cite: 400]"
+  },
+  {
+    "enunciado": "62. ¿Qué conjunto de elementos es imprescindible para lanzar una instancia EC2 funcional? [cite: 401]",
+    "opciones": [
+      "Tipo de instancia y bucket S3. [cite: 402]",
+      "Región y base de datos. [cite: 403]",
+      "AMI, tipo de instancia y red. [cite: 404]",
+      "Tipo de instancia, virtualización y almacenamiento. [cite: 405]"
+    ],
+    "correcta": 2,
+    "cita": "Para lanzar una instancia EC2 son imprescindibles la AMI (imagen con SO), el tipo de instancia (CPU/RAM) y la configuración de red. El grupo de seguridad y el par de claves también se necesitan para el acceso. [cite: 406, 407]"
+  },
+  {
+    "enunciado": "63. Estás configurando un servidor web en EC2 que debe servir tráfico HTTPS a usuarios de internet. ¿Qué regla de entrada (inbound) es imprescindible en su Security Group? [cite: 408, 409]",
+    "opciones": [
+      "Permitir todos los puertos desde 0.0.0.0/0 para garantizar accesibilidad máxima. [cite: 410]",
+      "Permitir tráfico TCP en el puerto 22 desde cualquier IP para administración remota. [cite: 411]",
+      "Permitir tráfico TCP en el puerto 3389 desde la IP del administrador. [cite: 412]",
+      "Permitir tráfico TCP en el puerto 443 desde 0.0.0.0/0 para que los usuarios accedan vía HTTPS. [cite: 413]"
+    ],
+    "correcta": 3,
+    "cita": "Un servidor web público que sirve HTTPS necesita tener abierto el puerto 443 para cualquier IP (0.0.0.0/0). Abrir todos los puertos o el puerto 22 sin restricciones sería una práctica de seguridad inadecuada. [cite: 414, 415]"
+  },
+  {
+    "enunciado": "64. ¿Qué es una AMI (Amazon Machine Image) en AWS? [cite: 416]",
+    "opciones": [
+      "Un sistema automático de copias de seguridad para instancias EC2. [cite: 417]",
+      "Un servicio para monitorizar el rendimiento de las instancias en tiempo real. [cite: 418]",
+      "Un tipo de almacenamiento en bloque persistente asociado a las instancias. [cite: 419]",
+      "Una plantilla con SO y software preinstalado para lanzar instancias EC2. [cite: 420]"
+    ],
+    "correcta": 3,
+    "cita": "Una AMI es una plantilla que incluye el sistema operativo y el software preconfigurado necesario para arrancar una instancia EC2. Se pueden usar AMIs de AWS, del marketplace o crear las propias. [cite: 421, 422]"
+  },
+  {
+    "enunciado": "65. ¿Qué es una IP elástica en AWS y cuál es su principal ventaja frente a una IP pública normal? [cite: 423]",
+    "opciones": [
+      "Una IP privada fija dentro de la VPC que nunca cambia aunque la instancia se reinicie. [cite: 424]",
+      "Una dirección IP pública estática que permanece aunque la instancia se detenga e inicie. [cite: 425]",
+      "Una IP dinámica que AWS reasigna automáticamente al crear cada instancia EC2. [cite: 426]",
+      "Un bloque de IPs reservado para uso exclusivo dentro de una subred privada. [cite: 427]"
+    ],
+    "correcta": 1,
+    "cita": "Una IP pública normal cambia cada vez que la instancia se para y se inicia. Una Elastic IP es una IP pública estática que permanece asociada a tu cuenta hasta que la liberes, aunque la instancia esté parada. [cite: 428, 429]"
+  },
+  {
+    "enunciado": "66. Una empresa tiene usuarios repartidos por todo el mundo y su servidor principal está en Irlanda. Los usuarios en Asia experimentan alta latencia. ¿Qué servicio de AWS resuelve este problema? [cite: 430, 431]",
+    "opciones": [
+      "AWS Auto Scaling, para aumentar la capacidad del servidor automáticamente según la demanda. [cite: 432]",
+      "Amazon Route 53, para gestionar el DNS y el enrutamiento de tráfico entre regiones. [cite: 433]",
+      "Amazon CloudFront, que distribuye el contenido desde ubicaciones edge cercanas al usuario. [cite: 434]",
+      "Elastic Load Balancing, para repartir las peticiones entre múltiples instancias EC2. [cite: 435]"
+    ],
+    "correcta": 2,
+    "cita": "Amazon CloudFront es una CDN que replica el contenido en ubicaciones edge por todo el mundo, sirviendo las peticiones desde el punto geográficamente más cercano al usuario y reduciendo así la latencia. [cite: 436]"
+  },
+  {
+    "enunciado": "67. ¿Qué ocurre con la IP pública al parar una instancia EC2? [cite: 437]",
+    "opciones": [
+      "Se mantiene asociada a la instancia. [cite: 438]",
+      "Se convierte en una IP privada. [cite: 439]",
+      "Cambia solo el DNS sin cambiar la IP. [cite: 440]",
+      "La IP pública puede cambiar. [cite: 441]"
+    ],
+    "correcta": 3,
+    "cita": "Las IPs públicas dinámicas se liberan al detener la instancia y se reasigna una nueva al reiniciarla. Para mantener una IP fija hay que usar una Elastic IP. [cite: 442, 443]"
+  },
+  {
+    "enunciado": "68. ¿Qué ocurre con la IP pública al parar una instancia si usa una IP elástica? [cite: 444]",
+    "opciones": [
+      "Se mantiene asociada a la instancia. [cite: 445]",
+      "Se convierte en una IP privada. [cite: 446]",
+      "Cambia solo el DNS sin cambiar la IP. [cite: 447]",
+      "La IP pública puede cambiar. [cite: 448]"
+    ],
+    "correcta": 0,
+    "cita": "Una Elastic IP es una dirección IP pública estática reservada en tu cuenta. Permanece asociada aunque la instancia se detenga e inicie, a diferencia de una IP dinámica normal. [cite: 449, 450]"
+  },
+  {
+    "enunciado": "69. Sobre Amazon EC2, ¿cuál de las siguientes afirmaciones es INCORRECTA? [cite: 451]",
+    "opciones": [
+      "EC2 proporciona capacidad de cómputo escalable en la nube bajo demanda. [cite: 452]",
+      "El cliente puede elegir el sistema operativo (Linux, Windows o Mac) de cada instancia. [cite: 453]",
+      "AWS es responsable de gestionar y parchear las aplicaciones instaladas por el cliente en EC2. [cite: 454]",
+      "Las instancias EC2 pueden desplegarse en diferentes zonas de disponibilidad del mundo. [cite: 455]"
+    ],
+    "correcta": 2,
+    "cita": "En EC2 (IaaS), AWS gestiona la infraestructura física y la virtualización, pero el cliente es responsable del SO, las aplicaciones y los datos. AWS no parchea las aplicaciones que el cliente instala en sus instancias. [cite: 456, 457]"
+  },
+  {
+    "enunciado": "70. ¿Cuál de las siguientes afirmaciones sobre EC2 es VERDADERA? [cite: 458]",
+    "opciones": [
+      "Las instancias EC2 se comparten entre varios clientes. [cite: 459]",
+      "EC2 permite ejecutar tu propio sistema operativo en la nube. [cite: 460]",
+      "Las instancias EC2 siempre tienen IP pública. [cite: 461]",
+      "EC2 elimina la necesidad de administrar el sistema operativo. [cite: 462]"
+    ],
+    "correcta": 1,
+    "cita": "EC2 proporciona máquinas virtuales donde el cliente controla completamente el sistema operativo. Cada instancia es aislada, no compartida, y el cliente es responsable de su administración. [cite: 463, 464]"
+  },
+  {
+    "enunciado": "71. Un administrador quiere crear una copia de seguridad completa de una instancia EC2 en producción para poder restaurarla íntegramente si es necesario. ¿Cuál es la forma más completa de hacerlo? [cite: 465, 466]",
+    "opciones": [
+      "Crear un snapshot solo del volumen de datos adicional, excluyendo el volumen raíz. [cite: 467]",
+      "Exportar los logs de CloudWatch a S3 como respaldo de la configuración. [cite: 468]",
+      "Crear una AMI personalizada a partir de la instancia, que captura todos sus volúmenes. [cite: 469]",
+      "Copiar los ficheros de configuración manualmente a otro servidor EC2. [cite: 470]"
+    ],
+    "correcta": 2,
+    "cita": "Crear una AMI a partir de la instancia incluye todos los volúmenes (sistema operativo, datos, etc.) y permite lanzar una nueva instancia idéntica en cualquier momento. Es la estrategia de backup más completa para EC2. [cite: 471, 472]"
+  },
+  {
+    "enunciado": "72. ¿Qué contiene una Amazon Machine Image (AMI) y para qué se utiliza al lanzar instancias EC2? [cite: 473]",
+    "opciones": [
+      "Las credenciales de acceso y políticas de seguridad de la instancia. [cite: 474]",
+      "Los límites de presupuesto y alertas de facturación configuradas para la cuenta. [cite: 475]",
+      "Las reglas de enrutamiento y la configuración de red de la VPC asociada. [cite: 476]",
+      "Una plantilla con el sistema operativo y el software preconfigurado para arrancar la instancia. [cite: 477]"
+    ],
+    "correcta": 3,
+    "cita": "Una AMI es una plantilla que incluye el sistema operativo, la configuración del servidor y el software preinstalado necesario para lanzar una instancia EC2. Se puede usar una AMI de AWS, del Marketplace o crear una personalizada. [cite: 478, 479]"
+  },
+  {
+    "enunciado": "73. ¿Es posible cambiar el tipo de una instancia EC2 mientras está en ejecución? [cite: 480]",
+    "opciones": [
+      "Sí, se puede modificar el tipo en cualquier momento sin interrumpir el servicio. [cite: 481]",
+      "Sí, pero únicamente en instancias con sistema operativo Windows Server. [cite: 482]",
+      "No, es necesario detener la instancia antes de cambiar su tipo. [cite: 483]",
+      "No, el tipo de instancia queda fijo y no puede modificarse una vez creada. [cite: 484]"
+    ],
+    "correcta": 2,
+    "cita": "Para cambiar el tipo de instancia (más o menos $CPU/RAM)$ es obligatorio detenerla primero. No se puede modificar en caliente. [cite: 485, 486]"
+  },
+  {
+    "enunciado": "74. ¿A través de qué protocolo y puerto te conectas habitualmente a instancias EC2 con Windows Server? [cite: 487]",
+    "opciones": [
+      "SSH en el puerto 22, igual que en las instancias Linux. [cite: 488]",
+      "FTP en el puerto 21, para la transferencia de ficheros del sistema. [cite: 489]",
+      "RDP en el puerto 3389, el protocolo de escritorio remoto de Windows. [cite: 490]",
+      "HTTP en el puerto 80, accediendo a través de un navegador web. [cite: 491]"
+    ],
+    "correcta": 2,
+    "cita": "Las instancias Windows se administran mediante RDP (Remote Desktop Protocol) en el puerto 3389, que proporciona una interfaz gráfica remota. SSH se usa para Linux. [cite: 492, 493]"
+  },
+  {
+    "enunciado": "75. Al lanzar una instancia EC2 en AWS, ¿qué combinación de elementos es imprescindible para que funcione correctamente? [cite: 494]",
+    "opciones": [
+      "Solo el tipo de instancia y el nombre del servidor. [cite: 495]",
+      "Región, base de datos y tipo de instancia. [cite: 496]",
+      "AMI, tipo de instancia y configuración de red. [cite: 497]",
+      "Solo la AMI y el bucket S3 para almacenamiento. [cite: 498]"
+    ],
+    "correcta": 2,
+    "cita": "Para lanzar una instancia EC2 son imprescindibles la AMI (imagen del SO), el tipo de instancia (CPU/RAM) y la configuración de red (VPC, subred, Security Group). Sin estos tres elementos no se puede crear la instancia. [cite: 499, 500]"
+  },
+  {
+    "enunciado": "76. ¿Cuándo tiene más sentido usar Amazon S3 en lugar de Amazon EBS para el almacenamiento? [cite: 501]",
+    "opciones": [
+      "Para guardar archivos estáticos, imágenes o backups accesibles vía HTTP. [cite: 502]",
+      "Cuando necesitas almacenamiento de bloque para el sistema operativo. [cite: 503]",
+      "Para alojar bases de datos relacionales con alto rendimiento de escritura. [cite: 504]",
+      "Para conectar el disco directamente a una instancia EC2 activa. [cite: 505]"
+    ],
+    "correcta": 0,
+    "cita": "S3 es almacenamiento de objetos ideal para archivos, backups y contenido web accesible mediante URL. EBS es almacenamiento en bloque diseñado para conectarse a instancias EC2. [cite: 506, 507]"
+  },
+  {
+    "enunciado": "77. ¿Qué es un snapshot en Amazon EBS y para qué se utiliza principalmente? [cite: 508]",
+    "opciones": [
+      "Un tipo de volumen de alto rendimiento optimizado para bases de datos. [cite: 509]",
+      "Una métrica de rendimiento del volumen registrada en tiempo real. [cite: 510]",
+      "Una copia puntual de un volumen que se guarda en S3. [cite: 511]",
+      "Un volumen temporal que se elimina automáticamente al detener la instancia. [cite: 512]"
+    ],
+    "correcta": 2,
+    "cita": "Un snapshot es una copia incremental del estado de un volumen EBS en un momento dado, almacenada en S3. Permite restaurar el volumen o crear nuevos a partir de ese estado. [cite: 513, 514]"
+  },
+  {
+    "enunciado": "78. Una empresa quiere ejecutar un proceso de transformación de datos cada vez que se sube un archivo a S3, sin gestionar servidores. ¿Qué servicio de AWS es el más adecuado? [cite: 515, 516]",
+    "opciones": [
+      "Amazon EC2, para tener un servidor siempre disponible que procese los archivos. [cite: 517]",
+      "Amazon RDS, para almacenar los resultados del proceso de transformación. [cite: 518]",
+      "Amazon EBS, para montar el volumen de S3 y procesar los datos directamente. [cite: 519]",
+      "AWS Lambda, que ejecuta código en respuesta a eventos sin necesidad de aprovisionar servidores. [cite: 520]"
+    ],
+    "correcta": 3,
+    "cita": "AWS Lambda es el servicio serverless de AWS. Se ejecuta en respuesta a eventos (como una subida a S3) sin necesitar aprovisionar ni gestionar servidores. Solo se paga por el tiempo de ejecución real. [cite: 521, 522, 523]"
+  },
+  {
+    "enunciado": "79. ¿Cuál es una característica fundamental de los nombres de bucket en Amazon S3? [cite: 524]",
+    "opciones": [
+      "Deben ser únicos a nivel mundial en toda la plataforma de AWS. [cite: 525]",
+      "Solo tienen que ser únicos dentro de la misma región de AWS. [cite: 526]",
+      "Pueden contener letras mayúsculas y caracteres especiales sin restricciones. [cite: 527]",
+      "Se generan automáticamente por AWS y no pueden ser personalizados. [cite: 528]"
+    ],
+    "correcta": 0,
+    "cita": "Los nombres de bucket en S3 son globales: no pueden repetirse en toda la plataforma de AWS, independientemente de la región. [cite: 529]"
+  },
+  {
+    "enunciado": "80. Una instancia EC2 tiene un volumen raíz de tipo EBS. ¿Qué ocurre con los datos si la instancia se detiene y se vuelve a iniciar? [cite: 530, 531]",
+    "opciones": [
+      "Los datos se conservan porque EBS persiste aunque la instancia esté parada. [cite: 532]",
+      "Los datos se pierden porque EBS es almacenamiento efímero por naturaleza. [cite: 533]",
+      "Los datos se copian automáticamente a S3 como medida de seguridad. [cite: 534]",
+      "La instancia no puede reiniciarse sin formatear previamente el volumen. [cite: 535]"
+    ],
+    "correcta": 0,
+    "cita": "EBS es almacenamiento persistente: los datos se mantienen aunque la instancia se detenga o reinicie. Solo se perderían si se elimina el volumen de forma explícita. [cite: 536, 537]"
+  },
+  {
+    "enunciado": "81. Un administrador necesita conectarse remotamente a una instancia EC2 con Windows Server para realizar tareas de administración gráfica. ¿Qué configuración es necesaria en el Security Group? [cite: 538, 539]",
+    "opciones": [
+      "Permitir tráfico TCP en el puerto 22 (SSH) para acceso remoto al sistema operativo. [cite: 540]",
+      "Permitir tráfico TCP en el puerto 80 (HTTP) para acceder a la consola de administración web. [cite: 541]",
+      "Permitir tráfico UDP en el puerto 161 (SNMP) para la monitorización remota del servidor. [cite: 542]",
+      "Permitir tráfico TCP en el puerto 3389 (RDP) para el acceso por escritorio remoto. [cite: 543]"
+    ],
+    "correcta": 3,
+    "cita": "Windows Server se administra remotamente mediante RDP (Remote Desktop Protocol) en el puerto 3389. SSH (puerto 22) se usa para Linux. Sin esta regla en el Security Group, la conexión RDP será bloqueada. [cite: 545, 546]"
+  },
+  {
+    "enunciado": "82. ¿Para qué tipo de caso de uso es más adecuado Amazon EBS? [cite: 547]",
+    "opciones": [
+      "Almacenar y servir imágenes, vídeos y archivos estáticos a escala global. [cite: 548]",
+      "Proporcionar el disco del sistema operativo y datos de una instancia EC2. [cite: 549]",
+      "Distribuir contenido multimedia a usuarios de distintas partes del mundo. [cite: 550]",
+      "Gestionar bases de datos NoSQL sin necesidad de administrar servidores. [cite: 551]"
+    ],
+    "correcta": 1,
+    "cita": "EBS es almacenamiento en bloque: se comporta como un disco duro virtual conectado a una instancia EC2, ideal para sistema operativo, bases de datos y aplicaciones con estado. [cite: 552]"
+  },
+  {
+    "enunciado": "83. ¿Qué ocurre al hacer público un objeto en S3? [cite: 553]",
+    "opciones": [
+      "Todo el bucket es público. [cite: 554]",
+      "Se desactiva el cifrado del objeto. [cite: 555]",
+      "Se puede acceder al objeto por URL. [cite: 556]",
+      "El objeto cambia de región. [cite: 557]"
+    ],
+    "correcta": 2,
+    "cita": "Al hacer público un objeto en S3 se genera una URL accesible desde internet. Esto afecta solo a ese objeto, no a todo el bucket ni activa o desactiva el cifrado del mismo. [cite: 558, 559]"
+  },
+  {
+    "enunciado": "84. Un equipo de desarrollo detiene sus instancias EC2 cada noche para reducir costes. ¿Qué ocurre con los datos almacenados en los volúmenes EBS asociados a esas instancias? [cite: 560, 561]",
+    "opciones": [
+      "Los datos se borran automáticamente para liberar espacio en el host físico. [cite: 562]",
+      "Los datos se migran a Amazon S3 de forma automática como copia de seguridad. [cite: 563]",
+      "Los datos se conservan en el volumen EBS y estarán disponibles al reiniciar la instancia. [cite: 564]",
+      "El volumen EBS se desasocia y hay que volver a conectarlo manualmente al reiniciar. [cite: 565]"
+    ],
+    "correcta": 2,
+    "cita": "Amazon EBS es almacenamiento persistente. Los datos se mantienen en el volumen aunque la instancia esté detenida. Al reiniciar la instancia, el volumen sigue montado y los datos están completamente intactos. [cite: 566, 567]"
+  },
+  {
+    "enunciado": "85. ¿Qué ventaja principal ofrece la configuración Multi-AZ en Amazon RDS? [cite: 568]",
+    "opciones": [
+      "Mejora el rendimiento de lectura con instancias en paralelo. [cite: 569]",
+      "Permite usar diferentes motores de BBDD en la misma instancia. [cite: 570]",
+      "Da alta disponibilidad con failover automático a otra zona. [cite: 571]",
+      "Reduce costes al compartir la instancia entre varias aplicaciones. [cite: 572]"
+    ],
+    "correcta": 2,
+    "cita": "Multi-AZ mantiene una réplica sincrónica en otra zona de disponibilidad y realiza failover automático si la instancia principal falla, sin intervención manual. [cite: 573]"
+  },
+  {
+    "enunciado": "86. ¿Cuál es la principal ventaja de usar Amazon RDS frente a instalar la base de datos en una instancia EC2? [cite: 574]",
+    "opciones": [
+      "RDS solo soporta MySQL, lo que simplifica la gestión de motores. [cite: 575]",
+      "Con RDS, AWS gestiona parches, backups y alta disponibilidad por ti. [cite: 576]",
+      "RDS no permite hacer copias de seguridad automáticas del sistema. [cite: 577]",
+      "EC2 con BBDD es siempre más barato que RDS en cualquier escenario. [cite: 578]"
+    ],
+    "correcta": 1,
+    "cita": "RDS es un servicio gestionado: AWS se encarga de actualizaciones del motor, backups automáticos, Multi-AZ y otras tareas de administración que el cliente haría manualmente en EC2. [cite: 579]"
+  },
+  {
+    "enunciado": "87. En Amazon S3, ¿cuál es la unidad básica que se almacena dentro de un bucket? [cite: 580]",
+    "opciones": [
+      "Bloque: fragmento de datos de tamaño fijo gestionado por el sistema de archivos. [cite: 581]",
+      "Instancia: recurso de cómputo asociado al bucket para procesar los datos. [cite: 582]",
+      "Objeto: cualquier archivo junto con sus metadatos almacenado en S3. [cite: 583]",
+      "Volumen: disco virtual persistente asociado al bucket de S3. [cite: 584]"
+    ],
+    "correcta": 2,
+    "cita": "En S3, la unidad de almacenamiento básica es el objeto: un archivo (de cualquier tipo y tamaño) junto con sus metadatos. Los objetos se organizan dentro de buckets, que actúan como contenedores. [cite: 585, 586]"
+  },
+  {
+    "enunciado": "88. Una base de datos Amazon RDS tiene activado Multi-AZ y además tiene réplicas de lectura. ¿Cuál de las siguientes afirmaciones es CORRECTA sobre la diferencia entre ambos mecanismos? [cite: 587, 588]",
+    "opciones": [
+      "Multi-AZ y las réplicas de lectura sirven exactamente para lo mismo; es redundante tener ambas. [cite: 589]",
+      "Multi-AZ replica de forma asíncrona; las réplicas de lectura lo hacen de forma síncrona. [cite: 590]",
+      "Multi-AZ garantiza alta disponibilidad con failover automático; las réplicas escalan el rendimiento de lectura. [cite: 591]",
+      "Las réplicas de lectura sirven como destino de failover automático igual que Multi-AZ. [cite: 592]"
+    ],
+    "correcta": 2,
+    "cita": "Multi-AZ replica de forma SÍNCRONA a otra zona para alta disponibilidad (failover automático). Las réplicas de lectura replican de forma ASÍNCRONA y se usan para escalar lecturas. Son mecanismos complementarios con objetivos distintos. [cite: 593, 594]"
+  },
+  {
+    "enunciado": "89. Una aplicación tiene muchas consultas de solo lectura que saturan la instancia principal de Amazon RDS. ¿Cuál es la solución más adecuada? [cite: 595, 596]",
+    "opciones": [
+      "Activar Multi-AZ para que las consultas de lectura se repartan entre zonas. [cite: 597]",
+      "Aumentar el tipo de instancia del servidor de aplicaciones web frontend. [cite: 598]",
+      "Migrar completamente la base de datos a Amazon DynamoDB. [cite: 599]",
+      "Crear réplicas de lectura de RDS para redirigir las consultas de solo lectura. [cite: 600]"
+    ],
+    "correcta": 3,
+    "cita": "Las réplicas de lectura de RDS son copias asíncronas diseñadas para absorber tráfico de solo lectura, descargando la instancia principal. Multi-AZ es para alta disponibilidad, no para escalar lecturas. [cite: 601, 602]"
+  },
+  {
+    "enunciado": "90. Una empresa decide usar Amazon RDS en lugar de instalar MySQL en una instancia EC2. ¿Cuál es la razón principal que justifica esta decisión? [cite: 603, 604]",
+    "opciones": [
+      "RDS permite al administrador acceder por SSH al sistema operativo para ajustar parámetros de kernel. [cite: 605]",
+      "RDS es la única opción disponible en AWS para usar bases de datos relacionales. [cite: 606]",
+      "Con EC2, AWS gestiona automáticamente los parches y backups de la base de datos. [cite: 607]",
+      "RDS automatiza tareas como parches del motor, copias de seguridad y alta disponibilidad, reduciendo la carga operativa. [cite: 608]"
+    ],
+    "correcta": 3,
+    "cita": "Amazon RDS es un servicio gestionado: AWS se encarga de la instalación, parches del motor, backups automáticos y configuración Multi-AZ. Con EC2, el cliente debería realizar todas estas tareas manualmente. [cite: 609, 610]"
+  },
+  {
+    "enunciado": "91. ¿Cuál de los siguientes motores de base de datos NO está disponible de forma nativa en Amazon RDS? [cite: 611]",
+    "opciones": [
+      "MySQL. [cite: 612]",
+      "PostgreSQL. [cite: 613]",
+      "Oracle. [cite: 614]",
+      "MongoDB. [cite: 615]"
+    ],
+    "correcta": 3,
+    "cita": "Amazon RDS soporta motores relacionales: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server y Amazon Aurora. MongoDB es NoSQL y no está en RDS; AWS ofrece Amazon DocumentDB como alternativa compatible. [cite: 617, 618]"
+  },
+  {
+    "enunciado": "92. ¿Qué implica que un servicio como RDS sea administrado (managed)? [cite: 619]",
+    "opciones": [
+      "El usuario no define el motor de base de datos. [cite: 620]",
+      "AWS se encarga del sistema y su mantenimiento. [cite: 621]",
+      "El usuario no accede nunca a la base de datos. [cite: 622]",
+      "El servicio no necesita configuración. [cite: 623]"
+    ],
+    "correcta": 1,
+    "cita": "Un servicio gestionado (managed) como RDS significa que AWS se ocupa de la instalación, los parches del motor, los backups automáticos y la alta disponibilidad. El cliente solo gestiona datos y configuración. [cite: 624, 625]"
+  },
+  {
+    "enunciado": "93. Una empresa necesita garantizar que su base de datos Amazon RDS permanezca disponible incluso si el centro de datos principal sufre un fallo. ¿Qué funcionalidad debe activar? [cite: 626, 627]",
+    "opciones": [
+      "Read Replicas, para distribuir las consultas entre varias instancias de solo lectura. [cite: 628]",
+      "Amazon ElastiCache, para mantener en caché los datos más consultados. [cite: 629]",
+      "RDS Multi-AZ, que replica los datos de forma sincrona en otra zona y realiza failover automático. [cite: 630]",
+      "Amazon S3, para almacenar copias de seguridad incrementales de la base de datos. [cite: 631]"
+    ],
+    "correcta": 2,
+    "cita": "Multi-AZ mantiene una réplica síncrona de la base de datos en otra zona de disponibilidad. Si la instancia principal falla, RDS realiza un failover automático a la réplica en segundos, sin intervención manual. [cite: 632, 633]"
+  },
+  {
+    "enunciado": "94. ¿Qué significa que AWS Lambda es un servicio 'serverless'? [cite: 634]",
+    "opciones": [
+      "Que el código nunca se ejecuta en servidores físicos reales. [cite: 635]",
+      "Que no puede usarse junto con otros servicios de AWS. [cite: 636]",
+      "Que AWS gestiona toda la infraestructura y solo pagas por las ejecuciones. [cite: 637]",
+      "Que el código se ejecuta de forma continua en segundo plano. [cite: 638]"
+    ],
+    "correcta": 2,
+    "cita": "Serverless significa que no hay que provisionar ni gestionar servidores. AWS lo hace por ti y la facturación es por número de ejecuciones y tiempo de cómputo. [cite: 639, 640]"
+  },
+  {
+    "enunciado": "95. Una función Lambda recibe de repente miles de peticiones simultáneas. ¿Cómo responde Lambda ante esta situación? [cite: 641]",
+    "opciones": [
+      "Lambda solo procesa una petición a la vez; el resto se descartan sin respuesta. [cite: 642]",
+      "Lambda escala automáticamente ejecutando múltiples instancias en paralelo hasta el límite de concurrencia. [cite: 643]",
+      "Lambda agrupa las peticiones en lotes y las procesa secuencialmente en orden de llegada. [cite: 644]",
+      "Lambda delega el exceso de peticiones a EC2 automáticamente si supera su capacidad. [cite: 645]"
+    ],
+    "correcta": 1,
+    "cita": "Lambda escala horizontalmente de forma automática lanzando instancias paralelas de la función. Hay un límite de concurrencia por región (por defecto 1.000 ejecuciones simultáneas), que se puede ampliar solicitándolo a AWS. [cite: 647, 648]"
+  },
+  {
+    "enunciado": "96. ¿En qué se basa la facturación de AWS Lambda a diferencia de Amazon EC2? [cite: 649]",
+    "opciones": [
+      "Lambda factura por horas de disponibilidad del servidor, igual que EC2. [cite: 650]",
+      "Lambda factura por el volumen de datos almacenados en los buckets S3 asociados. [cite: 651]",
+      "Lambda no tiene costes directos; los costes los asume el servicio que lo invoca. [cite: 652]",
+      "Lambda factura por el número de invocaciones y el tiempo de ejecución del código, sin costes cuando no hay ejecuciones. [cite: 653]"
+    ],
+    "correcta": 3,
+    "cita": "Lambda factura por petición y por tiempo de cómputo (en milisegundos). A diferencia de EC2, no hay coste cuando la función no se ejecuta. [cite: 654, 655]"
+  },
+  {
+    "enunciado": "97. Una empresa quiere apagar automáticamente sus instancias EC2 fuera del horario laboral para reducir costes. ¿Qué combinación de servicios es la más adecuada? [cite: 657, 658]",
+    "opciones": [
+      "EC2 Auto Scaling con una política de escalado programado por horario fijo. [cite: 659]",
+      "Amazon RDS con la opción de mantenimiento automático fuera de horario. [cite: 660]",
+      "AWS Lambda con un evento cronológico usando una regla horaria de EventBridge. [cite: 661]",
+      "AWS Elastic Beanstalk con entornos configurados por turno de trabajo. [cite: 662]"
+    ],
+    "correcta": 2,
+    "cita": "La función Lambda llama a la API de EC2 para encender o apagar las instancias a horas concretas, activada por una regla horaria (cron) de Amazon EventBridge. [cite: 663]"
+  },
+  {
+    "enunciado": "98. ¿Qué gestiona automáticamente AWS Elastic Beanstalk al desplegar una aplicación web? [cite: 664]",
+    "opciones": [
+      "Los repositorios de código fuente y el historial de commits de la aplicación. [cite: 665]",
+      "El aprovisionamiento de recursos, balanceo de carga, escalado y monitorización. [cite: 666]",
+      "Las consultas SQL de la aplicación y la optimización de sus índices. [cite: 667]",
+      "Solo los certificados SSL y las reglas del grupo de seguridad asociadas. [cite: 668]"
+    ],
+    "correcta": 1,
+    "cita": "Elastic Beanstalk es un PaaS que abstrae la infraestructura: el desarrollador sube el código y AWS gestiona automáticamente EC2, ELB, Auto Scaling y CloudWatch. [cite: 669]"
+  },
+  {
+    "enunciado": "99. Una aplicación web tiene varios servidores EC2 y necesita garantizar que si uno de ellos falla, los usuarios no pierdan el servicio. ¿Qué componente de AWS gestiona automáticamente esta situación? [cite: 670, 671]",
+    "opciones": [
+      "Amazon CloudWatch, que monitoriza las instancias y genera alertas de fallo. [cite: 672]",
+      "AWS Auto Scaling, que detecta fallos y lanza nuevas instancias automáticamente. [cite: 673]",
+      "AWS IAM, que gestiona los permisos de acceso entre los servidores de la aplicación. [cite: 674]",
+      "Elastic Load Balancing (ELB), que distribuye el tráfico entre instancias y deja de enviar tráfico a las que fallen. [cite: 675]"
+    ],
+    "correcta": 3,
+    "cita": "ELB distribuye las peticiones entrantes entre múltiples instancias EC2 y realiza health checks. Si una instancia falla, ELB deja de enviarle tráfico automáticamente, garantizando la continuidad del servicio. [cite: 676, 677]"
+  },
+  {
+    "enunciado": "100. ¿Cuál es la principal diferencia entre Amazon DynamoDB y Amazon RDS? [cite: 678]",
+    "opciones": [
+      "DynamoDB es NoSQL (clave-valor/documentos) y RDS gestiona BBDD relacionales. [cite: 679]",
+      "DynamoDB es una base de datos relacional y RDS es un servicio NoSQL. [cite: 680]",
+      "DynamoDB solo puede usarse en aplicaciones serverless con AWS Lambda. [cite: 681]",
+      "RDS no garantiza alta disponibilidad, mientras que DynamoDB sí lo hace. [cite: 682]"
+    ],
+    "correcta": 0,
+    "cita": "DynamoDB es una base de datos NoSQL totalmente gestionada, ideal para acceso por clave con alta velocidad. RDS gestiona motores relacionales como MySQL, PostgreSQL u Oracle. [cite: 684, 685]"
+  },
+  {
+    "enunciado": "101. Una aplicación web tiene picos de tráfico muy variables e impredecibles. ¿Qué combinación de servicios AWS permite gestionar la capacidad de forma automática? [cite: 686, 687]",
+    "opciones": [
+      "Amazon RDS Multi-AZ y Amazon Route 53 con enrutamiento de latencia. [cite: 688]",
+      "AWS Lambda con EventBridge y Amazon S3 para el contenido estático. [cite: 689]",
+      "Amazon EBS con instantáneas programadas y Amazon CloudFront. [cite: 690]",
+      "EC2 Auto Scaling junto con un balanceador de carga ELB. [cite: 691]"
+    ],
+    "correcta": 3,
+    "cita": "EC2 Auto Scaling añade o elimina instancias según la demanda, mientras que el ELB distribuye el tráfico entre ellas automáticamente, garantizando disponibilidad y rendimiento. [cite: 692]"
+  },
+  {
+    "enunciado": "102. Sobre EC2 Auto Scaling, ¿cuál de las siguientes afirmaciones es FALSA? [cite: 693]",
+    "opciones": [
+      "Puede reemplazar automáticamente instancias que han fallado sin intervención manual. [cite: 694]",
+      "Permite programar el número de instancias activas en función del horario previsto. [cite: 695]",
+      "Reduce costes al eliminar instancias en períodos de baja demanda. [cite: 696]",
+      "Permite aumentar la CPU y RAM de una instancia en ejecución sin necesidad de detenerla. [cite: 697]"
+    ],
+    "correcta": 3,
+    "cita": "EC2 Auto Scaling realiza escalado HORIZONTAL (añade o elimina instancias). El escalado VERTICAL (más CPU/RAM en la misma instancia) no se hace automáticamente y requiere detener la instancia para cambiar su tipo. [cite: 698, 699]"
+  },
+  {
+    "enunciado": "103. ¿Puede un balanceador de carga (ELB) de AWS distribuir tráfico entre instancias que están en distintas regiones de AWS? [cite: 700]",
+    "opciones": [
+      "No, un ELB opera dentro de una región aunque cubre varias zonas de disponibilidad. [cite: 701]",
+      "Sí, los ELB distribuyen tráfico entre cualquier región de AWS por defecto. [cite: 702]",
+      "Sí, pero requiere activar la opción Multi-Region en la configuración avanzada. [cite: 703]",
+      "No, los ELB solo pueden distribuir tráfico dentro de una única subred privada. [cite: 704]"
+    ],
+    "correcta": 0,
+    "cita": "Los ELB son regionales: operan dentro de una sola región de AWS, aunque pueden abarcar varias zonas de disponibilidad. Para balancear entre regiones se usaría Route 53 con políticas de latencia. [cite: 705, 706]"
+  },
+  {
+    "enunciado": "104. ¿Cuál es la diferencia entre el escalado horizontal y el escalado vertical? [cite: 707]",
+    "opciones": [
+      "El horizontal añade más instancias al grupo; el vertical aumenta los recursos de una instancia. [cite: 708]",
+      "El vertical añade más instancias al grupo; el horizontal aumenta CPU y RAM de una instancia. [cite: 709]",
+      "Ambos son equivalentes y solo difieren en la terminología del proveedor cloud. [cite: 710]",
+      "El escalado horizontal aplica solo a BBDD y el vertical solo a servidores web. [cite: 711]"
+    ],
+    "correcta": 0,
+    "cita": "Escalado horizontal (scale out): se añaden más instancias para repartir la carga. Escalado vertical (scale up): se aumenta la CPU/RAM de la instancia existente. [cite: 713, 714]"
+  },
+  {
+    "enunciado": "105. ¿Cuál es la ventaja fundamental de desplegar aplicaciones en contenedores Docker frente al despliegue directo en servidores? [cite: 715]",
+    "opciones": [
+      "Los contenedores sustituyen completamente la necesidad de configurar Security Groups en la VPC. [cite: 716]",
+      "Los contenedores crean backups automáticos de las bases de datos en cada reinicio. [cite: 717]",
+      "Los contenedores empaquetan la aplicación con sus dependencias, garantizando comportamiento consistente en cualquier entorno. [cite: 718]",
+      "Los contenedores aumentan directamente la capacidad de CPU del servidor host. [cite: 719]"
+    ],
+    "correcta": 2,
+    "cita": "Docker encapsula la aplicación y todas sus librerías en un contenedor. Esto elimina el problema de 'funciona en mi máquina': el contenedor se comportará de forma idéntica en desarrollo, pruebas y producción. [cite: 720, 721]"
+  },
+  {
+    "enunciado": "106. ¿Qué problema principal resuelve Docker en el desarrollo de software? [cite: 722]",
+    "opciones": [
+      "Permite escalar aplicaciones automáticamente según la demanda del sistema. [cite: 723]",
+      "Proporciona almacenamiento persistente para aplicaciones distribuidas en red. [cite: 723]",
+      "Gestiona los permisos y accesos entre los microservicios de forma centralizada. [cite: 724]",
+      "Empaqueta la app con sus dependencias, resolviendo el 'funciona en mi máquina'. [cite: 725]"
+    ],
+    "correcta": 3,
+    "cita": "Docker encapsula la aplicación y todas sus dependencias en un contenedor, garantizando que se ejecute de forma idéntica en cualquier entorno: desarrollo, pruebas o producción. [cite: 726]"
+  },
+  {
+    "enunciado": "107. Si Docker permite ejecutar contenedores individualmente, ¿qué problema adicional resuelve Kubernetes (o Amazon EKS)? [cite: 727]",
+    "opciones": [
+      "Crear y optimizar imágenes Docker más ligeras y eficientes en recursos. [cite: 728]",
+      "Orquestar múltiples contenedores gestionando despliegue y escalado. [cite: 728]",
+      "Almacenar imágenes de contenedores en un registro privado y seguro. [cite: 729]",
+      "Convertir aplicaciones monolíticas en microservicios de forma automática. [cite: 729]"
+    ],
+    "correcta": 1,
+    "cita": "Kubernetes (y EKS en AWS) gestiona la orquestación de contenedores: despliegue, escalado automático, recuperación ante fallos y actualizaciones sin downtime. [cite: 730]"
+  },
+  {
+    "enunciado": "108. ¿Cuál es la característica del aprovisionamiento de recursos en la nube que lo diferencia fundamentalmente del aprovisionamiento tradicional on-premise? [cite: 731]",
+    "opciones": [
+      "Los recursos en la nube se asignan de forma fija para garantizar rendimiento constante. [cite: 732]",
+      "El aprovisionamiento en la nube garantiza un coste mensual exacto e invariable. [cite: 733]",
+      "Los recursos se aprovisionan de forma dinámica según la demanda, sin sobreaprovisionamiento previo. [cite: 734]",
+      "La nube requiere planificación previa de la capacidad máxima necesaria para cada servicio. [cite: 735]"
+    ],
+    "correcta": 2,
+    "cita": "La elasticidad es una característica fundamental de la nube: los recursos pueden aumentarse o reducirse automáticamente según la demanda real, sin sobreaprovisionamiento ni inversión anticipada en hardware. [cite: 736]"
+  },
+  {
+    "enunciado": "109. ¿Para qué sirve principalmente Amazon Route 53? [cite: 737]",
+    "opciones": [
+      "Gestionar DNS y enrutar el tráfico hacia los recursos de AWS. [cite: 738]",
+      "Crear redes privadas virtuales dentro de la infraestructura de AWS. [cite: 739]",
+      "Distribuir contenido estático desde ubicaciones edge cercanas al usuario. [cite: 740]",
+      "Monitorizar el rendimiento de instancias y generar alertas automáticas. [cite: 741]"
+    ],
+    "correcta": 0,
+    "cita": "Route 53 es el servicio DNS de AWS. Traduce nombres de dominio a IPs y ofrece distintas políticas de enrutamiento: latencia, geolocalización, failover, ponderado, etc. [cite: 742, 743]"
+  },
+  {
+    "enunciado": "110. ¿Cuáles son los 6 pilares del AWS Well-Architected Framework? [cite: 744]",
+    "opciones": [
+      "Seguridad, Escalabilidad, Automatización, Rendimiento, Costes y Resiliencia. [cite: 745]",
+      "Excelencia Operativa, Seguridad, Fiabilidad, Rendimiento, Costes y Sostenibilidad. [cite: 745]",
+      "Disponibilidad, Seguridad, Escalabilidad, Costes, Monitorización y Elasticidad. [cite: 746]",
+      "Seguridad, Redundancia, Automatización, Latencia, Costes y Sostenibilidad. [cite: 746]"
+    ],
+    "correcta": 1,
+    "cita": "Los 6 pilares oficiales son: Excelencia Operativa, Seguridad, Fiabilidad, Eficiencia de Rendimiento, Optimización de Costes y Sostenibilidad. 'Escalabilidad' no es un pilar propio. [cite: 747, 748]"
+  },
+  {
+    "enunciado": "111. Una empresa de salud debe conservar los historiales clínicos en sus propios servidores por normativa, pero quiere aprovechar la nube para ejecutar su portal web de citas. ¿Qué modelo de despliegue es el más adecuado? [cite: 749, 750]",
+    "opciones": [
+      "Nube pública, cifrando los datos sanitarios antes de subirlos al proveedor cloud. [cite: 751]",
+      "Nube privada gestionada íntegramente en los servidores propios de la empresa. [cite: 752]",
+      "Infraestructura on-premise ampliada con más servidores físicos para gestionar picos. [cite: 753]",
+      "Nube híbrida, con los datos regulados en infraestructura privada y las aplicaciones no críticas en la nube pública. [cite: 754]"
+    ],
+    "correcta": 3,
+    "cita": "La nube híbrida combina infraestructura privada (para datos regulados) con nube pública (para cargas no críticas). Es la solución ideal cuando hay requisitos legales que impiden mover ciertos datos a la nube pública. [cite: 755, 756]"
+  },
+  {
+    "enunciado": "112. ¿Cuál es la principal ventaja de usar Amazon CloudFront para una aplicación con usuarios repartidos por todo el mundo? [cite: 757]",
+    "opciones": [
+      "Escala instancias EC2 automáticamente según la demanda en cada región. [cite: 758]",
+      "Cifra todos los datos almacenados en S3 de forma completamente automática. [cite: 759]",
+      "Gestiona los certificados SSL de todos los balanceadores de carga de la cuenta. [cite: 760]",
+      "Entrega el contenido desde ubicaciones edge cercanas al usuario final. [cite: 761]"
+    ],
+    "correcta": 3,
+    "cita": "CloudFront es una CDN que replica el contenido en ubicaciones edge globales, reduciendo la latencia al servir desde el punto geográficamente más cercano al usuario. [cite: 763]"
+  },
+  {
+    "enunciado": "113. Una empresa quiere evaluar si su arquitectura en AWS sigue las mejores prácticas en términos de seguridad, costes y resiliencia. ¿Qué herramienta de AWS utiliza para ello? [cite: 764, 765]",
+    "opciones": [
+      "AWS Pricing Calculator, para estimar el coste mensual de los servicios. [cite: 766]",
+      "AWS CloudFormation, para desplegar la infraestructura como código. [cite: 767]",
+      "AWS Well-Architected Tool, basada en el Well-Architected Framework. [cite: 768]",
+      "Amazon CloudWatch, para monitorizar métricas y crear alertas. [cite: 769]"
+    ],
+    "correcta": 2,
+    "cita": "La AWS Well-Architected Tool permite revisar la arquitectura contra los 6 pilares del framework, identificando riesgos y áreas de mejora de forma estructurada. [cite: 770]"
+  },
+  {
+    "enunciado": "114. ¿Qué tipo de almacenamiento es Amazon EBS y cómo se diferencia de Amazon S3? [cite: 771]",
+    "opciones": [
+      "EBS es almacenamiento de objetos accesible por URL; S3 es almacenamiento en bloque para instancias EC2. [cite: 772]",
+      "EBS es almacenamiento en bloque que se conecta a instancias EC2 como un disco duro; S3 es almacenamiento de objetos accesible por internet. [cite: 773, 774]",
+      "EBS es un sistema de archivos distribuido para acceso compartido entre instancias; S3 es almacenamiento de bloques de alta velocidad. [cite: 775, 776]",
+      "EBS es un servicio de archivado a largo plazo; S3 es almacenamiento de bloques de alto rendimiento para bases de datos. [cite: 777, 778]"
+    ],
+    "correcta": 1,
+    "cita": "Amazon EBS es almacenamiento en bloque: se comporta como un disco duro virtual conectado a una instancia EC2. Amazon S3 es almacenamiento de objetos accesible a través de internet mediante URL, ideal para archivos estáticos y backups. [cite: 780, 781]"
+  },
+  {
+    "enunciado": "115. ¿Qué ventaja clave aporta una CDN? [cite: 782]",
+    "opciones": [
+      "Más almacenamiento. [cite: 783]",
+      "Más bases de datos. [cite: 784]",
+      "Más permisos. [cite: 785]",
+      "Menor latencia al usuario. [cite: 786]"
+    ],
+    "correcta": 3,
+    "cita": "Una CDN (Content Delivery Network) como Amazon CloudFront distribuye el contenido en ubicaciones edge cercanas al usuario, reduciendo la latencia al servir desde el punto geográficamente más próximo. [cite: 787]"
+  },
+  {
+    "enunciado": "116. ¿Qué criterio tiene más sentido usar para repartir tráfico global mediante DNS? [cite: 788]",
+    "opciones": [
+      "La hora del servidor. [cite: 789]",
+      "El tamaño de la instancia. [cite: 790]",
+      "El coste de la región. [cite: 791]",
+      "La ubicación del usuario. [cite: 792]"
+    ],
+    "correcta": 3,
+    "cita": "El enrutamiento de geolocalización en Route 53 dirige el tráfico al recurso más cercano al usuario, minimizando la latencia y permitiendo cumplir requisitos de soberanía de datos por país. [cite: 793]"
+  },
+  {
+    "enunciado": "117. ¿Qué tipo de base de datos es Amazon DynamoDB y en qué casos de uso destaca frente a Amazon RDS? [cite: 794]",
+    "opciones": [
+      "Es una base de datos relacional (SQL) compatible con MySQL y PostgreSQL. [cite: 795]",
+      "Es un servicio de caché en memoria diseñado exclusivamente para acelerar consultas de EC2. [cite: 796]",
+      "Es una base de datos NoSQL de clave-valor y documentos, totalmente gestionada, con escalado automático y baja latencia. [cite: 797]",
+      "Es un sistema de almacenamiento de objetos a largo plazo para datos históricos no estructurados. [cite: 798]"
+    ],
+    "correcta": 2,
+    "cita": "DynamoDB es una base de datos NoSQL totalmente gestionada (serverless): escala automáticamente, ofrece latencia en milisegundos de un solo dígito y no requiere gestión de servidores. Ideal para apps con alto rendimiento de lectura/escritura a escala. [cite: 799, 800]"
   }
 ]
 function TestInteractivo() {
